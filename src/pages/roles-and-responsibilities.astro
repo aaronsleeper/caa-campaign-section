@@ -1,7 +1,7 @@
 ---
 import ModuleLayout from '../layouts/ModuleLayout.astro';
 
-const base = '/california/sb54';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <ModuleLayout

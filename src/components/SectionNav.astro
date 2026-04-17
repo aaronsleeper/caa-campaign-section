@@ -4,7 +4,7 @@ interface Props {
 }
 
 const { currentPath } = Astro.props;
-const base = '/california/sb54';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const navItems = [
   { href: `${base}/`, label: 'SB 54 Overview', level: 0 },

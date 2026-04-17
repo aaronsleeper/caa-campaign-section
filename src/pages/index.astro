@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const base = '/california/sb54';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <BaseLayout title="SB 54 in California" description="SB 54 interest-holder education materials — understand the law, your role, and how to access reimbursement.">
