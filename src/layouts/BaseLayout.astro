@@ -1,0 +1,117 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>{title} — Circular Action Alliance</title>
+  {description && <meta name="description" content={description} />}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/california/sb54/" class="site-header__logo">
+        <span class="site-header__wordmark">Circular Action Alliance</span>
+      </a>
+      <span class="site-header__badge">California</span>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>&copy; Circular Action Alliance &middot; <a href="mailto:internalcomms@circularaction.org">Contact CAA Communications</a></p>
+      <p class="site-footer__note">This is a preview prototype. Content is subject to CAA review and approval.</p>
+    </div>
+  </footer>
+</body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>
+
+<style>
+  .site-header {
+    background: var(--caa-navy);
+    padding: var(--space-md) var(--space-xl);
+  }
+
+  .site-header__inner {
+    max-width: calc(var(--content-width) + var(--sidebar-width) + var(--space-2xl));
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .site-header__logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .site-header__wordmark {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--text-lg);
+    color: var(--caa-paper);
+  }
+
+  .site-header__badge {
+    font-family: var(--font-display);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--caa-yellow);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .site-footer {
+    background: var(--caa-navy);
+    color: rgba(255, 255, 255, 0.7);
+    padding: var(--space-xl);
+    margin-top: var(--space-3xl);
+    font-size: var(--text-sm);
+  }
+
+  .site-footer__inner {
+    max-width: calc(var(--content-width) + var(--sidebar-width) + var(--space-2xl));
+    margin: 0 auto;
+  }
+
+  .site-footer a {
+    color: var(--caa-aqua);
+  }
+
+  .site-footer__note {
+    opacity: 0.5;
+    font-size: var(--text-xs);
+    margin-top: var(--space-sm);
+  }
+
+  @media (max-width: 768px) {
+    .site-header {
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    .site-header__wordmark {
+      font-size: var(--text-base);
+    }
+  }
+</style>

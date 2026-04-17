@@ -1,0 +1,30 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SectionNav from '../components/SectionNav.astro';
+import PageNav from '../components/PageNav.astro';
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  currentPath: string;
+  prev?: { href: string; label: string };
+  next?: { href: string; label: string };
+}
+
+const { title, subtitle, description, currentPath, prev, next } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="page-layout">
+    <SectionNav currentPath={currentPath} />
+    <div class="page-layout__content">
+      <div class="hero">
+        <h1>{title}</h1>
+        {subtitle && <p class="hero__subtitle">{subtitle}</p>}
+      </div>
+      <slot />
+      <PageNav prev={prev} next={next} />
+    </div>
+  </div>
+</BaseLayout>

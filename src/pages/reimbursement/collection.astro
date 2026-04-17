@@ -1,0 +1,87 @@
+---
+import ModuleLayout from '../../layouts/ModuleLayout.astro';
+
+const base = '/california/sb54';
+---
+
+<ModuleLayout
+  title="Collection Systems"
+  subtitle={`"We know collection will change, but we don't know what's fundable." Here's what qualifies, how jurisdictions and haulers coordinate, and what to prepare now.`}
+  currentPath={`${base}/reimbursement/collection/`}
+  prev={{ href: `${base}/reimbursement/local-programs/`, label: 'Local Programs' }}
+  next={{ href: `${base}/reimbursement/processing/`, label: 'Processing and End Markets' }}
+>
+  <section class="section">
+    <h2>Why this matters to you</h2>
+    <p>Collection system improvements are an eligible funding category under SB 54. If you oversee or operate collection services — whether as a jurisdiction, hauler, or regional agency — learn what qualifies for reimbursement and how to coordinate.</p>
+  </section>
+
+  <section class="section">
+    <h2>Key messages</h2>
+    <ul>
+      <li>Collection improvements are eligible — including new routes, expanded service, public space recycling, and access for underserved or multifamily communities.</li>
+      <li>Funding covers both capital and operating costs: carts, trucks, staffing, fuel, and new service delivery infrastructure.</li>
+      <li>Only incremental costs tied to SB 54 qualify. Existing services or baseline operations are not reimbursable.</li>
+      <li>Jurisdiction-hauler coordination is essential. Projects must align with franchise agreements and existing service structures.</li>
+      <li>Rural and access gaps are explicitly addressed. Additional costs for transportation and service expansion in hard-to-reach areas are eligible.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Slide deck</h2>
+    <p><em>Deck pending — download will be available here.</em></p>
+  </section>
+
+  <section class="section">
+    <h2>Video</h2>
+    <p><em>Video pending — embed will be available here.</em></p>
+  </section>
+
+  <section class="section">
+    <h2>Questions</h2>
+    <div class="accordion">
+      <details class="accordion__item">
+        <summary class="accordion__trigger">What types of collection improvements are eligible?</summary>
+        <div class="accordion__content">
+          <p>Service expansion (multifamily, public space, underserved areas), equipment (carts, bins, vehicles), route and service changes, and drop-off locations or depots.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary class="accordion__trigger">Who leads — the hauler or the jurisdiction?</summary>
+        <div class="accordion__content">
+          <p>Both play defined roles. Jurisdictions define the system and prioritize investments. Haulers implement and align operations. Neither operates alone — coordination through contracts and service agreements is essential.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary class="accordion__trigger">How is funding evaluated and paid?</summary>
+        <div class="accordion__content">
+          <p>Funding is performance-based and data-driven. Costs are evaluated using actual data and statewide cost models. Payments may be structured per household or based on documented service expansion.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="cta-block">
+    <h2>What to do next</h2>
+
+    <div class="cta-block__card">
+      <p class="cta-block__label">Jurisdictions and local program operators</p>
+      <p class="cta-block__action"><strong>Share your collection improvement concepts with CAA</strong> — structured form for early planning and budgeting. This is a planning conversation, not an application.</p>
+    </div>
+
+    <div class="cta-block__card">
+      <p class="cta-block__label">Haulers walking into franchise conversations</p>
+      <p class="cta-block__action"><strong>Download the jurisdiction-hauler coordination brief</strong></p>
+    </div>
+
+    <div class="cta-block__card">
+      <p class="cta-block__label">Regional agencies and JPAs</p>
+      <p class="cta-block__action"><a href="mailto:internalcomms@circularaction.org"><strong>Connect with your regional contact &rarr;</strong></a></p>
+    </div>
+
+    <div class="cta-block__card cta-block__card--ready">
+      <p class="cta-block__label">Stay ready</p>
+      <p class="cta-block__action"><strong>Request a working group invitation</strong> — small-jurisdiction working group, regional agency roundtable.</p>
+    </div>
+  </section>
+</ModuleLayout>

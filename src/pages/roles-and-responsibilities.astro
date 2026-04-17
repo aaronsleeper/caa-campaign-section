@@ -1,0 +1,87 @@
+---
+import ModuleLayout from '../layouts/ModuleLayout.astro';
+
+const base = '/california/sb54';
+---
+
+<ModuleLayout
+  title="Roles and Responsibilities Under SB 54"
+  subtitle="Every organization in California's recycling system has a defined role under SB 54. Find yours here."
+  currentPath={`${base}/roles-and-responsibilities/`}
+  prev={{ href: `${base}/whats-changing/`, label: 'What SB 54 Means for You' }}
+  next={{ href: `${base}/reimbursement/`, label: 'Reimbursement for Covered Costs' }}
+>
+  <section class="section">
+    <h2>Why this matters to you</h2>
+    <p>SB 54 defines clear roles across the system. CAA, producers, jurisdictions, operators, and the State each have distinct responsibilities. Understanding where you fit is the prerequisite for accessing reimbursement and engaging effectively.</p>
+  </section>
+
+  <section class="section">
+    <h2>Key messages</h2>
+    <ul>
+      <li>CAA is responsible for implementing the program — working across interest holders to deliver the system and coordinate implementation.</li>
+      <li>Producers drive upstream changes through packaging design and source reduction. Local jurisdictions, service providers, and partners deliver services and engage the public.</li>
+      <li>Your organization plays a defined role in implementation. Whether delivering services, engaging communities, or reinforcing behaviors, your work directly impacts system performance.</li>
+      <li>Participation, contamination, and capture rates are shared outcomes. System success depends on how roles work together.</li>
+      <li>This system will evolve — and your role will evolve with it.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Slide deck</h2>
+    <p><em>Deck pending — download will be available here.</em></p>
+  </section>
+
+  <section class="section">
+    <h2>Video</h2>
+    <p><em>Video pending — embed will be available here.</em></p>
+  </section>
+
+  <section class="section">
+    <h2>Questions</h2>
+    <div class="accordion">
+      <details class="accordion__item">
+        <summary class="accordion__trigger">What is CAA responsible for?</summary>
+        <div class="accordion__content">
+          <p>CAA manages producer registration, data reporting, compliance, funding structures, and statewide program implementation. CAA serves as a coordinator, implementer, and funder.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary class="accordion__trigger">What are jurisdictions responsible for?</summary>
+        <div class="accordion__content">
+          <p>Jurisdictions manage local recycling programs, coordinate with haulers, and support education and outreach efforts. Under SB 54, they can access reimbursement for eligible new and additional costs.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary class="accordion__trigger">What is the difference between CAA and CalRecycle?</summary>
+        <div class="accordion__content">
+          <p>CalRecycle is the state regulatory agency that oversees the SB 54 program. CAA is the Producer Responsibility Organization selected by CalRecycle to implement the program on behalf of producers.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="cta-block">
+    <h2>What to do next</h2>
+
+    <div class="cta-block__card">
+      <p class="cta-block__label">Primary</p>
+      <p class="cta-block__action"><a href={`${base}/reimbursement/`}><strong>Find your role and funding path &rarr;</strong></a></p>
+    </div>
+
+    <div class="cta-block__card">
+      <p class="cta-block__label">Internal distribution</p>
+      <p class="cta-block__action"><strong>Download the role-responsibility one-pager</strong> — for public works directors, Tribal councils, and exec teams.</p>
+    </div>
+
+    <div class="cta-block__card">
+      <p class="cta-block__label">Not sure where you fit?</p>
+      <p class="cta-block__action"><strong>Ask CAA about your role</strong> — structured form with role dropdown.</p>
+    </div>
+
+    <div class="cta-block__card cta-block__card--ready">
+      <p class="cta-block__label">Stay ready</p>
+      <p class="cta-block__action"><strong>Join the California interest-holder briefing</strong> — quarterly updates segmented by role.</p>
+    </div>
+  </section>
+</ModuleLayout>

@@ -1,0 +1,86 @@
+---
+import ModuleLayout from '../../layouts/ModuleLayout.astro';
+
+const base = '/california/sb54';
+---
+
+<ModuleLayout
+  title="Local Programs"
+  subtitle="SB 54 reimburses eligible costs for local recycling programs, including outreach. See what qualifies and how to plan."
+  currentPath={`${base}/reimbursement/local-programs/`}
+  prev={{ href: `${base}/reimbursement/`, label: 'Reimbursement for Covered Costs' }}
+  next={{ href: `${base}/reimbursement/collection/`, label: 'Collection Systems' }}
+>
+  <section class="section">
+    <h2>Why this matters to you</h2>
+    <p>If your city, county, or Tribal government runs a recycling program, SB 54 can reimburse eligible new and additional costs — including education and outreach, contamination reduction, and community engagement activities.</p>
+  </section>
+
+  <section class="section">
+    <h2>Key messages</h2>
+    <ul>
+      <li>Funding is for "new and additional" work — not existing programs. Eligible costs are only those incurred to meet SB 54 requirements beyond what was already in place prior to 2023.</li>
+      <li>Education and outreach (E&O) activities are explicitly eligible for reimbursement, including local campaigns, community engagement, translation, and contamination reduction efforts.</li>
+      <li>Multiple entities can apply directly — local jurisdictions, Tribal governments, service providers, school districts, and others implementing eligible activities.</li>
+      <li>Equity and Environmental Justice are required considerations. Programs must improve access, engage communities, and avoid negative impacts in underserved areas.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Slide deck</h2>
+    <p><em>Deck pending — download will be available here.</em></p>
+  </section>
+
+  <section class="section">
+    <h2>Video</h2>
+    <p><em>Video pending — embed will be available here.</em></p>
+  </section>
+
+  <section class="section">
+    <h2>Questions</h2>
+    <div class="accordion">
+      <details class="accordion__item">
+        <summary class="accordion__trigger">What does "new or additional" mean?</summary>
+        <div class="accordion__content">
+          <p>Costs above what you were already spending on baseline service. SB 54 reimburses the incremental cost of doing more or doing it differently — not your existing operations.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary class="accordion__trigger">Can CBOs or community organizations apply directly?</summary>
+        <div class="accordion__content">
+          <p>Yes. Community-based organizations, EJ partners, and others implementing eligible activities can seek reimbursement directly or partner with jurisdictions.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary class="accordion__trigger">How are funded programs evaluated?</summary>
+        <div class="accordion__content">
+          <p>Programs should outline anticipated outcomes — such as increased recycling, reduced contamination, and improved understanding — and include supporting evidence where possible.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="cta-block">
+    <h2>What to do next</h2>
+
+    <div class="cta-block__card">
+      <p class="cta-block__label">Staffed jurisdictions</p>
+      <p class="cta-block__action"><strong>Start a funding conversation with CAA</strong> — calendar or intake form.</p>
+    </div>
+
+    <div class="cta-block__card">
+      <p class="cta-block__label">All audiences</p>
+      <p class="cta-block__action"><strong>Download the eligibility checklist</strong></p>
+    </div>
+
+    <div class="cta-block__card">
+      <p class="cta-block__label">Tribal governments and small community partners</p>
+      <p class="cta-block__action"><strong>Request the Tribal government office hours invite</strong></p>
+    </div>
+
+    <div class="cta-block__card cta-block__card--ready">
+      <p class="cta-block__label">Stay ready</p>
+      <p class="cta-block__action"><strong>Request a working group invitation</strong> — Tribal government office hours, small-jurisdiction working group, or regional agency roundtable.</p>
+    </div>
+  </section>
+</ModuleLayout>

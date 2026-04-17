@@ -1,0 +1,47 @@
+---
+import ModuleLayout from '../../layouts/ModuleLayout.astro';
+
+const base = '/california/sb54';
+---
+
+<ModuleLayout
+  title="Reimbursement for Covered Costs"
+  subtitle="SB 54 reimburses the work of collecting and processing California's recyclable commodities. See how funding works and how to prepare."
+  currentPath={`${base}/reimbursement/`}
+  prev={{ href: `${base}/roles-and-responsibilities/`, label: 'Roles and Responsibilities' }}
+>
+  <section class="section">
+    <h2>Which part of the system do you work in?</h2>
+    <p>SB 54 reimburses three kinds of work. Start with the one that fits your organization — the others are here when you need them.</p>
+  </section>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3 class="card__title">Local Programs</h3>
+      <p class="card__description">
+        For jurisdictions, Tribal governments, community partners, and haulers running local program or E&O work.
+      </p>
+      <a href={`${base}/reimbursement/local-programs/`} class="card__cta">See local program eligibility &rarr;</a>
+    </div>
+
+    <div class="card">
+      <h3 class="card__title">Collection Systems</h3>
+      <p class="card__description">
+        For jurisdictions, haulers, and regional agencies improving collection systems.
+      </p>
+      <a href={`${base}/reimbursement/collection/`} class="card__cta">Review collection eligibility &rarr;</a>
+    </div>
+
+    <div class="card">
+      <h3 class="card__title">Processing and End Markets</h3>
+      <p class="card__description">
+        For MRFs, processors, transfer stations, composting facilities, and end markets.
+      </p>
+      <a href={`${base}/reimbursement/processing/`} class="card__cta">Review processing eligibility &rarr;</a>
+    </div>
+  </div>
+
+  <div class="soft-egress">
+    <p>Not sure yet? <a href="mailto:internalcomms@circularaction.org">Talk to CAA about your role &rarr;</a></p>
+  </div>
+</ModuleLayout>

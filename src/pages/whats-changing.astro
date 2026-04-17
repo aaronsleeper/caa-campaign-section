@@ -1,0 +1,81 @@
+---
+import ModuleLayout from '../layouts/ModuleLayout.astro';
+
+const base = '/california/sb54';
+---
+
+<ModuleLayout
+  title="What SB 54 Means for You"
+  subtitle="SB 54 is law. Here's what it requires, who it affects, and what changes before 2027."
+  currentPath={`${base}/whats-changing/`}
+  next={{ href: `${base}/roles-and-responsibilities/`, label: 'Roles and Responsibilities' }}
+>
+  <section class="section">
+    <h2>Why this matters to you</h2>
+    <p>California's packaging and recycling system is shifting from locally funded and managed to a shared system where producers play a central role. Whether you're a jurisdiction, hauler, processor, or Tribal government, this law changes how your organization operates.</p>
+  </section>
+
+  <section class="section">
+    <h2>Key messages</h2>
+    <ul>
+      <li>SB 54 creates a producer-funded, statewide system managed by CAA. Producers are now responsible for funding and meeting recycling and waste reduction requirements.</li>
+      <li>The law sets clear targets for 2032: reduce single-use plastic packaging by 25%, recycle 65% of single-use plastic, and ensure 100% of packaging is recyclable or compostable.</li>
+      <li>CAA manages producer registration, data reporting, compliance, funding structures, and statewide program implementation.</li>
+      <li>Implementation will happen in phases over multiple years. Program plans, reporting cycles, and system changes roll out over time, not all at once.</li>
+      <li>Education and outreach is a core operational function — designed to drive measurable outcomes like increased participation and reduced contamination.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Slide deck</h2>
+    <p><em>Deck pending — download will be available here.</em></p>
+  </section>
+
+  <section class="section">
+    <h2>Video</h2>
+    <p><em>Video pending — embed will be available here.</em></p>
+  </section>
+
+  <section class="section">
+    <h2>Questions</h2>
+    <div class="accordion">
+      <details class="accordion__item">
+        <summary class="accordion__trigger">What is SB 54, in simple terms?</summary>
+        <div class="accordion__content">
+          <p>SB 54 is California's Plastic Pollution Prevention and Packaging Producer Responsibility Act. It shifts responsibility for packaging waste from local governments to the producers who create it, with funding managed through CAA.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary class="accordion__trigger">How is this different from how the system works today?</summary>
+        <div class="accordion__content">
+          <p>Today, local governments largely fund and manage recycling programs. Under SB 54, producers fund the system through CAA, and statewide coordination replaces the current patchwork of local approaches.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary class="accordion__trigger">How does SB 54 connect to SB 1383 or SB 343?</summary>
+        <div class="accordion__content">
+          <p>SB 54 focuses on packaging and single-use plastics specifically, while SB 1383 addresses organic waste and SB 343 covers labeling. They're complementary laws that address different parts of the waste stream.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="cta-block">
+    <h2>What to do next</h2>
+
+    <div class="cta-block__card">
+      <p class="cta-block__label">All audiences</p>
+      <p class="cta-block__action"><strong>Get the SB 54 milestone calendar</strong> — key dates and deadlines as a PDF or calendar subscription.</p>
+    </div>
+
+    <div class="cta-block__card">
+      <p class="cta-block__label">All audiences</p>
+      <p class="cta-block__action"><a href={`${base}/roles-and-responsibilities/`}><strong>Find your role under SB 54 &rarr;</strong></a></p>
+    </div>
+
+    <div class="cta-block__card cta-block__card--ready">
+      <p class="cta-block__label">Stay ready</p>
+      <p class="cta-block__action"><strong>Join the California interest-holder briefing</strong> — quarterly updates segmented by role.</p>
+    </div>
+  </section>
+</ModuleLayout>

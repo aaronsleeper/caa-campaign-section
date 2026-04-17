@@ -1,0 +1,109 @@
+---
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+const base = '/california/sb54';
+
+const navItems = [
+  { href: `${base}/`, label: 'SB 54 Overview', level: 0 },
+  { href: `${base}/whats-changing/`, label: 'What SB 54 Means for You', level: 1 },
+  { href: `${base}/roles-and-responsibilities/`, label: 'Roles and Responsibilities', level: 1 },
+  { href: `${base}/reimbursement/`, label: 'Reimbursement for Covered Costs', level: 1 },
+  { href: `${base}/reimbursement/local-programs/`, label: 'Local Programs', level: 2 },
+  { href: `${base}/reimbursement/collection/`, label: 'Collection Systems', level: 2 },
+  { href: `${base}/reimbursement/processing/`, label: 'Processing and End Markets', level: 2 },
+];
+---
+
+<nav class="section-nav" aria-label="In this section">
+  <details class="section-nav__mobile" open>
+    <summary class="section-nav__toggle">In this section</summary>
+    <ul class="section-nav__list">
+      {navItems.map((item) => (
+        <li
+          class:list={[
+            'section-nav__item',
+            `section-nav__item--level-${item.level}`,
+            { 'section-nav__item--current': currentPath === item.href }
+          ]}
+        >
+          <a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </details>
+</nav>
+
+<style>
+  .section-nav {
+    position: sticky;
+    top: var(--space-xl);
+    align-self: start;
+  }
+
+  .section-nav__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .section-nav__item a {
+    display: block;
+    padding: var(--space-sm) var(--space-sm);
+    min-height: 44px;
+    font-size: var(--text-sm);
+    color: var(--caa-navy);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .section-nav__item a:hover {
+    color: var(--caa-teal);
+    border-left-color: rgba(33, 140, 165, 0.3);
+  }
+
+  .section-nav__item--current a {
+    color: var(--caa-teal);
+    border-left-color: var(--caa-teal);
+    font-weight: 600;
+  }
+
+  .section-nav__item--level-1 a {
+    padding-left: var(--space-md);
+  }
+
+  .section-nav__item--level-2 a {
+    padding-left: var(--space-xl);
+    font-size: var(--text-xs);
+  }
+
+  .section-nav__toggle {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .section-nav {
+      position: static;
+      margin-bottom: var(--space-lg);
+    }
+
+    .section-nav__toggle {
+      display: block;
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--caa-navy);
+      cursor: pointer;
+      padding: var(--space-sm) 0;
+    }
+
+    .section-nav__mobile:not([open]) .section-nav__list {
+      display: none;
+    }
+  }
+</style>
