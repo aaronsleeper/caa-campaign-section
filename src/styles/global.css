@@ -56,7 +56,7 @@ p {
 }
 
 a {
-  color: var(--caa-teal);
+  color: var(--caa-teal-dark);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;

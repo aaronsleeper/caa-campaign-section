@@ -16,6 +16,9 @@
   --caa-chartreuse: #D8E04D;
   --caa-aqua: #9DE5DD;
 
+  /* Accessible teal for links on light backgrounds (~5.2:1 on white) */
+  --caa-teal-dark: #1a7389;
+
   /* Typography */
   --font-body: "Nunito Sans", system-ui, sans-serif; /* Fallback — Avenir Next LT Pro pending license */
   --font-display: "Montserrat", "Nunito Sans", sans-serif;
