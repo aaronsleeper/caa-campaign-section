@@ -1,0 +1,192 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const inquiryHref = 'mailto:internalcomms@circularaction.org?subject=SB%2054%20interest-holder%20inquiry';
+---
+
+<BaseLayout title="SB 54 in California" description="A starting point for what's ahead under SB 54 and how to get involved.">
+  <div class="landing">
+    <section class="landing__hero">
+      <p class="landing__eyebrow">Welcome</p>
+      <h1>This is your starting point for what's ahead under&nbsp;SB&nbsp;54.</h1>
+      <p class="landing__lede">
+        California's recycling system is evolving. SB&nbsp;54 is driving real improvements in how materials are collected, processed, and returned to use — creating a more consistent, connected system statewide.
+      </p>
+      <p class="landing__lede">
+        Whether you've already connected with CAA or are exploring on your own, this page helps you understand what's coming next and how to begin to engage.
+      </p>
+    </section>
+
+    <section class="get-started">
+      <h2 class="get-started__title">Get Started</h2>
+      <p class="get-started__intro">
+        If you represent a jurisdiction and want to explore reimbursement opportunities or next steps, connect with CAA.
+      </p>
+
+      <div class="get-started__expect">
+        <p class="get-started__expect-label">What to Expect</p>
+        <p>CAA is working with partners across the system, including:</p>
+        <ul class="get-started__list">
+          <li>Processors</li>
+          <li>Composters</li>
+          <li>Alternative collection providers</li>
+          <li>End market partners</li>
+        </ul>
+        <p>Outreach is ongoing, and you don't have to wait to get involved.</p>
+      </div>
+
+      <a href={inquiryHref} class="btn btn--primary">Submit an inquiry</a>
+    </section>
+
+    <aside class="landing__note">
+      <h2 class="landing__note-title">Learn More</h2>
+      <p>More information is coming soon to this site.</p>
+    </aside>
+
+    {/*
+      Reserved for when FAQs are ready:
+
+      <section>
+        <h2>Want a clearer view of what's ahead?</h2>
+        <a href="/questions/">Explore what's coming (FAQs)</a>
+      </section>
+    */}
+  </div>
+</BaseLayout>
+
+<style>
+  .landing {
+    max-width: calc(var(--content-width) + var(--sidebar-width) + var(--space-2xl));
+    margin: 0 auto;
+    padding: var(--space-xl);
+  }
+
+  .landing__hero {
+    padding: var(--space-3xl) 0 var(--space-2xl);
+    border-bottom: 3px solid var(--caa-teal);
+    margin-bottom: var(--space-2xl);
+    max-width: var(--max-line-length);
+  }
+
+  .landing__eyebrow {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--caa-teal);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-sm);
+  }
+
+  .landing__lede {
+    font-size: var(--text-lg);
+    color: var(--caa-navy);
+    max-width: var(--max-line-length);
+    opacity: 0.9;
+  }
+
+  .get-started {
+    max-width: var(--max-line-length);
+    border: 1px solid rgba(33, 140, 165, 0.18);
+    border-radius: var(--card-radius);
+    padding: var(--space-xl);
+    background: var(--caa-paper);
+    box-shadow: var(--card-shadow);
+    margin-bottom: var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .get-started__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    color: var(--caa-navy);
+  }
+
+  .get-started__intro {
+    margin: 0;
+    font-size: var(--text-lg);
+    color: var(--caa-navy);
+    opacity: 0.9;
+  }
+
+  .get-started__expect {
+    border-left: 3px solid var(--caa-teal);
+    padding: var(--space-md) var(--space-lg);
+    background: rgba(33, 140, 165, 0.04);
+    border-radius: 0 var(--card-radius) var(--card-radius) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .get-started__expect-label {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--caa-teal);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .get-started__expect p {
+    margin: 0;
+  }
+
+  .get-started__list {
+    margin: 0;
+    padding-left: var(--space-lg);
+    color: var(--caa-ink);
+  }
+
+  .get-started__list li {
+    margin-bottom: var(--space-xs);
+  }
+
+  .btn {
+    display: inline-block;
+    align-self: flex-start;
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .btn--primary {
+    background: var(--caa-yellow);
+    color: var(--caa-navy);
+  }
+
+  .btn--primary:hover {
+    background: var(--caa-navy);
+    color: var(--caa-paper);
+  }
+
+  .landing__note {
+    max-width: var(--max-line-length);
+    padding: var(--space-lg) 0;
+    border-top: 1px solid rgba(11, 54, 71, 0.1);
+  }
+
+  .landing__note-title {
+    margin: 0 0 var(--space-xs);
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--caa-navy);
+  }
+
+  .landing__note p {
+    margin: 0;
+    font-size: var(--text-base);
+    color: var(--caa-ink);
+    opacity: 0.75;
+  }
+</style>
