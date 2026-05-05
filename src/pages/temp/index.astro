@@ -8,37 +8,35 @@ const inquiryHref = 'https://circularaction.org/ca-reimbursements';
   <div class="landing">
     <section class="landing__hero">
       <p class="landing__eyebrow">Welcome</p>
-      <h1>This is your starting point for what's ahead under&nbsp;SB&nbsp;54.</h1>
+      <h1>This is your starting point for what's ahead under&nbsp;SB&nbsp;54 and how you can get involved.</h1>
       <p class="landing__lede">
-        California's recycling system is evolving. SB&nbsp;54 is driving real improvements in how materials are collected, processed, and returned to use — creating a more consistent, connected system statewide.
+        California's recycling and reuse system is evolving. In the coming years, SB&nbsp;54 will be driving real improvements in how single-use packaging and food service ware is collected, processed, and returned to use — creating a more consistent, connected system statewide.
       </p>
       <p class="landing__lede">
-        Whether you've already connected with CAA or are exploring on your own, this page helps you understand what's coming next and how to begin to engage.
+        Whether you've already connected with CAA or are learning about CAA for the first time, this page is designed to help you understand what's coming next and how you can begin to engage.
       </p>
     </section>
 
-    <div class="landing__cards">
-      <section class="landing-card">
-        <h2 class="landing-card__title">Get Started</h2>
-        <p>
-          If you represent a jurisdiction and want to explore reimbursement opportunities or next steps, connect with CAA.
-        </p>
-        <a href={inquiryHref} class="btn btn--primary">Submit an inquiry</a>
-      </section>
-
-      <section class="landing-card">
-        <h2 class="landing-card__title">What to Expect</h2>
-        <p>CAA is working with partners across the system, including:</p>
-        <ul class="landing-card__list">
-          <li>Processors</li>
-          <li>Composters</li>
-          <li>Alternative collection providers</li>
-          <li>End market partners</li>
-        </ul>
-        <p>Outreach is ongoing, and you don't have to wait to get involved.</p>
-        <a href={inquiryHref} class="btn btn--primary">Submit an inquiry</a>
-      </section>
-    </div>
+    <section class="landing-card">
+      <h2 class="landing-card__title">Get Started</h2>
+      <p>CAA is working with local service providers across the system, including:</p>
+      <ul class="landing-card__list">
+        <li>Local Jurisdictions</li>
+        <li>Tribes</li>
+        <li>Community Based Organizations</li>
+        <li>Haulers</li>
+        <li>MRFs</li>
+        <li>Transfer Stations</li>
+        <li>Compost Facilities</li>
+        <li>Alternative Collection Providers</li>
+        <li>End Markets</li>
+        <li>Reuse Programs</li>
+      </ul>
+      <p>
+        Outreach is ongoing, but you don't have to wait to get involved. If you want to explore reimbursement opportunities or next steps, connect with CAA.
+      </p>
+      <a href={inquiryHref} class="btn btn--primary">Get in touch <span class="btn__icon" aria-hidden="true">👉</span></a>
+    </section>
 
     <aside class="landing__note">
       <h2 class="landing__note-title">Learn More</h2>
@@ -87,19 +85,14 @@ const inquiryHref = 'https://circularaction.org/ca-reimbursements';
     opacity: 0.9;
   }
 
-  .landing__cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-xl);
-    margin-bottom: var(--space-2xl);
-  }
-
   .landing-card {
+    max-width: var(--max-line-length);
     border: 1px solid rgba(33, 140, 165, 0.18);
     border-radius: var(--card-radius);
     padding: var(--space-xl);
     background: var(--caa-paper);
     box-shadow: var(--card-shadow);
+    margin-bottom: var(--space-2xl);
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
@@ -128,7 +121,9 @@ const inquiryHref = 'https://circularaction.org/ca-reimbursements';
   }
 
   .btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
     align-self: flex-start;
     font-family: var(--font-display);
     font-size: var(--text-sm);
@@ -148,6 +143,10 @@ const inquiryHref = 'https://circularaction.org/ca-reimbursements';
   .btn--primary:hover {
     background: var(--caa-navy);
     color: var(--caa-paper);
+  }
+
+  .btn__icon {
+    line-height: 1;
   }
 
   .landing__note {
