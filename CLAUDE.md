@@ -57,7 +57,7 @@ Core + white space = 95–100% of any composition. Action Yellow on exactly one 
 ## Three page templates
 
 1. **Hub** — campaign name, value prop, 3 module cards, footer (Questions link, contact)
-2. **Module page** (1, 2, 3a, 3b, 3c) — Hero (H1 + one-liner), "Why this matters," key messages, deck embed, video, FAQ accordion, stacked CTA block, prev/next nav
+2. **Module page** (1, 2, 3a, 3b, 3c) — Hero (H1 + one-liner), video (prominent, above fold), "Why this matters," key messages (pending Tony), FAQ accordion, stacked CTA block, Resources (deck embed + downloads), prev/next nav
 3. **Gateway** (Module 3 only) — Hero, 3 tri-cards with audience tags + CTAs, soft egress link. No stacked CTA block.
 
 ## Navigation
