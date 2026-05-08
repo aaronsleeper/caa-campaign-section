@@ -5,212 +5,158 @@ const inquiryHref = 'https://circularaction.org/ca-reimbursements';
 ---
 
 <BaseLayout title="SB 54 in California" description="A starting point for what's ahead under SB 54 and how to get involved.">
-  <div class="landing">
-    <section class="landing__hero">
-      <p class="landing__eyebrow">Welcome</p>
-      <h1>This is your starting point for what's ahead under&nbsp;SB&nbsp;54 and how you can get involved.</h1>
-      <p class="landing__lede">
-        California's recycling and reuse system is evolving. In the coming years, SB&nbsp;54 will be driving real improvements in how single-use packaging and food service ware is collected, processed, and returned to use — creating a more consistent, connected system statewide.
+  <div class="caa-sb54-landing">
+    <section class="caa-sb54-landing__hero">
+      <p class="caa-sb54-landing__eyebrow">Welcome</p>
+      <h1>This is your starting point for what's ahead under <em>SB&nbsp;54</em> and how you can get involved.</h1>
+      <p class="caa-sb54-landing__lede">
+        California's recycling, composting and reuse systems are evolving. Starting now and in the coming years, SB&nbsp;54 will be driving real improvements in how single-use packaging and food service ware is collected, processed, and recycled or returned for use — creating a more consistent, connected system statewide.
       </p>
-      <p class="landing__lede">
-        Whether you've already connected with CAA or are learning about CAA for the first time, this page is designed to help you understand what's coming next and how you can begin to engage.
+      <p class="caa-sb54-landing__lede">
+        Whether you've already connected with CAA or are learning about CAA for the first time, this page is designed to help you understand what's coming next and how you can engage.
       </p>
     </section>
 
-    <section class="landing-card">
-      <h2 class="landing-card__title">Get Started</h2>
-      <p>CAA is working with local service providers across the system:</p>
-      <dl class="landing-card__stages">
-        <div class="landing-card__stage">
-          <dt class="landing-card__stage-label">Local &amp; community</dt>
-          <dd class="landing-card__stage-providers">Local Jurisdictions, Tribes, Community-Based Organizations</dd>
+    <section class="caa-sb54-landing__card">
+      <h2>Get Started</h2>
+      <p>CAA is connecting with local interest holders across the system:</p>
+      <dl class="caa-sb54-landing__stages">
+        <div class="caa-sb54-landing__stage">
+          <dt class="caa-sb54-landing__stage-label">Local &amp; community</dt>
+          <dd class="caa-sb54-landing__stage-providers">Local Jurisdictions, Tribes, Community-Based Organizations</dd>
         </div>
-        <div class="landing-card__stage">
-          <dt class="landing-card__stage-label">Collection</dt>
-          <dd class="landing-card__stage-providers">Haulers, Alternative Collection Providers</dd>
+        <div class="caa-sb54-landing__stage">
+          <dt class="caa-sb54-landing__stage-label">Collection</dt>
+          <dd class="caa-sb54-landing__stage-providers">Haulers, Alternative Collection Providers</dd>
         </div>
-        <div class="landing-card__stage">
-          <dt class="landing-card__stage-label">Sort &amp; process</dt>
-          <dd class="landing-card__stage-providers">Transfer Stations, MRFs, Compost Facilities</dd>
+        <div class="caa-sb54-landing__stage">
+          <dt class="caa-sb54-landing__stage-label">Sort &amp; process</dt>
+          <dd class="caa-sb54-landing__stage-providers">Transfer Stations, MRFs, Compost Facilities</dd>
         </div>
-        <div class="landing-card__stage">
-          <dt class="landing-card__stage-label">End markets &amp; reuse</dt>
-          <dd class="landing-card__stage-providers">End Markets, Reuse Programs</dd>
+        <div class="caa-sb54-landing__stage">
+          <dt class="caa-sb54-landing__stage-label">End markets &amp; reuse</dt>
+          <dd class="caa-sb54-landing__stage-providers">End Markets, Reuse Programs</dd>
         </div>
       </dl>
       <p>
-        Outreach is ongoing, but you don't have to wait to get involved. If you want to explore reimbursement opportunities or next steps, connect with CAA.
+        Outreach is ongoing, but you don't have to wait to get involved. If you want to explore funding opportunities or next steps, connect with CAA.
       </p>
-      <a href={inquiryHref} class="btn btn--primary">Get in touch <span class="btn__icon" aria-hidden="true">👉</span></a>
+      <div class="sqs-block-button-container--left">
+        <a href={inquiryHref} class="sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">Get in touch</a>
+      </div>
     </section>
 
-    <aside class="landing__note">
-      <h2 class="landing__note-title">Learn More</h2>
+    <aside class="caa-sb54-landing__note">
+      <h2>Learn More</h2>
       <p>More information is coming soon to this site.</p>
     </aside>
-
-    {/*
-      Reserved for when FAQs are ready:
-
-      <section>
-        <h2>Want a clearer view of what's ahead?</h2>
-        <a href="/questions/">Explore what's coming (FAQs)</a>
-      </section>
-    */}
   </div>
 </BaseLayout>
 
 <style>
-  .landing {
-    max-width: calc(var(--content-width) + var(--sidebar-width) + var(--space-2xl));
+  /*
+   * Scoped under .caa-sb54-landing so this CSS does not leak into the rest of
+   * the Squarespace page when pasted into a Code Block. Only layout primitives
+   * are kept; typography, colors, and button styling fall through to the
+   * Squarespace site's design tokens (set via Site Styles + Adobe Fonts kit).
+   */
+
+  .caa-sb54-landing {
+    max-width: 56rem;
     margin: 0 auto;
-    padding: var(--space-xl);
+    padding: 2rem 1.25rem;
   }
 
-  .landing__hero {
-    padding: var(--space-3xl) 0 var(--space-2xl);
-    border-bottom: 3px solid var(--caa-teal);
-    margin-bottom: var(--space-2xl);
-    max-width: var(--max-line-length);
+  .caa-sb54-landing__hero {
+    padding: 3rem 0 2rem;
+    border-bottom: 3px solid hsla(var(--darkAccent-hsl), 1);
+    margin-bottom: 2rem;
   }
 
-  .landing__eyebrow {
-    font-family: var(--font-display);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--caa-teal);
+  .caa-sb54-landing__eyebrow {
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    margin-bottom: var(--space-sm);
+    font-size: 0.875em;
+    margin: 0 0 0.5rem;
   }
 
-  .landing__lede {
-    font-size: var(--text-lg);
-    color: var(--caa-navy);
-    max-width: var(--max-line-length);
-    opacity: 0.9;
+  .caa-sb54-landing__lede {
+    font-size: 1.125em;
+    max-width: 40em;
   }
 
-  .landing-card {
-    max-width: var(--max-line-length);
-    border: 1px solid rgba(33, 140, 165, 0.18);
-    border-radius: var(--card-radius);
-    padding: var(--space-xl);
-    background: var(--caa-paper);
-    box-shadow: var(--card-shadow);
-    margin-bottom: var(--space-2xl);
+  .caa-sb54-landing__card {
+    border: 1px solid hsla(var(--darkAccent-hsl), 0.18);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
+    gap: 1rem;
   }
 
-  .landing-card__title {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: var(--text-2xl);
-    font-weight: 600;
-    color: var(--caa-navy);
-  }
-
-  .landing-card p {
+  .caa-sb54-landing__card > h2 {
     margin: 0;
   }
 
-  .landing-card__stages {
+  .caa-sb54-landing__card > p {
+    margin: 0;
+  }
+
+  .caa-sb54-landing__stages {
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
   }
 
-  .landing-card__stage {
+  .caa-sb54-landing__stage {
     display: grid;
     grid-template-columns: minmax(13rem, max-content) 1fr;
-    gap: var(--space-lg);
+    gap: 1.5rem;
     align-items: baseline;
-    padding: var(--space-md) 0;
-    border-top: 1px solid rgba(33, 140, 165, 0.18);
+    padding: 0.75rem 0;
+    border-top: 1px solid hsla(var(--darkAccent-hsl), 0.18);
   }
 
-  .landing-card__stage:first-child {
+  .caa-sb54-landing__stage:first-child {
     border-top: none;
-    padding-top: var(--space-xs);
+    padding-top: 0.25rem;
   }
 
-  .landing-card__stage:last-child {
-    padding-bottom: var(--space-xs);
+  .caa-sb54-landing__stage:last-child {
+    padding-bottom: 0.25rem;
   }
 
-  .landing-card__stage-label {
+  .caa-sb54-landing__stage-label {
     margin: 0;
-    font-family: var(--font-display);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--caa-teal);
     text-transform: uppercase;
     letter-spacing: 0.08em;
+    font-size: 0.875em;
   }
 
-  .landing-card__stage-providers {
+  .caa-sb54-landing__stage-providers {
     margin: 0;
-    color: var(--caa-ink);
     line-height: 1.5;
   }
 
   @media (max-width: 540px) {
-    .landing-card__stage {
+    .caa-sb54-landing__stage {
       grid-template-columns: 1fr;
-      gap: var(--space-xs);
+      gap: 0.25rem;
     }
   }
 
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4em;
-    align-self: flex-start;
-    font-family: var(--font-display);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    padding: var(--space-sm) var(--space-lg);
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background 0.15s, color 0.15s;
-    margin-top: auto;
+  .caa-sb54-landing__note {
+    padding: 1.5rem 0;
+    border-top: 1px solid hsla(var(--black-hsl), 0.1);
   }
 
-  .btn--primary {
-    background: var(--caa-yellow);
-    color: var(--caa-navy);
+  .caa-sb54-landing__note > h2 {
+    margin: 0 0 0.25rem;
   }
 
-  .btn--primary:hover {
-    background: var(--caa-navy);
-    color: var(--caa-paper);
-  }
-
-  .btn__icon {
-    line-height: 1;
-  }
-
-  .landing__note {
-    max-width: var(--max-line-length);
-    padding: var(--space-lg) 0;
-    border-top: 1px solid rgba(11, 54, 71, 0.1);
-  }
-
-  .landing__note-title {
-    margin: 0 0 var(--space-xs);
-    font-family: var(--font-display);
-    font-size: var(--text-lg);
-    font-weight: 600;
-    color: var(--caa-navy);
-  }
-
-  .landing__note p {
+  .caa-sb54-landing__note > p {
     margin: 0;
-    font-size: var(--text-base);
-    color: var(--caa-ink);
-    opacity: 0.75;
   }
 </style>
