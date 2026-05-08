@@ -86,7 +86,16 @@ const inquiryHref = 'https://circularaction.org/ca-reimbursements';
   }
 
   .caa-sb54-landing__card {
-    border: 1px solid hsla(var(--darkAccent-hsl), 0.18);
+    /* TEMP: hardcoded border color so the card renders with its border in
+     * the local/GitHub-Pages preview. The intended rule below uses
+     * --darkAccent-hsl, a Squarespace-injected token that only resolves
+     * once the page is pasted into Squarespace. Without a visible border
+     * the 2rem padding leaves the "Get Started" heading indented relative
+     * to surrounding content. Remove this TEMP override (and restore the
+     * commented hsla() rule) once Squarespace access lands and the page
+     * renders against the site's design tokens. */
+    border: 1px solid rgba(33, 140, 165, 0.18); /* TEMP — see comment above */
+    /* border: 1px solid hsla(var(--darkAccent-hsl), 0.18); */
     border-radius: 12px;
     padding: 2rem;
     margin-bottom: 2rem;
