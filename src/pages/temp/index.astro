@@ -69,7 +69,10 @@ const inquiryHref = 'https://circularaction.org/ca-reimbursements';
 
   .caa-sb54-landing__hero {
     padding: 3rem 0 2rem;
-    border-bottom: 3px solid hsla(var(--darkAccent-hsl), 1);
+    /* TEMP — see card rule below for context. Restore the hsla() rule
+     * once Squarespace tokens resolve. */
+    border-bottom: 3px solid rgb(33, 140, 165); /* TEMP */
+    /* border-bottom: 3px solid hsla(var(--darkAccent-hsl), 1); */
     margin-bottom: 2rem;
   }
 
@@ -125,7 +128,10 @@ const inquiryHref = 'https://circularaction.org/ca-reimbursements';
     gap: 1.5rem;
     align-items: baseline;
     padding: 0.75rem 0;
-    border-top: 1px solid hsla(var(--darkAccent-hsl), 0.18);
+    /* TEMP — see card rule above for context. Restore the hsla() rule
+     * once Squarespace tokens resolve. */
+    border-top: 1px solid rgba(33, 140, 165, 0.18); /* TEMP */
+    /* border-top: 1px solid hsla(var(--darkAccent-hsl), 0.18); */
   }
 
   .caa-sb54-landing__stage:first-child {
