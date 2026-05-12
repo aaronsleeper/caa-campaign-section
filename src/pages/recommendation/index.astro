@@ -3,30 +3,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-const moduleCards = [
-  {
-    number: 1,
-    heading: 'What SB 54 Means for You',
-    body: 'What the law requires, who it affects, and what changes before 2027.',
-    linkLabel: 'Start here →',
-    href: `${base}/whats-changing/`,
-  },
-  {
-    number: 2,
-    heading: 'Roles and Responsibilities',
-    body: "Every organization in California's recycling system has a defined role under SB 54. Find yours.",
-    linkLabel: 'Find your role →',
-    href: `${base}/roles-and-responsibilities/`,
-  },
-  {
-    number: 3,
-    heading: 'Reimbursement for Covered Costs',
-    body: "SB 54 reimburses the work of collecting and processing California's recyclable commodities.",
-    linkLabel: 'See reimbursement →',
-    href: `${base}/reimbursement/`,
-  },
-];
-
 const crossLinks = [
   {
     where: 'Inside the FAQ',
@@ -83,16 +59,9 @@ const crossLinks = [
           <h2 class="caa-section__heading">Your Role in California's Recycling System</h2>
           <p class="caa-section__sub">Understand what SB&nbsp;54 requires, find your role, and learn how reimbursement works.</p>
 
-          <div class="caa-cards">
-            {moduleCards.map(card => (
-              <a href={card.href} class="caa-card">
-                <span class="caa-card__number">{card.number}</span>
-                <h3 class="caa-card__heading">{card.heading}</h3>
-                <p class="caa-card__body">{card.body}</p>
-                <span class="caa-card__link">{card.linkLabel}</span>
-              </a>
-            ))}
-          </div>
+          <a href={base + '/'} class="caa-section__cta">
+            Visit the Interest Holder Section →
+          </a>
         </div>
       </div>
 
@@ -113,7 +82,7 @@ const crossLinks = [
       </div>
 
       <div class="rec-rationale">
-        <p><strong>Why this works:</strong> Most visitors who land on the California page today are looking for SB&nbsp;54 information of some kind. A clearly labeled block in the middle of that page is the single highest-confidence way to make sure the new section gets seen. The three cards mirror the SB&nbsp;54 hub's structure, so a visitor moving from this entry point into the section sees the same organizing logic continue. (Click any card above to see where it leads.)</p>
+        <p><strong>Why this works:</strong> Most visitors who land on the California page today are looking for SB&nbsp;54 information of some kind. A clearly labeled block in the middle of that page is the single highest-confidence way to make sure the new section gets seen. The block introduces visitors to the section without recapitulating it — the section's own welcome page does the structural work, and this surface stays focused on the handoff.</p>
       </div>
     </section>
 
@@ -381,81 +350,21 @@ const crossLinks = [
     margin: 0 0 var(--space-xl);
   }
 
-  .caa-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: var(--space-lg);
-    margin-bottom: var(--space-md);
-  }
-
-  .caa-card {
-    display: flex;
-    flex-direction: column;
-    padding: var(--space-lg);
-    background: var(--caa-paper);
-    border: 1px solid rgba(33, 140, 165, 0.15);
-    border-radius: var(--card-radius);
-    box-shadow: var(--card-shadow);
-    text-decoration: none;
-    color: var(--caa-ink);
-    transition: transform 0.15s, box-shadow 0.15s;
-  }
-
-  .caa-card:hover,
-  .caa-card:focus-visible {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(11, 54, 71, 0.12);
-  }
-
-  .caa-card__number {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: var(--caa-teal);
-    color: var(--caa-paper);
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: var(--text-sm);
-    margin-bottom: var(--space-md);
-  }
-
-  .caa-card__heading {
-    font-family: var(--font-display);
-    font-size: var(--text-xl);
-    font-weight: 600;
-    color: var(--caa-navy);
-    margin: 0 0 var(--space-sm);
-    line-height: 1.25;
-  }
-
-  .caa-card__body {
-    font-size: var(--text-sm);
-    color: var(--caa-ink);
-    opacity: 0.75;
-    flex: 1;
-    margin: 0 0 var(--space-md);
-    max-width: none;
-    line-height: 1.5;
-  }
-
-  .caa-card__link {
+  .caa-section__cta {
     display: inline-block;
     font-family: var(--font-display);
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     font-weight: 600;
     color: var(--caa-navy);
     background: var(--caa-yellow);
-    padding: var(--space-sm) var(--space-lg);
+    padding: var(--space-md) var(--space-xl);
     border-radius: 4px;
-    align-self: flex-start;
+    text-decoration: none;
     transition: background 0.15s, color 0.15s;
   }
 
-  .caa-card:hover .caa-card__link,
-  .caa-card:focus-visible .caa-card__link {
+  .caa-section__cta:hover,
+  .caa-section__cta:focus-visible {
     background: var(--caa-navy);
     color: var(--caa-paper);
   }
