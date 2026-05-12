@@ -1,85 +1,116 @@
 <!--
-  CAA SB 54 temp landing — Squarespace paste artifact
+  CAA SB 54 temp landing — Squarespace paste artifact (self-contained)
   Generated from src/pages/temp/index.astro on 2026-05-12 (Dana copy revisions r2)
 
-  HOW TO USE:
-  1. In Squarespace: create a new page (Pages → + → Page); set visibility
-     to "Not Linked" or "Disabled" so it stays unpublished.
-  2. Add a Code Block to the new page (Edit page → + → More → Code).
-  3. Paste the entire contents of this file (everything below this comment)
-     into the Code Block. Make sure "Display Source" is OFF.
-  4. Save.
-  5. Preconditions for correct rendering:
-       a. Adobe Fonts kit (Avenir Next LT Pro) must be loaded on the site.
-          Family name: avenirnext-lt-pro-ultlight
-       b. Squarespace Site Styles → Fonts → Heading + Paragraph should be
-          set to that family so our headings and body text inherit it.
-       c. The site's accent/dark-accent CSS tokens (used for the teal
-          divider and card border) are already defined in site.css; no
-          additional config needed there.
+  WHY SELF-CONTAINED
+  The earlier version of this paste relied on inheriting fonts, colors, and
+  button styling from the CAA Squarespace site. On 2026-05-12 the client
+  reported the pasted page was not inheriting site CSS — fonts and styles
+  rendered as Squarespace defaults instead of CAA brand. This rebuild bakes
+  every brand value in directly, so the page renders correctly regardless
+  of Site Styles configuration or whether the Adobe Fonts kit is loaded.
 
-  WHAT TO EXPECT:
-    - Headings, body text, links inherit the site's typography automatically
-    - <h1><em>SB 54</em></h1> gets a Trusted Teal underline highlight via
-      the site's existing custom.css (matches the /california page's
-      <h1><em>California</em></h1> treatment)
-    - The "Get in touch" CTA inherits the site's primary button styling
-    - Layout, spacing, and the card border are scoped under
-      .caa-sb54-landing so this CSS does not leak into the rest of the page
+  Brand sources of truth:
+    - Headlines: Montserrat (Google Fonts) — approved per CAA Design Brief
+    - Body: Nunito Sans (Google Fonts) — documented brand-compliant
+      fallback for Avenir Next LT Pro per CLAUDE.md and Design Brief
+    - Colors: Trusted Teal #218CA5, Source Navy #0B3647, Action Yellow
+      #FFB81C, Body Ink #242424
+    - Action Yellow used on exactly one element (the CTA) per Design Brief
 
-  IF SOMETHING LOOKS WRONG:
-    - If headings look like Helvetica: Adobe Fonts kit is not loaded yet,
-      OR Site Styles → Fonts is not set to the avenirnext family.
-    - If the card has no border / hero has no teal underline: the site's
-      design tokens are not exposing var(--darkAccent-hsl) on this page.
-      Fall back to hardcoded #218ca5 in the two .caa-sb54-landing border
-      rules below.
-    - If the button is unstyled: the page does not have access to the
-      Squarespace button component CSS. Wrap the page in a Squarespace
-      Button Block instead of using the raw <a> markup.
+  HOW TO USE
+    1. In Squarespace: edit the existing page where the prior paste lives.
+    2. Open the Code Block. Make sure "Display Source" is OFF.
+    3. Select all contents of the block and replace with everything below
+       this comment (from <link> through closing </div>).
+    4. Save.
+
+  WHAT TO EXPECT
+    - Headlines render in Montserrat (semibold/bold weights)
+    - Body renders in Nunito Sans
+    - "SB 54" in the hero gets a Trusted Teal underline highlight
+    - "Get in touch" CTA is Action Yellow with Source Navy text
+    - Hero divider and card border use Trusted Teal at brand opacity
+    - Layout is scoped under .caa-sb54-landing so nothing leaks elsewhere
 -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
   .caa-sb54-landing {
     max-width: 56rem;
     margin: 0 auto;
     padding: 2rem 1.25rem;
+    font-family: "Nunito Sans", system-ui, -apple-system, sans-serif;
+    font-size: 1rem;
+    line-height: 1.55;
+    color: #242424;
+  }
+
+  .caa-sb54-landing h1,
+  .caa-sb54-landing h2 {
+    font-family: "Montserrat", "Nunito Sans", system-ui, sans-serif;
+    color: #0B3647;
+    line-height: 1.2;
+  }
+
+  .caa-sb54-landing h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin: 0 0 1rem;
+  }
+
+  .caa-sb54-landing h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .caa-sb54-landing p {
+    margin: 0 0 1rem;
+  }
+
+  .caa-sb54-landing p:last-child {
+    margin-bottom: 0;
+  }
+
+  .caa-sb54-landing h1 em {
+    font-style: normal;
+    background-image: linear-gradient(to bottom, transparent 75%, #218CA5 75%, #218CA5 95%, transparent 95%);
+    padding: 0 0.05em;
   }
 
   .caa-sb54-landing__hero {
     padding: 3rem 0 2rem;
-    border-bottom: 3px solid hsla(var(--darkAccent-hsl), 1);
+    border-bottom: 3px solid #218CA5;
     margin-bottom: 2rem;
   }
 
   .caa-sb54-landing__eyebrow {
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    font-size: 0.875em;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #218CA5;
     margin: 0 0 0.5rem;
   }
 
   .caa-sb54-landing__lede {
-    font-size: 1.125em;
+    font-size: 1.125rem;
     max-width: 40em;
   }
 
   .caa-sb54-landing__card {
-    border: 1px solid hsla(var(--darkAccent-hsl), 0.18);
+    border: 1px solid rgba(33, 140, 165, 0.25);
     border-radius: 12px;
     padding: 2rem;
     margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-  }
-
-  .caa-sb54-landing__card > h2 {
-    margin: 0;
-  }
-
-  .caa-sb54-landing__card > p {
-    margin: 0;
+    background: #FFFFFF;
   }
 
   .caa-sb54-landing__stages {
@@ -95,7 +126,7 @@
     gap: 1.5rem;
     align-items: baseline;
     padding: 0.75rem 0;
-    border-top: 1px solid hsla(var(--darkAccent-hsl), 0.18);
+    border-top: 1px solid rgba(33, 140, 165, 0.18);
   }
 
   .caa-sb54-landing__stage:first-child {
@@ -111,7 +142,9 @@
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    font-size: 0.875em;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #0B3647;
   }
 
   .caa-sb54-landing__stage-providers {
@@ -120,23 +153,48 @@
   }
 
   @media (max-width: 540px) {
+    .caa-sb54-landing h1 {
+      font-size: 1.875rem;
+    }
     .caa-sb54-landing__stage {
       grid-template-columns: 1fr;
       gap: 0.25rem;
     }
   }
 
+  .caa-sb54-landing__cta-row {
+    margin-top: 0.5rem;
+  }
+
+  .caa-sb54-landing__cta {
+    display: inline-block;
+    background: #FFB81C;
+    color: #0B3647;
+    font-family: "Montserrat", "Nunito Sans", system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    padding: 0.875rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    line-height: 1.2;
+    transition: background-color 150ms ease-in-out;
+  }
+
+  .caa-sb54-landing__cta:hover,
+  .caa-sb54-landing__cta:focus {
+    background: #E6A510;
+    color: #0B3647;
+    text-decoration: none;
+  }
+
   .caa-sb54-landing__note {
     padding: 1.5rem 0;
-    border-top: 1px solid hsla(var(--black-hsl), 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   .caa-sb54-landing__note > h2 {
     margin: 0 0 0.25rem;
-  }
-
-  .caa-sb54-landing__note > p {
-    margin: 0;
   }
 </style>
 
@@ -176,8 +234,8 @@
     <p>
       Outreach is ongoing, but you don't have to wait to get involved. If you want to explore funding opportunities or next steps, connect with CAA.
     </p>
-    <div class="sqs-block-button-container--left">
-      <a href="https://circularaction.org/ca-reimbursements" class="sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">Get in touch</a>
+    <div class="caa-sb54-landing__cta-row">
+      <a href="https://circularaction.org/ca-reimbursements" class="caa-sb54-landing__cta">Get in touch</a>
     </div>
   </section>
 
