@@ -1,0 +1,824 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const audienceCards = [
+  {
+    heading: 'Cities, Counties, and JPAs',
+    body: 'You run the local recycling program. SB 54 reimburses eligible program and outreach costs.',
+    linkLabel: 'See Local Programs →',
+    href: `${base}/reimbursement/local-programs/`,
+  },
+  {
+    heading: 'Collection Operators',
+    body: 'You haul recyclables in California. SB 54 reimbursement rules apply to your contracts and collection routes.',
+    linkLabel: 'See Collection Systems →',
+    href: `${base}/reimbursement/collection/`,
+  },
+  {
+    heading: 'MRFs and Processors',
+    body: "Facility upgrades, sorting technology, and contamination reduction qualify when tied to California's covered commodities.",
+    linkLabel: 'See Processing and End Markets →',
+    href: `${base}/reimbursement/processing/`,
+  },
+  {
+    heading: 'Tribal Governments and Organizations',
+    body: 'SB 54 applies on and off reservation. CAA has a dedicated path for Tribal governments and Tribal organizations.',
+    linkLabel: 'See the full section →',
+    href: `${base}/`,
+  },
+  {
+    heading: 'Community Partners',
+    body: 'Community-based organizations and environmental justice partners have a defined seat in the planning and outreach process.',
+    linkLabel: 'See the full section →',
+    href: `${base}/`,
+  },
+];
+
+const crossLinks = [
+  {
+    where: 'Inside the FAQ',
+    context: 'after questions about roles or who participates',
+    existingExample: '"Who is required to participate under SB 54?"',
+    newLink: 'Find your role and what it covers →',
+  },
+  {
+    where: 'Inside the Timeline',
+    context: 'after the January 1, 2027 CalRecycle plan approval milestone',
+    existingExample: 'January 1, 2027 — CalRecycle plan approval / program launch',
+    newLink: 'See what your organization needs to do before January 1, 2027 →',
+  },
+  {
+    where: 'Inside Updates → Rulemaking',
+    context: 'within or directly below the Rulemaking subsection',
+    existingExample: 'Updates on the rulemaking restart following the March 7, 2025 Governor’s directive…',
+    newLink: 'How rulemaking changes affect your reimbursement path →',
+  },
+];
+---
+
+<BaseLayout
+  title="Site Placement Recommendation — SB 54 Interest Holders"
+  description="A visual recommendation for where the SB 54 interest-holder section will be connected to the rest of circularactionalliance.org. For CAA review and approval."
+>
+  <div class="rec-page">
+
+    <header class="rec-hero">
+      <p class="rec-hero__eyebrow">For your review and approval</p>
+      <h1>Where Visitors Will Find the SB&nbsp;54 Interest-Holder Section</h1>
+      <p class="rec-hero__lede">
+        The SB&nbsp;54 interest-holder section (the campaign pages organized around the three modules) was approved earlier. This page shows how visitors to <code>circularactionalliance.org</code> will discover and reach it from the rest of your site.
+      </p>
+      <p class="rec-hero__lede">
+        We're recommending three connection points working together. Each catches a different kind of visitor; if we only used one, some audiences may miss the section entirely. Below, each connection point is shown as it would appear on your site, plus the exact copy we're proposing.
+      </p>
+    </header>
+
+    <!-- ============================================================ -->
+    <!-- ELEMENT 1: NEW SECTION ON THE /CALIFORNIA PAGE              -->
+    <!-- ============================================================ -->
+    <section class="rec-block">
+      <div class="rec-block__header">
+        <p class="rec-block__number">Connection point 1</p>
+        <h2>A new section on your existing California page</h2>
+        <p>We'd add the block below to your California page, positioned between the Timeline and the Updates section that's already there. We'd also add "Interest Holders" to the quick-links bar near the top of the page so visitors can jump straight to it.</p>
+      </div>
+
+      <div class="rec-preview" aria-label="Preview of the new section as it would appear on the California page">
+        <p class="rec-preview__label">Preview — as it would appear on <code>/california</code></p>
+
+        <div class="caa-section">
+          <h2 class="caa-section__heading">Your Role in California's Recycling System</h2>
+          <p class="caa-section__sub">SB 54 shapes what your organization collects, hauls, processes, or funds. Find the piece that applies to you.</p>
+
+          <div class="caa-cards">
+            {audienceCards.map(card => (
+              <a href={card.href} class="caa-card">
+                <h3 class="caa-card__heading">{card.heading}</h3>
+                <p class="caa-card__body">{card.body}</p>
+                <span class="caa-card__link">{card.linkLabel}</span>
+              </a>
+            ))}
+          </div>
+
+          <a href={base + '/'} class="caa-cta">
+            <span class="caa-cta__label">Get the full SB 54 implementation guide</span>
+            <span class="caa-cta__arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="rec-context">
+        <h3>Where this would sit on the page</h3>
+        <div class="rec-schematic" aria-label="Diagram of where the new section sits on the California page">
+          <div class="rec-schematic__block">Legislative Context</div>
+          <div class="rec-schematic__block">Three Mandates (2032 targets)</div>
+          <div class="rec-schematic__block">FAQ</div>
+          <div class="rec-schematic__block">Timeline</div>
+          <div class="rec-schematic__block rec-schematic__block--new">
+            <span class="rec-schematic__new-label">NEW</span>
+            Your Role in California's Recycling System
+          </div>
+          <div class="rec-schematic__block">Updates (Rulemaking · Compliance · Advisory Board)</div>
+        </div>
+        <p class="rec-context__note">The quick-links bar near the top of the California page (which today links to FAQ, Timeline, Updates, Leadership, Consultation Sessions, Illustrative Fees) would also get a new "Interest Holders" entry so visitors can jump straight to the new block.</p>
+      </div>
+
+      <div class="rec-rationale">
+        <p><strong>Why this works:</strong> Most visitors who land on the California page today are looking for SB&nbsp;54 information of some kind. A clearly labeled block in the middle of that page is the single highest-confidence way to make sure the section gets seen by jurisdictions, haulers, processors, and community partners — without forcing producers to wade through content that isn't for them. Each card links straight to the page in the new section that's most relevant to that audience. (Click any card above to see where it leads.)</p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ELEMENT 2: MENU ADDITION                                    -->
+    <!-- ============================================================ -->
+    <section class="rec-block">
+      <div class="rec-block__header">
+        <p class="rec-block__number">Connection point 2</p>
+        <h2>A new link in your site menu</h2>
+        <p>Under <strong>States &nbsp;›&nbsp; California</strong> in the main site menu, we'd add a second item that links directly to the new section.</p>
+      </div>
+
+      <div class="rec-preview" aria-label="Preview of the menu addition">
+        <p class="rec-preview__label">Preview — the States &nbsp;›&nbsp; California menu</p>
+
+        <div class="menu-mock">
+          <div class="menu-mock__bar">
+            <span class="menu-mock__item">About</span>
+            <span class="menu-mock__item menu-mock__item--active">
+              States <span class="menu-mock__arrow">▾</span>
+            </span>
+            <span class="menu-mock__item">News &amp; Events</span>
+            <span class="menu-mock__item">Producers</span>
+            <span class="menu-mock__item">Producer Registration</span>
+          </div>
+          <div class="menu-mock__dropdown">
+            <div class="menu-mock__group">
+              <p class="menu-mock__group-label">States</p>
+              <div class="menu-mock__entry menu-mock__entry--active">
+                California
+                <span class="menu-mock__caret">▸</span>
+              </div>
+              <div class="menu-mock__entry">Colorado</div>
+              <div class="menu-mock__entry">Maine</div>
+              <div class="menu-mock__entry">Maryland</div>
+              <div class="menu-mock__entry">Minnesota</div>
+              <div class="menu-mock__entry">Oregon</div>
+              <div class="menu-mock__entry">Washington</div>
+            </div>
+            <div class="menu-mock__group">
+              <p class="menu-mock__group-label">California</p>
+              <div class="menu-mock__entry">California overview</div>
+              <div class="menu-mock__entry menu-mock__entry--new">
+                <span class="menu-mock__new-label">NEW</span>
+                SB 54 Interest Holders
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rec-rationale">
+        <p><strong>Why this works:</strong> Many visitors will arrive via a direct link in an email — from one of your distribution lists, a CalRecycle bulletin, or a partner-organization newsletter — and they'll land on the right page directly. But some will arrive at the CAA site from elsewhere and look in the menu first. The menu link catches them. It also helps anyone who has visited before and wants to return without remembering the exact URL.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ELEMENT 3: THREE CONTEXTUAL CROSS-LINKS                     -->
+    <!-- ============================================================ -->
+    <section class="rec-block">
+      <div class="rec-block__header">
+        <p class="rec-block__number">Connection point 3</p>
+        <h2>Three small links elsewhere on the California page</h2>
+        <p>Three short links inside content that's already on the California page — catching readers who scroll into a specific section and would otherwise miss the new block.</p>
+      </div>
+
+      <div class="rec-preview" aria-label="Preview of the three contextual links">
+        <p class="rec-preview__label">Preview — each link shown in its context</p>
+
+        <div class="crosslinks">
+          {crossLinks.map(link => (
+            <div class="crosslink">
+              <div class="crosslink__where">
+                <p class="crosslink__where-label">{link.where}</p>
+                <p class="crosslink__context">({link.context})</p>
+              </div>
+              <div class="crosslink__example">
+                <p class="crosslink__example-label">EXISTING CONTENT (representative example)</p>
+                <div class="crosslink__existing">
+                  {link.existingExample}
+                </div>
+                <p class="crosslink__example-label crosslink__example-label--new">NEW LINK APPENDED</p>
+                <div class="crosslink__new">
+                  <a href={base + '/'}>{link.newLink}</a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="rec-rationale">
+        <p><strong>Why this works:</strong> Some visitors will scroll into the FAQ or Timeline looking for a specific answer and never get to the new block we're adding. These three links catch those readers right where they're already paying attention.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- VOICE NOTE                                                  -->
+    <!-- ============================================================ -->
+    <section class="rec-prose">
+      <h2>A note on the voice</h2>
+      <p>We've kept the language operational and reader-first — describing what the visitor's organization actually does, not what the program is named — so people recognize themselves quickly. A processor scanning the page should see "facility upgrades, sorting technology, and contamination reduction" and immediately know "this is for me," without first needing to learn that "interest holder" includes them. The same logic shapes the cross-references: "Find your role and what it covers" leads with the reader's question, not the program's vocabulary.</p>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- THREE QUESTIONS FOR CAA                                     -->
+    <!-- ============================================================ -->
+    <section class="rec-prose rec-prose--questions">
+      <h2>A few things we'd like your input on</h2>
+      <p>Three small items we'd ask you to weigh in on before we proceed:</p>
+
+      <div class="rec-question">
+        <p class="rec-question__num">1</p>
+        <div>
+          <h3>The January 1, 2027 date</h3>
+          <p>We're referencing it as the CalRecycle plan approval milestone in one of the cross-references. Before publishing, we'll want to confirm against the current CalRecycle plan or the SB&nbsp;54 statute. If you know of any more recent update to that date, let us know.</p>
+        </div>
+      </div>
+
+      <div class="rec-question">
+        <p class="rec-question__num">2</p>
+        <div>
+          <h3>The Community Partners card</h3>
+          <p>The card tells community-based organizations and environmental justice partners that they have <em>"a defined seat in the planning and outreach process."</em> If the link from that card leads to content that delivers on that promise (a dedicated page or pathway for these partners), the language stays as written. If the link would lead only to a general contact form, we'd recommend softening it to: <em>"Community-based organizations and environmental justice partners play a role in planning and outreach."</em> Either is fine — let us know which fits the actual content you can offer this audience today.</p>
+        </div>
+      </div>
+
+      <div class="rec-question">
+        <p class="rec-question__num">3</p>
+        <div>
+          <h3>The menu label</h3>
+          <p>Our recommended label, <strong>"SB 54 Interest Holders,"</strong> assumes "interest holders" continues to be the term CAA uses for this audience across the site. If there's any planned shift in that terminology, let us know and we'll adjust.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- WHAT HAPPENS AFTER APPROVAL                                 -->
+    <!-- ============================================================ -->
+    <section class="rec-prose">
+      <h2>What happens after your approval</h2>
+      <p>Once you've given us a thumbs-up (with any adjustments to the items above):</p>
+      <ul>
+        <li>We'll port the new section into the existing California page, matching the visual treatment of the rest of the page</li>
+        <li>The new menu link gets added under States &nbsp;›&nbsp; California</li>
+        <li>The three contextual links get inserted in their respective spots</li>
+        <li>We'd recommend launching all three together for the strongest visitor experience, but we can stagger them (section first, menu link second, contextual links third) if that fits your team's workflow better</li>
+      </ul>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- THINGS CONSIDERED BUT SET ASIDE                             -->
+    <!-- ============================================================ -->
+    <section class="rec-prose rec-prose--aside">
+      <h2>Things we considered but set aside</h2>
+      <p>For full transparency, two things we deliberately kept out of this recommendation:</p>
+      <ul>
+        <li><strong>Changes to the top-level site menu</strong> — for example, adding a top-level "For Interest Holders" item alongside "Producers," or restructuring how audiences are surfaced site-wide. These are worth discussing on their own, especially as the new v1-aligned CAA site comes together. We'd be happy to share thoughts in a separate conversation if useful.</li>
+        <li><strong>A discoverability path specifically for Tribal Governments.</strong> Our research suggests that Tribal staff most often discover materials like this through direct referral via Tribal liaison channels (CalRecycle's Tribal outreach program, BIA regional contacts, the Governor's Tribal Advisor's office) rather than through site navigation. We'd recommend a separate conversation about activating those channels alongside the section's launch — the work doesn't belong inside a site-placement recommendation.</li>
+      </ul>
+    </section>
+
+    <footer class="rec-footer">
+      <p>Looking forward to your feedback. Once we hear back on the three items above, we'll move into the Squarespace port and aim to launch the section, menu link, and contextual references together.</p>
+    </footer>
+
+  </div>
+</BaseLayout>
+
+<style>
+  /* ============================================================ */
+  /* PAGE SHELL                                                   */
+  /* ============================================================ */
+  .rec-page {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: var(--space-xl);
+  }
+
+  .rec-hero {
+    padding: var(--space-3xl) 0 var(--space-2xl);
+    border-bottom: 3px solid var(--caa-teal);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .rec-hero__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--caa-teal);
+    margin: 0 0 var(--space-sm);
+  }
+
+  .rec-hero__lede {
+    font-size: var(--text-lg);
+    color: var(--caa-navy);
+    max-width: 48rem;
+    opacity: 0.9;
+  }
+
+  /* ============================================================ */
+  /* RECOMMENDATION BLOCK (three of these)                        */
+  /* ============================================================ */
+  .rec-block {
+    margin: var(--space-3xl) 0;
+    padding-bottom: var(--space-2xl);
+    border-bottom: 1px solid rgba(11, 54, 71, 0.1);
+  }
+
+  .rec-block__header {
+    max-width: 48rem;
+    margin-bottom: var(--space-xl);
+  }
+
+  .rec-block__number {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--caa-teal);
+    margin: 0 0 var(--space-sm);
+  }
+
+  .rec-rationale {
+    max-width: 48rem;
+    margin-top: var(--space-lg);
+    padding-left: var(--space-md);
+    border-left: 3px solid var(--caa-teal);
+    color: var(--caa-navy);
+  }
+
+  .rec-rationale p {
+    margin-bottom: 0;
+  }
+
+  /* ============================================================ */
+  /* PREVIEW FRAME — visually separates "what would appear" from  */
+  /* the surrounding recommendation prose                         */
+  /* ============================================================ */
+  .rec-preview {
+    background: rgba(33, 140, 165, 0.04);
+    border: 1px dashed rgba(33, 140, 165, 0.4);
+    border-radius: var(--card-radius);
+    padding: var(--space-xl);
+    margin: var(--space-lg) 0;
+  }
+
+  .rec-preview__label {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--caa-teal);
+    margin: 0 0 var(--space-lg);
+  }
+
+  /* ============================================================ */
+  /* ELEMENT 1 — THE NEW SECTION (high-fidelity render)           */
+  /* ============================================================ */
+  .caa-section {
+    background: var(--caa-paper);
+    padding: var(--space-xl);
+    border-radius: var(--card-radius);
+  }
+
+  .caa-section__heading {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--caa-navy);
+    margin: 0 0 var(--space-sm);
+  }
+
+  .caa-section__sub {
+    font-size: var(--text-lg);
+    color: var(--caa-navy);
+    max-width: 48rem;
+    opacity: 0.85;
+    margin: 0 0 var(--space-xl);
+  }
+
+  .caa-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+
+  .caa-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-lg);
+    background: var(--caa-paper);
+    border: 1px solid rgba(11, 54, 71, 0.12);
+    border-top: 4px solid var(--caa-teal);
+    border-radius: var(--card-radius);
+    text-decoration: none;
+    color: var(--caa-ink);
+    transition: transform 0.15s, box-shadow 0.15s, border-top-color 0.15s;
+  }
+
+  .caa-card:hover,
+  .caa-card:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(11, 54, 71, 0.12);
+    border-top-color: var(--caa-navy);
+  }
+
+  .caa-card__heading {
+    font-family: var(--font-display);
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--caa-navy);
+    margin: 0 0 var(--space-sm);
+    line-height: 1.3;
+  }
+
+  .caa-card__body {
+    font-size: var(--text-sm);
+    color: var(--caa-ink);
+    flex: 1;
+    margin: 0 0 var(--space-md);
+    max-width: none;
+    line-height: 1.5;
+  }
+
+  .caa-card__link {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--caa-teal-dark);
+  }
+
+  .caa-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-lg) var(--space-xl);
+    background: var(--caa-yellow);
+    border-radius: var(--card-radius);
+    text-decoration: none;
+    color: var(--caa-navy);
+    transition: background 0.15s;
+  }
+
+  .caa-cta:hover,
+  .caa-cta:focus-visible {
+    background: var(--caa-navy);
+    color: var(--caa-paper);
+  }
+
+  .caa-cta__label {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 700;
+  }
+
+  .caa-cta__arrow {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+  }
+
+  /* ============================================================ */
+  /* CONTEXT SCHEMATIC — vertical labeled blocks                  */
+  /* ============================================================ */
+  .rec-context {
+    margin-top: var(--space-2xl);
+    max-width: 48rem;
+  }
+
+  .rec-schematic {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin: var(--space-md) 0 var(--space-lg);
+  }
+
+  .rec-schematic__block {
+    padding: var(--space-md) var(--space-lg);
+    background: rgba(11, 54, 71, 0.05);
+    border-left: 3px solid rgba(11, 54, 71, 0.2);
+    border-radius: 0 var(--card-radius) var(--card-radius) 0;
+    color: var(--caa-navy);
+    font-weight: 500;
+  }
+
+  .rec-schematic__block--new {
+    background: rgba(255, 184, 28, 0.12);
+    border-left-color: var(--caa-yellow);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .rec-schematic__new-label {
+    background: var(--caa-yellow);
+    color: var(--caa-navy);
+    font-family: var(--font-display);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+
+  .rec-context__note {
+    font-size: var(--text-sm);
+    color: var(--caa-navy);
+    opacity: 0.85;
+    margin: 0;
+  }
+
+  /* ============================================================ */
+  /* ELEMENT 2 — MENU MOCKUP                                      */
+  /* ============================================================ */
+  .menu-mock {
+    background: var(--caa-paper);
+    border: 1px solid rgba(11, 54, 71, 0.15);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    max-width: 36rem;
+    margin: 0 auto;
+  }
+
+  .menu-mock__bar {
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
+    background: var(--caa-navy);
+    color: var(--caa-paper);
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    flex-wrap: wrap;
+  }
+
+  .menu-mock__item {
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 3px;
+    opacity: 0.7;
+  }
+
+  .menu-mock__item--active {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .menu-mock__arrow {
+    font-size: var(--text-xs);
+    margin-left: var(--space-xs);
+  }
+
+  .menu-mock__dropdown {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+  }
+
+  .menu-mock__group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .menu-mock__group-label {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--caa-teal-dark);
+    margin: 0 0 var(--space-sm);
+  }
+
+  .menu-mock__entry {
+    padding: var(--space-sm) var(--space-md);
+    color: var(--caa-navy);
+    font-size: var(--text-sm);
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-mock__entry--active {
+    background: rgba(33, 140, 165, 0.08);
+    font-weight: 600;
+  }
+
+  .menu-mock__entry--new {
+    background: rgba(255, 184, 28, 0.15);
+    border: 1px dashed rgba(255, 184, 28, 0.6);
+    font-weight: 600;
+    gap: var(--space-sm);
+  }
+
+  .menu-mock__new-label {
+    background: var(--caa-yellow);
+    color: var(--caa-navy);
+    font-family: var(--font-display);
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  .menu-mock__caret {
+    color: var(--caa-teal-dark);
+    font-size: var(--text-sm);
+  }
+
+  @media (max-width: 540px) {
+    .menu-mock__dropdown {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ============================================================ */
+  /* ELEMENT 3 — CROSS-LINK SNIPPETS                              */
+  /* ============================================================ */
+  .crosslinks {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .crosslink {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  .crosslink__where-label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--caa-navy);
+    margin: 0 0 var(--space-xs);
+  }
+
+  .crosslink__context {
+    font-size: var(--text-sm);
+    color: var(--caa-navy);
+    opacity: 0.7;
+    margin: 0;
+  }
+
+  .crosslink__example {
+    background: var(--caa-paper);
+    border: 1px solid rgba(11, 54, 71, 0.12);
+    border-radius: var(--card-radius);
+    padding: var(--space-lg);
+  }
+
+  .crosslink__example-label {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--caa-navy);
+    opacity: 0.6;
+    margin: 0 0 var(--space-sm);
+  }
+
+  .crosslink__example-label--new {
+    color: var(--caa-teal-dark);
+    opacity: 1;
+    margin-top: var(--space-md);
+  }
+
+  .crosslink__existing {
+    padding: var(--space-md);
+    background: rgba(11, 54, 71, 0.04);
+    border-radius: 3px;
+    color: var(--caa-navy);
+    font-style: italic;
+    margin-bottom: var(--space-sm);
+  }
+
+  .crosslink__new {
+    padding: var(--space-md);
+    background: rgba(255, 184, 28, 0.12);
+    border-left: 3px solid var(--caa-yellow);
+    border-radius: 0 3px 3px 0;
+  }
+
+  .crosslink__new a {
+    color: var(--caa-navy);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .crosslink__new a:hover,
+  .crosslink__new a:focus-visible {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 720px) {
+    .crosslink {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+  }
+
+  /* ============================================================ */
+  /* PROSE SECTIONS (voice note, questions, next steps, aside)    */
+  /* ============================================================ */
+  .rec-prose {
+    max-width: 48rem;
+    margin: var(--space-3xl) 0;
+  }
+
+  .rec-prose--questions {
+    background: rgba(33, 140, 165, 0.04);
+    border-radius: var(--card-radius);
+    padding: var(--space-xl);
+    max-width: none;
+  }
+
+  .rec-prose--aside {
+    background: rgba(11, 54, 71, 0.03);
+    border-radius: var(--card-radius);
+    padding: var(--space-xl);
+    max-width: none;
+  }
+
+  .rec-question {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid rgba(33, 140, 165, 0.15);
+  }
+
+  .rec-question:first-of-type {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .rec-question__num {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--caa-teal);
+    color: var(--caa-paper);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--text-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .rec-question h3 {
+    margin-top: 0;
+  }
+
+  .rec-question p {
+    margin-bottom: 0;
+  }
+
+  /* ============================================================ */
+  /* FOOTER NOTE                                                  */
+  /* ============================================================ */
+  .rec-footer {
+    margin-top: var(--space-3xl);
+    padding: var(--space-xl);
+    background: var(--caa-navy);
+    color: var(--caa-paper);
+    border-radius: var(--card-radius);
+    text-align: center;
+  }
+
+  .rec-footer p {
+    max-width: 40rem;
+    margin: 0 auto;
+    font-size: var(--text-lg);
+  }
+
+  /* Inline code styling for URLs */
+  code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.9em;
+    background: rgba(11, 54, 71, 0.06);
+    padding: 1px 6px;
+    border-radius: 3px;
+    color: var(--caa-navy);
+  }
+</style>
