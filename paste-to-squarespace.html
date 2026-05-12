@@ -1,0 +1,194 @@
+<!--
+  CAA SB 54 temp landing — Squarespace paste artifact
+  Generated from src/pages/temp/index.astro on 2026-05-12 (Dana copy revisions r2)
+
+  HOW TO USE:
+  1. In Squarespace: create a new page (Pages → + → Page); set visibility
+     to "Not Linked" or "Disabled" so it stays unpublished.
+  2. Add a Code Block to the new page (Edit page → + → More → Code).
+  3. Paste the entire contents of this file (everything below this comment)
+     into the Code Block. Make sure "Display Source" is OFF.
+  4. Save.
+  5. Preconditions for correct rendering:
+       a. Adobe Fonts kit (Avenir Next LT Pro) must be loaded on the site.
+          Family name: avenirnext-lt-pro-ultlight
+       b. Squarespace Site Styles → Fonts → Heading + Paragraph should be
+          set to that family so our headings and body text inherit it.
+       c. The site's accent/dark-accent CSS tokens (used for the teal
+          divider and card border) are already defined in site.css; no
+          additional config needed there.
+
+  WHAT TO EXPECT:
+    - Headings, body text, links inherit the site's typography automatically
+    - <h1><em>SB 54</em></h1> gets a Trusted Teal underline highlight via
+      the site's existing custom.css (matches the /california page's
+      <h1><em>California</em></h1> treatment)
+    - The "Get in touch" CTA inherits the site's primary button styling
+    - Layout, spacing, and the card border are scoped under
+      .caa-sb54-landing so this CSS does not leak into the rest of the page
+
+  IF SOMETHING LOOKS WRONG:
+    - If headings look like Helvetica: Adobe Fonts kit is not loaded yet,
+      OR Site Styles → Fonts is not set to the avenirnext family.
+    - If the card has no border / hero has no teal underline: the site's
+      design tokens are not exposing var(--darkAccent-hsl) on this page.
+      Fall back to hardcoded #218ca5 in the two .caa-sb54-landing border
+      rules below.
+    - If the button is unstyled: the page does not have access to the
+      Squarespace button component CSS. Wrap the page in a Squarespace
+      Button Block instead of using the raw <a> markup.
+-->
+
+<style>
+  .caa-sb54-landing {
+    max-width: 56rem;
+    margin: 0 auto;
+    padding: 2rem 1.25rem;
+  }
+
+  .caa-sb54-landing__hero {
+    padding: 3rem 0 2rem;
+    border-bottom: 3px solid hsla(var(--darkAccent-hsl), 1);
+    margin-bottom: 2rem;
+  }
+
+  .caa-sb54-landing__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.875em;
+    margin: 0 0 0.5rem;
+  }
+
+  .caa-sb54-landing__lede {
+    font-size: 1.125em;
+    max-width: 40em;
+  }
+
+  .caa-sb54-landing__card {
+    border: 1px solid hsla(var(--darkAccent-hsl), 0.18);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .caa-sb54-landing__card > h2 {
+    margin: 0;
+  }
+
+  .caa-sb54-landing__card > p {
+    margin: 0;
+  }
+
+  .caa-sb54-landing__stages {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .caa-sb54-landing__stage {
+    display: grid;
+    grid-template-columns: minmax(13rem, max-content) 1fr;
+    gap: 1.5rem;
+    align-items: baseline;
+    padding: 0.75rem 0;
+    border-top: 1px solid hsla(var(--darkAccent-hsl), 0.18);
+  }
+
+  .caa-sb54-landing__stage:first-child {
+    border-top: none;
+    padding-top: 0.25rem;
+  }
+
+  .caa-sb54-landing__stage:last-child {
+    padding-bottom: 0.25rem;
+  }
+
+  .caa-sb54-landing__stage-label {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.875em;
+  }
+
+  .caa-sb54-landing__stage-providers {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 540px) {
+    .caa-sb54-landing__stage {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+  }
+
+  .caa-sb54-landing__note {
+    padding: 1.5rem 0;
+    border-top: 1px solid hsla(var(--black-hsl), 0.1);
+  }
+
+  .caa-sb54-landing__note > h2 {
+    margin: 0 0 0.25rem;
+  }
+
+  .caa-sb54-landing__note > p {
+    margin: 0;
+  }
+</style>
+
+<div class="caa-sb54-landing">
+  <section class="caa-sb54-landing__hero">
+    <p class="caa-sb54-landing__eyebrow">Welcome</p>
+    <h1>This is your starting point for what's ahead under <em>SB&nbsp;54</em> and how you can get involved.</h1>
+    <p class="caa-sb54-landing__lede">
+      California's recycling, composting and reuse system is evolving. Starting now and in the coming years, SB&nbsp;54 will be driving real improvements in how single-use packaging and food serviceware is collected, processed, and recycled or returned for use – creating a more consistent, connected system statewide.
+    </p>
+    <p class="caa-sb54-landing__lede">
+      Whether you've already connected with CAA or are learning about CAA for the first time, this page is designed to help you understand what's coming next and how you can engage.
+    </p>
+  </section>
+
+  <section class="caa-sb54-landing__card">
+    <h2>Get Started</h2>
+    <p>CAA is connecting with local interest holders across the system:</p>
+    <dl class="caa-sb54-landing__stages">
+      <div class="caa-sb54-landing__stage">
+        <dt class="caa-sb54-landing__stage-label">Local &amp; community</dt>
+        <dd class="caa-sb54-landing__stage-providers">Local Jurisdictions, Tribes, Community-Based Organizations</dd>
+      </div>
+      <div class="caa-sb54-landing__stage">
+        <dt class="caa-sb54-landing__stage-label">Collection</dt>
+        <dd class="caa-sb54-landing__stage-providers">Haulers, Alternative Collection Providers</dd>
+      </div>
+      <div class="caa-sb54-landing__stage">
+        <dt class="caa-sb54-landing__stage-label">Sort &amp; process</dt>
+        <dd class="caa-sb54-landing__stage-providers">Transfer Stations, MRFs, Compost Facilities</dd>
+      </div>
+      <div class="caa-sb54-landing__stage">
+        <dt class="caa-sb54-landing__stage-label">End markets &amp; reuse</dt>
+        <dd class="caa-sb54-landing__stage-providers">End Markets, Reuse Programs</dd>
+      </div>
+    </dl>
+    <p>
+      Outreach is ongoing, but you don't have to wait to get involved. If you want to explore funding opportunities or next steps, connect with CAA.
+    </p>
+    <div class="sqs-block-button-container--left">
+      <a href="https://circularaction.org/ca-reimbursements" class="sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">Get in touch</a>
+    </div>
+  </section>
+
+  <aside class="caa-sb54-landing__note">
+    <h2>Learn More</h2>
+    <p>More information is coming soon to this site.</p>
+  </aside>
+
+  <!-- When FAQs are ready, the "Learn More" aside above replaces with:
+       <h2>Learn More</h2>
+       <p>Want a clearer view of what's ahead?</p>
+       <a href="/faqs">Explore what's coming (FAQs)</a>
+       Source: Dana copy revisions 2026-05-12. -->
+</div>
