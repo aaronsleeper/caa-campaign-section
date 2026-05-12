@@ -3,36 +3,27 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-const audienceCards = [
+const moduleCards = [
   {
-    heading: 'Cities, Counties, and JPAs',
-    body: 'You run the local recycling program. SB 54 reimburses eligible program and outreach costs.',
-    linkLabel: 'See Local Programs →',
-    href: `${base}/reimbursement/local-programs/`,
+    number: 1,
+    heading: 'What SB 54 Means for You',
+    body: 'What the law requires, who it affects, and what changes before 2027.',
+    linkLabel: 'Start here →',
+    href: `${base}/whats-changing/`,
   },
   {
-    heading: 'Collection Operators',
-    body: 'You haul recyclables in California. SB 54 reimbursement rules apply to your contracts and collection routes.',
-    linkLabel: 'See Collection Systems →',
-    href: `${base}/reimbursement/collection/`,
+    number: 2,
+    heading: 'Roles and Responsibilities',
+    body: "Every organization in California's recycling system has a defined role under SB 54. Find yours.",
+    linkLabel: 'Find your role →',
+    href: `${base}/roles-and-responsibilities/`,
   },
   {
-    heading: 'MRFs and Processors',
-    body: "Facility upgrades, sorting technology, and contamination reduction qualify when tied to California's covered commodities.",
-    linkLabel: 'See Processing and End Markets →',
-    href: `${base}/reimbursement/processing/`,
-  },
-  {
-    heading: 'Tribal Governments and Organizations',
-    body: 'SB 54 applies on and off reservation. CAA has a dedicated path for Tribal governments and Tribal organizations.',
-    linkLabel: 'See the full section →',
-    href: `${base}/`,
-  },
-  {
-    heading: 'Community Partners',
-    body: 'Community-based organizations and environmental justice partners have a defined seat in the planning and outreach process.',
-    linkLabel: 'See the full section →',
-    href: `${base}/`,
+    number: 3,
+    heading: 'Reimbursement for Covered Costs',
+    body: "SB 54 reimburses the work of collecting and processing California's recyclable commodities.",
+    linkLabel: 'See reimbursement →',
+    href: `${base}/reimbursement/`,
   },
 ];
 
@@ -90,22 +81,18 @@ const crossLinks = [
 
         <div class="caa-section">
           <h2 class="caa-section__heading">Your Role in California's Recycling System</h2>
-          <p class="caa-section__sub">SB 54 shapes what your organization collects, hauls, processes, or funds. Find the piece that applies to you.</p>
+          <p class="caa-section__sub">Understand what SB&nbsp;54 requires, find your role, and learn how reimbursement works.</p>
 
           <div class="caa-cards">
-            {audienceCards.map(card => (
+            {moduleCards.map(card => (
               <a href={card.href} class="caa-card">
+                <span class="caa-card__number">{card.number}</span>
                 <h3 class="caa-card__heading">{card.heading}</h3>
                 <p class="caa-card__body">{card.body}</p>
                 <span class="caa-card__link">{card.linkLabel}</span>
               </a>
             ))}
           </div>
-
-          <a href={base + '/'} class="caa-cta">
-            <span class="caa-cta__label">Get the full SB 54 implementation guide</span>
-            <span class="caa-cta__arrow">→</span>
-          </a>
         </div>
       </div>
 
@@ -126,7 +113,7 @@ const crossLinks = [
       </div>
 
       <div class="rec-rationale">
-        <p><strong>Why this works:</strong> Most visitors who land on the California page today are looking for SB&nbsp;54 information of some kind. A clearly labeled block in the middle of that page is the single highest-confidence way to make sure the section gets seen by jurisdictions, haulers, processors, and community partners — without forcing producers to wade through content that isn't for them. Each card links straight to the page in the new section that's most relevant to that audience. (Click any card above to see where it leads.)</p>
+        <p><strong>Why this works:</strong> Most visitors who land on the California page today are looking for SB&nbsp;54 information of some kind. A clearly labeled block in the middle of that page is the single highest-confidence way to make sure the new section gets seen. The three cards mirror the SB&nbsp;54 hub's structure, so a visitor moving from this entry point into the section sees the same organizing logic continue. (Click any card above to see where it leads.)</p>
       </div>
     </section>
 
@@ -225,19 +212,11 @@ const crossLinks = [
     </section>
 
     <!-- ============================================================ -->
-    <!-- VOICE NOTE                                                  -->
-    <!-- ============================================================ -->
-    <section class="rec-prose">
-      <h2>A note on the voice</h2>
-      <p>We've kept the language operational and reader-first — describing what the visitor's organization actually does, not what the program is named — so people recognize themselves quickly. A processor scanning the page should see "facility upgrades, sorting technology, and contamination reduction" and immediately know "this is for me," without first needing to learn that "interest holder" includes them. The same logic shapes the cross-references: "Find your role and what it covers" leads with the reader's question, not the program's vocabulary.</p>
-    </section>
-
-    <!-- ============================================================ -->
-    <!-- THREE QUESTIONS FOR CAA                                     -->
+    <!-- TWO QUESTIONS FOR CAA                                       -->
     <!-- ============================================================ -->
     <section class="rec-prose rec-prose--questions">
-      <h2>A few things we'd like your input on</h2>
-      <p>Three small items we'd ask you to weigh in on before we proceed:</p>
+      <h2>A couple of things we'd like your input on</h2>
+      <p>Two small items we'd ask you to weigh in on before we proceed:</p>
 
       <div class="rec-question">
         <p class="rec-question__num">1</p>
@@ -249,14 +228,6 @@ const crossLinks = [
 
       <div class="rec-question">
         <p class="rec-question__num">2</p>
-        <div>
-          <h3>The Community Partners card</h3>
-          <p>The card tells community-based organizations and environmental justice partners that they have <em>"a defined seat in the planning and outreach process."</em> If the link from that card leads to content that delivers on that promise (a dedicated page or pathway for these partners), the language stays as written. If the link would lead only to a general contact form, we'd recommend softening it to: <em>"Community-based organizations and environmental justice partners play a role in planning and outreach."</em> Either is fine — let us know which fits the actual content you can offer this audience today.</p>
-        </div>
-      </div>
-
-      <div class="rec-question">
-        <p class="rec-question__num">3</p>
         <div>
           <h3>The menu label</h3>
           <p>Our recommended label, <strong>"SB 54 Interest Holders,"</strong> assumes "interest holders" continues to be the term CAA uses for this audience across the site. If there's any planned shift in that terminology, let us know and we'll adjust.</p>
@@ -412,9 +383,9 @@ const crossLinks = [
 
   .caa-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: var(--space-md);
-    margin-bottom: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-md);
   }
 
   .caa-card {
@@ -422,33 +393,48 @@ const crossLinks = [
     flex-direction: column;
     padding: var(--space-lg);
     background: var(--caa-paper);
-    border: 1px solid rgba(11, 54, 71, 0.12);
-    border-top: 4px solid var(--caa-teal);
+    border: 1px solid rgba(33, 140, 165, 0.15);
     border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
     text-decoration: none;
     color: var(--caa-ink);
-    transition: transform 0.15s, box-shadow 0.15s, border-top-color 0.15s;
+    transition: transform 0.15s, box-shadow 0.15s;
   }
 
   .caa-card:hover,
   .caa-card:focus-visible {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(11, 54, 71, 0.12);
-    border-top-color: var(--caa-navy);
+  }
+
+  .caa-card__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--caa-teal);
+    color: var(--caa-paper);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-md);
   }
 
   .caa-card__heading {
     font-family: var(--font-display);
-    font-size: var(--text-base);
-    font-weight: 700;
+    font-size: var(--text-xl);
+    font-weight: 600;
     color: var(--caa-navy);
     margin: 0 0 var(--space-sm);
-    line-height: 1.3;
+    line-height: 1.25;
   }
 
   .caa-card__body {
     font-size: var(--text-sm);
     color: var(--caa-ink);
+    opacity: 0.75;
     flex: 1;
     margin: 0 0 var(--space-md);
     max-width: none;
@@ -456,39 +442,22 @@ const crossLinks = [
   }
 
   .caa-card__link {
+    display: inline-block;
     font-family: var(--font-display);
     font-size: var(--text-sm);
     font-weight: 600;
-    color: var(--caa-teal-dark);
-  }
-
-  .caa-cta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--space-lg) var(--space-xl);
-    background: var(--caa-yellow);
-    border-radius: var(--card-radius);
-    text-decoration: none;
     color: var(--caa-navy);
-    transition: background 0.15s;
+    background: var(--caa-yellow);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: 4px;
+    align-self: flex-start;
+    transition: background 0.15s, color 0.15s;
   }
 
-  .caa-cta:hover,
-  .caa-cta:focus-visible {
+  .caa-card:hover .caa-card__link,
+  .caa-card:focus-visible .caa-card__link {
     background: var(--caa-navy);
     color: var(--caa-paper);
-  }
-
-  .caa-cta__label {
-    font-family: var(--font-display);
-    font-size: var(--text-lg);
-    font-weight: 700;
-  }
-
-  .caa-cta__arrow {
-    font-size: var(--text-2xl);
-    font-weight: 700;
   }
 
   /* ============================================================ */
