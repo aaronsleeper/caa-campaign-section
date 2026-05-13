@@ -1,71 +1,62 @@
 <!--
-  CAA SB 54 temp landing — Squarespace paste artifact (self-contained)
-  Generated from src/pages/temp/index.astro on 2026-05-12 (Dana copy revisions r2)
+  CAA SB 54 temp landing — Squarespace paste artifact (site-inherit)
+  Rebuilt 2026-05-13 from src/pages/temp/index.astro per Larine's direction
+  (the website has not transitioned to the refreshed CAA brand yet; for now
+  this page must follow current site style).
 
-  WHY SELF-CONTAINED
-  The earlier version of this paste relied on inheriting fonts, colors, and
-  button styling from the CAA Squarespace site. On 2026-05-12 the client
-  reported the pasted page was not inheriting site CSS — fonts and styles
-  rendered as Squarespace defaults instead of CAA brand. This rebuild bakes
-  every brand value in directly, so the page renders correctly regardless
-  of Site Styles configuration or whether the Adobe Fonts kit is loaded.
+  STRATEGY
+  Let Squarespace's Site Styles drive all typography and text color. The
+  attached custom.css confirms the site's global font system runs through
+  Site Styles (currently DM Sans, 16px base, per Larine's screenshot) and
+  custom.css only adds decorative overrides on top — including the
+  !important `h1 em` teal-bar treatment that this page now relies on for
+  the SB 54 headline highlight. The previous embed-everything rebuild
+  (2026-05-12) was a response to an inheritance failure that no longer
+  applies now that Site Styles is configured.
 
-  Brand sources of truth:
-    - Headlines: Montserrat (Google Fonts) — approved per CAA Design Brief
-    - Body: Nunito Sans (Google Fonts) — documented brand-compliant
-      fallback for Avenir Next LT Pro per CLAUDE.md and Design Brief
-    - Colors: Trusted Teal #218CA5, Source Navy #0B3647, Action Yellow
-      #FFB81C, Body Ink #242424
-    - Action Yellow used on exactly one element (the CTA) per Design Brief
+  WHAT THIS PASTE OWNS
+    - Layout: max-width, vertical rhythm, the four-stage grid, card border,
+      hero divider, eyebrow accent
+    - Site-palette accents only: teal (#218CA5) used for the hero divider,
+      card border, and stage separators — all present in custom.css /
+      already on-site
+
+  WHAT THIS PASTE LETS THE SITE OWN
+    - Font family (DM Sans via Site Styles)
+    - Heading sizes and weights
+    - Body color
+    - Link color
+    - CTA button styling — `<a class="sqs-block-button-element ...">`
+      inherits the site's primary button look (matches "Producer
+      Registration" on the site header)
+    - SB 54 teal-bar highlight via `<h1><em>SB 54</em></h1>` markup and
+      the site's `h1 em !important` rule
 
   HOW TO USE
-    1. In Squarespace: edit the existing page where the prior paste lives.
+    1. In Squarespace: edit the SB 54 page where the prior paste lives.
     2. Open the Code Block. Make sure "Display Source" is OFF.
-    3. Select all contents of the block and replace with everything below
-       this comment (from <link> through closing </div>).
-    4. Save.
+    3. While here, verify the CTA href reads:
+         https://circularaction.org/ca-reimbursements
+       (no "alliance"). Fix inline if it has drifted to
+       circularactionalliance.org/ca-reimbursements.
+    4. Select all contents of the block and replace with everything below
+       this comment (from the opening <style> through closing </div>).
+    5. Save.
 
   WHAT TO EXPECT
-    - Headlines render in Montserrat (semibold/bold weights)
-    - Body renders in Nunito Sans
-    - "SB 54" in the hero gets a Trusted Teal underline highlight
-    - "Get in touch" CTA is Action Yellow with Source Navy text
-    - Hero divider and card border use Trusted Teal at brand opacity
-    - Layout is scoped under .caa-sb54-landing so nothing leaks elsewhere
+    - All text in DM Sans, matching the rest of the site
+    - "SB 54" in the headline gets the site-native teal underline bar
+    - "Get in touch" CTA matches the site's primary button style
+    - Hero divider and card border in Trusted Teal
+    - Layout scoped under .caa-sb54-landing so styles don't leak elsewhere
 -->
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
   .caa-sb54-landing {
     max-width: 56rem;
     margin: 0 auto;
     padding: 2rem 1.25rem;
-    font-family: "Nunito Sans", system-ui, -apple-system, sans-serif;
-    font-size: 1rem;
     line-height: 1.55;
-    color: #242424;
-  }
-
-  .caa-sb54-landing h1,
-  .caa-sb54-landing h2 {
-    font-family: "Montserrat", "Nunito Sans", system-ui, sans-serif;
-    color: #0B3647;
-    line-height: 1.2;
-  }
-
-  .caa-sb54-landing h1 {
-    font-size: 2.25rem;
-    font-weight: 700;
-    margin: 0 0 1rem;
-  }
-
-  .caa-sb54-landing h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin: 0;
   }
 
   .caa-sb54-landing p {
@@ -74,12 +65,6 @@
 
   .caa-sb54-landing p:last-child {
     margin-bottom: 0;
-  }
-
-  .caa-sb54-landing h1 em {
-    font-style: normal;
-    background-image: linear-gradient(to bottom, transparent 75%, #218CA5 75%, #218CA5 95%, transparent 95%);
-    padding: 0 0.05em;
   }
 
   .caa-sb54-landing__hero {
@@ -144,7 +129,6 @@
     letter-spacing: 0.08em;
     font-size: 0.875rem;
     font-weight: 700;
-    color: #0B3647;
   }
 
   .caa-sb54-landing__stage-providers {
@@ -153,9 +137,6 @@
   }
 
   @media (max-width: 540px) {
-    .caa-sb54-landing h1 {
-      font-size: 1.875rem;
-    }
     .caa-sb54-landing__stage {
       grid-template-columns: 1fr;
       gap: 0.25rem;
@@ -164,28 +145,6 @@
 
   .caa-sb54-landing__cta-row {
     margin-top: 0.5rem;
-  }
-
-  .caa-sb54-landing__cta {
-    display: inline-block;
-    background: #FFB81C;
-    color: #0B3647;
-    font-family: "Montserrat", "Nunito Sans", system-ui, sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: 0.02em;
-    padding: 0.875rem 1.5rem;
-    border-radius: 6px;
-    text-decoration: none;
-    line-height: 1.2;
-    transition: background-color 150ms ease-in-out;
-  }
-
-  .caa-sb54-landing__cta:hover,
-  .caa-sb54-landing__cta:focus {
-    background: #E6A510;
-    color: #0B3647;
-    text-decoration: none;
   }
 
   .caa-sb54-landing__note {
@@ -235,7 +194,7 @@
       Outreach is ongoing, but you don't have to wait to get involved. If you want to explore funding opportunities or next steps, connect with CAA.
     </p>
     <div class="caa-sb54-landing__cta-row">
-      <a href="https://circularaction.org/ca-reimbursements" class="caa-sb54-landing__cta">Get in touch</a>
+      <a href="https://circularaction.org/ca-reimbursements" class="sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">Get in touch</a>
     </div>
   </section>
 
