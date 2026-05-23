@@ -6,11 +6,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <ModuleLayout
   title="Local Programs"
-  subtitle="SB 54 reimburses eligible costs for local recycling programs, including outreach. See what qualifies and how to plan."
   currentPath={`${base}/reimbursement/local-programs/`}
   prev={{ href: `${base}/reimbursement/`, label: 'Reimbursement for Covered Costs' }}
   next={{ href: `${base}/reimbursement/collection/`, label: 'Collection Systems' }}
 >
+  <section class="section section--intro">
+    <p>If you run a local recycling program, coordinate community outreach, or help residents understand how to participate, a lot of what you do is now eligible for reimbursement under SB 54. This is a meaningful opportunity to expand what your program can do with funding behind it.</p>
+  </section>
+
   <section class="section section--video">
     <h2>Video</h2>
     <p><em>Video pending — embed will be available here.</em></p>
@@ -18,17 +21,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   <section class="section">
     <h2>Why this matters to you</h2>
-    <p>If your city, county, or Tribal government runs a recycling program, SB 54 can reimburse eligible new and additional costs — including education and outreach, contamination reduction, and community engagement activities.</p>
+    <p>SB 54 reimburses eligible new and additional costs for local program implementation along with education and outreach. That includes jurisdictions, Tribal governments, community-based organizations, and service providers delivering work tied directly to SB 54 requirements.</p>
   </section>
 
   <section class="section">
     <h2>Key messages</h2>
-    <p><em>Content pending Tony's pass alongside video script. Current draft below.</em></p>
     <ul>
-      <li>Funding is for "new and additional" work — not existing programs. Eligible costs are only those incurred to meet SB 54 requirements beyond what was already in place prior to 2023.</li>
-      <li>Education and outreach (E&O) activities are explicitly eligible for reimbursement, including local campaigns, community engagement, translation, and contamination reduction efforts.</li>
-      <li>Multiple entities can apply directly — local jurisdictions, Tribal governments, service providers, school districts, and others implementing eligible activities.</li>
-      <li>Equity and Environmental Justice are required considerations. Programs must improve access, engage communities, and avoid negative impacts in underserved areas.</li>
+      <li>Eligible activities include public education campaigns, contamination reduction efforts, community outreach and translation services, program administration, and support for reuse and refill programs at the local level.</li>
+      <li>Funding covers new and additional work only. If the activity exists to meet SB 54 requirements and goes beyond what your program was doing before 2023, it qualifies.</li>
+      <li>Multiple types of organizations can apply directly, including jurisdictions, Tribal governments, community-based organizations, and service providers. There is a pathway to funding if your organization is delivering eligible work.</li>
+      <li>Programs must support recovery of Covered Material Categories (CMCs). Outreach should help residents understand what covered materials are and how to handle them correctly.</li>
+      <li>Applications go through CAA's online portal and require a plan for activities, outcomes, and measurement. Reporting on actual results is required after funding is received.</li>
+      <li>Equity is a required consideration. Programs must improve access, engage underserved communities, and avoid placing additional burdens on areas already impacted by environmental harm.</li>
     </ul>
   </section>
 
@@ -36,21 +40,27 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <h2>Questions</h2>
     <div class="accordion">
       <details class="accordion__item">
-        <summary class="accordion__trigger">What does "new or additional" mean?</summary>
+        <summary class="accordion__trigger">What does new or additional mean?</summary>
         <div class="accordion__content">
-          <p>Costs above what you were already spending on baseline service. SB 54 reimburses the incremental cost of doing more or doing it differently — not your existing operations.</p>
+          <p>It means work that goes beyond what your program was already doing before 2023. If it exists to meet SB 54 requirements, it qualifies. If it was already in place, it does not.</p>
         </div>
       </details>
       <details class="accordion__item">
-        <summary class="accordion__trigger">Can CBOs or community organizations apply directly?</summary>
+        <summary class="accordion__trigger">Can community-based organizations apply directly?</summary>
         <div class="accordion__content">
-          <p>Yes. Community-based organizations, EJ partners, and others implementing eligible activities can seek reimbursement directly or partner with jurisdictions.</p>
+          <p>Yes. CBOs, environmental justice partners, and others implementing eligible work can apply directly or partner with jurisdictions to access funding together.</p>
         </div>
       </details>
       <details class="accordion__item">
         <summary class="accordion__trigger">How are funded programs evaluated?</summary>
         <div class="accordion__content">
-          <p>Programs should outline anticipated outcomes — such as increased recycling, reduced contamination, and improved understanding — and include supporting evidence where possible.</p>
+          <p>Programs should outline expected outcomes like increased recycling, reduced contamination, and improved community understanding, along with a plan to measure progress. Reporting on actual results after funding is received is required.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary class="accordion__trigger">How does equity factor in?</summary>
+        <div class="accordion__content">
+          <p>Equity is built into the program, not added on. Programs must improve access, engage underserved communities, and avoid placing additional burdens on areas already impacted by environmental harm.</p>
         </div>
       </details>
     </div>

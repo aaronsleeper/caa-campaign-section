@@ -6,11 +6,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <ModuleLayout
   title="Roles and Responsibilities Under SB 54"
-  subtitle="Every organization in California's recycling system has a defined role under SB 54. Find yours here."
   currentPath={`${base}/roles-and-responsibilities/`}
   prev={{ href: `${base}/whats-changing/`, label: 'What SB 54 Means for You' }}
   next={{ href: `${base}/reimbursement/`, label: 'Reimbursement for Covered Costs' }}
 >
+  <section class="section section--intro">
+    <p>SB 54 only works if everyone plays their part. The good news is, the people who need to make it happen are already in the system, already doing the work. What changes is how that work is connected, funded, and supported.</p>
+  </section>
+
   <section class="section section--video">
     <h2>Video</h2>
     <p><em>Video pending — embed will be available here.</em></p>
@@ -18,18 +21,20 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   <section class="section">
     <h2>Why this matters to you</h2>
-    <p>SB 54 defines clear roles across the system. CAA, producers, jurisdictions, operators, and the State each have distinct responsibilities. Understanding where you fit is the prerequisite for accessing reimbursement and engaging effectively.</p>
+    <p>Your role in this system is not being reinvented. It is being recognized, resourced, and connected to a bigger statewide effort. Understanding where you fit is the first step toward accessing funding and engaging effectively with CAA and your partners.</p>
   </section>
 
   <section class="section">
     <h2>Key messages</h2>
-    <p><em>Content pending Tony's pass alongside video script. Current draft below.</em></p>
     <ul>
-      <li>CAA is responsible for implementing the program — working across interest holders to deliver the system and coordinate implementation.</li>
-      <li>Producers drive upstream changes through packaging design and source reduction. Local jurisdictions, service providers, and partners deliver services and engage the public.</li>
-      <li>Your organization plays a defined role in implementation. Whether delivering services, engaging communities, or reinforcing behaviors, your work directly impacts system performance.</li>
-      <li>Participation, contamination, and capture rates are shared outcomes. System success depends on how roles work together.</li>
-      <li>This system will evolve — and your role will evolve with it.</li>
+      <li>CalRecycle sets requirements, approves program plans, and holds everyone accountable as the program regulator.</li>
+      <li>Producers, including brands, manufacturers, and importers, fund the system and are responsible for redesigning packaging to meet recyclability and compostability requirements.</li>
+      <li>CAA is the Producer Responsibility Organization, or PRO, for California. CAA implements the program, collects producer funding and directs it back into the system, and serves as the central resource for how SB 54 works and how to navigate it.</li>
+      <li>Local programs connect the statewide system to the communities it serves. Jurisdictions, regional authorities, and local operators run recycling programs, communicate with residents, and make sure covered materials get collected where people live and work.</li>
+      <li>Haulers, operators, and reuse and refill service providers do the physical work of collecting and returning covered materials. Their performance directly shapes recovery rates and material quality.</li>
+      <li>Material Recovery Facilities (MRFs), transfer stations, composting facilities, and reuse hubs are where material quality is determined. Strong processing and stable end markets are what make recycling, composting, and reuse real.</li>
+      <li>Many organizations play more than one of these roles. What matters is the work you are doing and how we build on it together.</li>
+      <li>Participation, contamination, and material recovery are shared outcomes. Every role in the system has a direct influence on them.</li>
     </ul>
   </section>
 
@@ -39,19 +44,37 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <details class="accordion__item">
         <summary class="accordion__trigger">What is CAA responsible for?</summary>
         <div class="accordion__content">
-          <p>CAA manages producer registration, data reporting, compliance, funding structures, and statewide program implementation. CAA serves as a coordinator, implementer, and funder.</p>
-        </div>
-      </details>
-      <details class="accordion__item">
-        <summary class="accordion__trigger">What are jurisdictions responsible for?</summary>
-        <div class="accordion__content">
-          <p>Jurisdictions manage local recycling programs, coordinate with haulers, and support education and outreach efforts. Under SB 54, they can access reimbursement for eligible new and additional costs.</p>
+          <p>CAA implements and manages the statewide SB 54 program on behalf of producers. That includes managing producer registration and reporting, distributing funding to support local programs and system improvements, coordinating with jurisdictions and haulers, and providing guidance and technical assistance. CAA coordinates and supports the system. It does not replace local programs or regulate the industry.</p>
         </div>
       </details>
       <details class="accordion__item">
         <summary class="accordion__trigger">What is the difference between CAA and CalRecycle?</summary>
         <div class="accordion__content">
-          <p>CalRecycle is the state regulatory agency that oversees the SB 54 program. CAA is the Producer Responsibility Organization selected by CalRecycle to implement the program on behalf of producers.</p>
+          <p>CalRecycle sets the rules, approves the program plan, and enforces compliance. CAA implements the program within that framework. For policy or regulatory questions, contact CalRecycle. For funding, implementation, or coordination questions, contact CAA.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary class="accordion__trigger">What are producers responsible for?</summary>
+        <div class="accordion__content">
+          <p>Producers register with CAA, report packaging data, fund system improvements, and redesign packaging to meet recyclability, compostability, and source reduction targets.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary class="accordion__trigger">What is my organization responsible for?</summary>
+        <div class="accordion__content">
+          <p>Local jurisdictions and service providers are responsible for including all materials on CalRecycle's CMC list in their collection and recycling programs. Depending on your role, that may involve running local outreach programs, managing collection routes, or sorting and processing covered materials. Funding is available to support new and additional work tied to those responsibilities.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary class="accordion__trigger">Will SB 54 change who makes local decisions?</summary>
+        <div class="accordion__content">
+          <p>No. Local partners continue making day-to-day program decisions. SB 54 creates statewide standards and coordination, but it does not replace local decision-making.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary class="accordion__trigger">Who manages the Plastic Pollution Mitigation Fund?</summary>
+        <div class="accordion__content">
+          <p>CAA collects PPMF fees from producers and remits them to the California Department of Tax and Fee Administration. CalEPA and other state entities oversee how those funds are allocated and used.</p>
         </div>
       </details>
     </div>

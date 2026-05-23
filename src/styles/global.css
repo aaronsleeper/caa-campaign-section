@@ -219,6 +219,13 @@ li {
   margin-bottom: var(--space-2xl);
 }
 
+/* Intro lead paragraph — page-opening copy with no heading */
+.section--intro p {
+  font-size: var(--text-lg);
+  color: var(--caa-navy);
+  opacity: 0.9;
+}
+
 /* Prev/next navigation */
 .page-nav {
   display: flex;

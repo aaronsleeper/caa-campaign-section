@@ -6,23 +6,27 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <ModuleLayout
   title="What SB 54 Means for You"
-  subtitle="SB 54 is law. Here's what it requires, who it affects, and what changes before 2027."
   currentPath={`${base}/whats-changing/`}
   next={{ href: `${base}/roles-and-responsibilities/`, label: 'Roles and Responsibilities' }}
 >
+  <section class="section section--intro">
+    <p>California has some of the most dedicated recycling programs in the country. The work jurisdictions, haulers, and local operators have put in for years is the foundation this new system is built on. SB 54 does not start from scratch. It brings new funding, clearer expectations, and statewide coordination to support and strengthen what is already working.</p>
+  </section>
+
   <section class="section">
     <h2>Why this matters to you</h2>
-    <p>California's packaging and recycling system is shifting from locally funded and managed to a shared system where producers play a central role. Whether you're a jurisdiction, hauler, processor, or Tribal government, this law changes how your organization operates.</p>
+    <p>For the first time, the companies that make and sell packaging are responsible for funding upgrades to the recycling system. That changes the resources available to you and the expectations around how the system performs. This is a real opportunity to do more with better support behind you.</p>
   </section>
 
   <section class="section">
     <h2>Key messages</h2>
     <ul>
-      <li>SB 54 creates a producer-funded, statewide system managed by CAA. Producers are now responsible for funding and meeting recycling and waste reduction requirements.</li>
-      <li>The law sets clear targets for 2032: reduce single-use plastic packaging by 25%, recycle 65% of single-use plastic, and ensure 100% of packaging is recyclable or compostable.</li>
-      <li>CAA manages producer registration, data reporting, compliance, funding structures, and statewide program implementation.</li>
-      <li>Implementation will happen in phases over multiple years. Program plans, reporting cycles, and system changes roll out over time, not all at once.</li>
-      <li>Education and outreach is a core operational function — designed to drive measurable outcomes like increased participation and reduced contamination.</li>
+      <li>SB 54 is California's Extended Producer Responsibility, or EPR, law for packaging. Producers now fund the system and are required to redesign packaging to meet recyclability and compostability requirements.</li>
+      <li>The goals are ambitious: reduce single-use plastic packaging by 25%, reach a 65% recycling rate, and make 100% of packaging recyclable or compostable.</li>
+      <li>Covered Material Categories, or CMCs, define exactly which materials fall under the law. Everything in this program, from funding to tracking to accountability, starts and ends with covered materials.</li>
+      <li>SB 54 also encourages reuse and refill infrastructure. Refill stations, returnable containers, and durable packaging models are all part of what this law supports.</li>
+      <li>SB 54 builds on existing laws like SB 1383, SB 343, and AB 1201. It does not replace them.</li>
+      <li>Implementation happens in phases. CAA will provide guidance and support at every stage, and your participation is not just welcome, it is essential to making it work.</li>
     </ul>
   </section>
 
@@ -42,19 +46,55 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <details class="accordion__item">
         <summary class="accordion__trigger">What is SB 54, in simple terms?</summary>
         <div class="accordion__content">
-          <p>SB 54 is California's Plastic Pollution Prevention and Packaging Producer Responsibility Act. It shifts responsibility for packaging waste from local governments to the producers who create it, with funding managed through CAA.</p>
+          <p>SB 54 is the Plastic Pollution Prevention and Packaging Producer Responsibility Act. It creates a new, producer-funded system to manage packaging and food serviceware, along with improving recycling and composting efforts across California. Producers take on an active role in funding system improvements while local governments continue to operate existing programs.</p>
         </div>
       </details>
       <details class="accordion__item">
-        <summary class="accordion__trigger">How is this different from how the system works today?</summary>
+        <summary class="accordion__trigger">What issue is SB 54 trying to address?</summary>
         <div class="accordion__content">
-          <p>Today, local governments largely fund and manage recycling programs. Under SB 54, producers fund the system through CAA, and statewide coordination replaces the current patchwork of local approaches.</p>
+          <p>California's recycling system faces real challenges. Operational and capacity gaps exist across the state, recycling outcomes vary by community, and local programs have historically carried most of the responsibility. SB 54 is designed to improve how packaging is managed, strengthen recycling performance, and create a more consistent and coordinated system statewide.</p>
         </div>
       </details>
       <details class="accordion__item">
-        <summary class="accordion__trigger">How does SB 54 connect to SB 1383 or SB 343?</summary>
+        <summary class="accordion__trigger">What is Extended Producer Responsibility, or EPR?</summary>
         <div class="accordion__content">
-          <p>SB 54 focuses on packaging and single-use plastics specifically, while SB 1383 addresses organic waste and SB 343 covers labeling. They're complementary laws that address different parts of the waste stream.</p>
+          <p>EPR is a policy approach that shifts the cost of managing packaging from local governments and taxpayers to the companies that make and sell it. Under EPR, producers pay fees that fund collection, processing, education and outreach, infrastructure improvements, and end market development.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary class="accordion__trigger">What is actually changing?</summary>
+        <div class="accordion__content">
+          <p>Funding is shifting from primarily local sources to a producer-funded model. Responsibility is more clearly shared across producers, jurisdictions, and service providers. And statewide standards for recycling and reporting are being established for the first time.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary class="accordion__trigger">What is NOT changing?</summary>
+        <div class="accordion__content">
+          <p>Local programs stay local. Jurisdictions, haulers, and recyclers remain responsible for day-to-day operations. Existing laws like SB 1383 still apply. SB 54 supports and strengthens what is already in place.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary class="accordion__trigger">What are Covered Material Categories, or CMCs?</summary>
+        <div class="accordion__content">
+          <p>CMCs are the standardized classifications of packaging covered under SB 54. They define what must meet recyclability or compostability standards and what gets tracked and reported. CalRecycle defines and updates the CMC list annually.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary class="accordion__trigger">How does SB 54 connect to existing laws?</summary>
+        <div class="accordion__content">
+          <p>SB 54 builds on SB 1383, which focuses on organics and composting; SB 343, which defines recyclable materials; and AB 1201, which sets labeling requirements for compostable products. Together these laws address the full arc of how materials are designed, labeled, collected, and recovered.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary class="accordion__trigger">When does implementation begin?</summary>
+        <div class="accordion__content">
+          <p>Pending approval of the program plan by CalRecycle by December 27, 2026, CAA will begin implementation in January 2027.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary class="accordion__trigger">Will this increase costs for local governments or ratepayers?</summary>
+        <div class="accordion__content">
+          <p>No. CAA is responsible for covering all new and additional costs related to statewide SB 54 implementation.</p>
         </div>
       </details>
     </div>
