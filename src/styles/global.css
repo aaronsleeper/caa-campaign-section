@@ -421,6 +421,65 @@ li {
   max-width: 40ch;
 }
 
+/* Two-column media + text split — the live CAA "image beside text" device.
+   Primary long-text relief; alternate media side down a page for rhythm. */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  margin: var(--space-2xl) 0;
+}
+
+.split__body {
+  min-width: 0;
+}
+
+.split--media-right .split__media {
+  order: 2;
+}
+
+@media (max-width: 768px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+  .split--media-right .split__media {
+    order: 0;
+  }
+}
+
+/* Solid navy band — reverse-text "remember this" takeaway block */
+.band--solid-navy {
+  background: var(--caa-navy);
+}
+
+.band--solid-navy,
+.band--solid-navy h2,
+.band--solid-navy h3,
+.band--solid-navy p,
+.band--solid-navy li {
+  color: var(--caa-paper);
+}
+
+/* Pull-quote / callout — lift one sentence out of long text. Never yellow. */
+.callout {
+  border-left: 4px solid var(--caa-teal);
+  background: color-mix(in srgb, var(--caa-teal) 6%, var(--caa-paper));
+  padding: var(--space-md) var(--space-xl);
+  margin: var(--space-xl) 0;
+  font-size: var(--text-lg);
+  color: var(--caa-navy);
+}
+
+/* Framed hero — title + a tint shoulder that can seat a media element,
+   reproducing the live CAA "photo in a color block" hero. */
+.hero--framed {
+  background: color-mix(in srgb, var(--caa-teal) 8%, var(--caa-paper));
+  border-bottom: none;
+  border-radius: var(--card-radius);
+  padding: var(--space-2xl);
+}
+
 /* Prev/next navigation */
 .page-nav {
   display: flex;
