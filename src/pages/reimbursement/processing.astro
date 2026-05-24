@@ -13,22 +13,26 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <p>Better sorting. Cleaner materials. Stronger end markets. Processing is where covered materials are either recovered or lost. SB 54 invests in making the system deliver all the way through, and that investment flows directly to the facilities and operators doing that work.</p>
   </section>
 
-  <section class="section section--video">
-    <h2>Video</h2>
-    <p><em>Video pending — embed will be available here.</em></p>
-  </section>
+  <div class="video-placeholder">
+    <div class="video-placeholder__inner">
+      <span class="video-placeholder__icon" aria-hidden="true">&#9654;</span>
+      <span class="video-placeholder__label">Module video &mdash; coming soon</span>
+    </div>
+  </div>
 
-  <section class="section">
-    <h2>Why this matters to you</h2>
-    <p>If you operate a processing facility, manage material recovery, or develop end markets for recyclables, there are reimbursement opportunities tied to the improvements that strengthen system performance and increase recovery of covered material categories.</p>
-  </section>
+  <!-- Split: media-right (alternates with 3b) -->
+  <div class="split split--media-right">
+    <figure class="split__media fpo">
+      <span class="fpo__tag">Image &middot; FPO</span>
+      <span class="fpo__desc">Abstract Circular Motion: dynamic looping forms suggesting material flowing through to viable end markets &mdash; conceptual, brand-palette, no literal facility shot needed.</span>
+    </figure>
+    <div class="split__body">
+      <h2>Why this matters to you</h2>
+      <p>If you operate a processing facility, manage material recovery, or develop end markets for recyclables, there are reimbursement opportunities tied to the improvements that strengthen system performance and increase recovery of covered material categories.</p>
+    </div>
+  </div>
 
-  <figure class="fpo">
-    <span class="fpo__tag">Image &middot; FPO</span>
-    <span class="fpo__desc">Circular Art or community photography: a MRF sorting line or baled clean commodities &mdash; recyclables as valuable material, never as waste. Bold, organized composition on brand-palette ground.</span>
-  </figure>
-
-  <section class="section">
+  <div class="band band--tint-navy">
     <h2>Key messages</h2>
     <ul>
       <li>Eligible investments must be tied to CMCs. Sorting upgrades, contamination reduction systems, capacity expansion, and end market development all qualify when they demonstrably improve recovery and material quality.</li>
@@ -39,7 +43,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <li>Incentive funding is available for innovation. Hard-to-recycle materials, contamination reduction breakthroughs, and end market development in low-demand areas are all areas where additional support may be available.</li>
       <li>Environmental justice considerations apply. Facilities must assess and work to mitigate community impacts and demonstrate meaningful engagement.</li>
     </ul>
-  </section>
+  </div>
+
+  <!-- Second image — Circular Art, the materials-as-commodity beat -->
+  <figure class="fpo">
+    <span class="fpo__tag">Image &middot; FPO</span>
+    <span class="fpo__desc">Circular Art: a MRF sorting line or baled clean commodities arranged as a bold, organized composition &mdash; recyclables as valuable material, never as waste. Brand-palette ground.</span>
+  </figure>
 
   <section class="section">
     <h2>Questions</h2>
@@ -65,35 +75,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </div>
   </section>
 
-  <section class="cta-block">
-    <h2>What to do next</h2>
+  <div class="band band--tint-teal">
+    <section class="cta-block">
+      <h2>What to do next</h2>
 
-    <div class="cta-block__card">
-      <p class="cta-block__label">MRFs, processors, composting, transfer stations</p>
-      <p class="cta-block__action"><strong>Start a facility investment conversation with CAA</strong></p>
-    </div>
+      <div class="cta-block__card">
+        <p class="cta-block__label">MRFs, processors, composting, transfer stations</p>
+        <p class="cta-block__action"><strong>Start a facility investment conversation with CAA</strong></p>
+      </div>
 
-    <div class="cta-block__card">
-      <p class="cta-block__label">Facilities handling mixed material streams</p>
-      <p class="cta-block__action"><strong>Download the CMC eligibility worksheet</strong></p>
-    </div>
+      <div class="cta-block__card">
+        <p class="cta-block__label">Facilities handling mixed material streams</p>
+        <p class="cta-block__action"><strong>Download the CMC eligibility worksheet</strong></p>
+      </div>
 
-    <div class="cta-block__card">
-      <p class="cta-block__label">Innovators and investors</p>
-      <p class="cta-block__action"><strong>Share an end-market or innovation opportunity</strong> — form for new approaches to material processing or system gaps.</p>
-    </div>
-
-    <div class="cta-block__card cta-block__card--ready">
-      <p class="cta-block__label">Stay ready</p>
-      <p class="cta-block__action"><strong>Request a working group invitation</strong> — regional agency roundtable, processor working group.</p>
-    </div>
-  </section>
-
-  <section class="section section--resources">
-    <h2>Resources</h2>
-    <ul class="resources-list">
-      <li><strong>Slide deck</strong> — <em>Deck pending — download will be available here.</em></li>
-      <li><strong>CMC eligibility worksheet</strong> — <em>Download pending — for facilities handling mixed material streams.</em></li>
-    </ul>
-  </section>
+      <div class="cta-block__card cta-block__card--ready">
+        <p class="cta-block__label">Stay ready</p>
+        <p class="cta-block__action"><strong>Request a working group invitation</strong> &mdash; regional agency roundtable, processor working group.</p>
+      </div>
+    </section>
+  </div>
 </ModuleLayout>

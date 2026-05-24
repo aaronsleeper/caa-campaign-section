@@ -14,22 +14,28 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <p>Improving how covered materials get collected is one of the most direct ways to hit SB 54's recovery targets. If you oversee collection systems, manage routes, or coordinate service delivery, funding is available to support the improvements it takes to get there.</p>
   </section>
 
-  <section class="section section--video">
-    <h2>Video</h2>
-    <p><em>Video pending — embed will be available here.</em></p>
-  </section>
+  <div class="video-placeholder">
+    <div class="video-placeholder__inner">
+      <span class="video-placeholder__icon" aria-hidden="true">&#9654;</span>
+      <span class="video-placeholder__label">Module video &mdash; coming soon</span>
+    </div>
+  </div>
 
-  <section class="section">
-    <h2>Why this matters to you</h2>
-    <p>Collection system improvements are a core funding category under SB 54. Whether you design the system or operate it on the ground, there are reimbursement opportunities tied to the incremental work of expanding and improving collection of covered materials.</p>
-  </section>
+  <!-- Split: media-left (alternates with 3a/3c) -->
+  <div class="split">
+    <figure class="split__media fpo">
+      <span class="fpo__tag">Image &middot; FPO</span>
+      <span class="fpo__desc">Community photography or abstract motion: a collection route or cart fleet, organized and purposeful &mdash; covered materials collected cleanly. Circular crop echoing the Unity Spark.</span>
+    </figure>
+    <div class="split__body">
+      <h2>Why this matters to you</h2>
+      <p>Collection system improvements are a core funding category under SB 54. Whether you design the system or operate it on the ground, there are reimbursement opportunities tied to the incremental work of expanding and improving collection of covered materials.</p>
+    </div>
+  </div>
 
-  <figure class="fpo">
-    <span class="fpo__tag">Image &middot; FPO</span>
-    <span class="fpo__desc">Community photography or abstract motion: a collection route or cart fleet, organized and purposeful &mdash; covered materials collected cleanly. Circular crop echoing the Unity Spark.</span>
-  </figure>
+  <p class="callout">Only the incremental costs tied to SB 54 qualify &mdash; existing services and baseline operations are not reimbursable.</p>
 
-  <section class="section">
+  <div class="band band--tint-navy">
     <h2>Key messages</h2>
     <ul>
       <li>Eligible improvements include expanded service to multifamily and underserved areas, new or upgraded carts, bins, and vehicles, route adjustments to improve CMC capture, and new drop-off or depot locations.</li>
@@ -39,7 +45,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <li>Reimbursement is tied to documented outcomes including increased tons collected, expanded service coverage, and improved capture rates.</li>
       <li>Rural areas and communities with access gaps are explicitly addressed. Additional transportation costs and service expansion in hard-to-reach areas are eligible.</li>
     </ul>
-  </section>
+  </div>
 
   <section class="section">
     <h2>Questions</h2>
@@ -71,35 +77,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </div>
   </section>
 
-  <section class="cta-block">
-    <h2>What to do next</h2>
+  <div class="band band--tint-teal">
+    <section class="cta-block">
+      <h2>What to do next</h2>
 
-    <div class="cta-block__card">
-      <p class="cta-block__label">Jurisdictions and local program operators</p>
-      <p class="cta-block__action"><strong>Share your collection improvement concepts with CAA</strong> — structured form for early planning and budgeting. This is a planning conversation, not an application.</p>
-    </div>
+      <div class="cta-block__card">
+        <p class="cta-block__label">Jurisdictions and local program operators</p>
+        <p class="cta-block__action"><strong>Share your collection improvement concepts with CAA</strong> &mdash; structured form for early planning and budgeting. This is a planning conversation, not an application.</p>
+      </div>
 
-    <div class="cta-block__card">
-      <p class="cta-block__label">Haulers walking into franchise conversations</p>
-      <p class="cta-block__action"><strong>Download the jurisdiction-hauler coordination brief</strong></p>
-    </div>
+      <div class="cta-block__card">
+        <p class="cta-block__label">Haulers walking into franchise conversations</p>
+        <p class="cta-block__action"><strong>Download the jurisdiction-hauler coordination brief</strong></p>
+      </div>
 
-    <div class="cta-block__card">
-      <p class="cta-block__label">Regional agencies and JPAs</p>
-      <p class="cta-block__action"><a href="mailto:internalcomms@circularaction.org"><strong>Connect with your regional contact &rarr;</strong></a></p>
-    </div>
-
-    <div class="cta-block__card cta-block__card--ready">
-      <p class="cta-block__label">Stay ready</p>
-      <p class="cta-block__action"><strong>Request a working group invitation</strong> — small-jurisdiction working group, regional agency roundtable.</p>
-    </div>
-  </section>
-
-  <section class="section section--resources">
-    <h2>Resources</h2>
-    <ul class="resources-list">
-      <li><strong>Slide deck</strong> — <em>Deck pending — download will be available here.</em></li>
-      <li><strong>Jurisdiction-hauler coordination brief</strong> — <em>Download pending — for haulers walking into franchise conversations.</em></li>
-    </ul>
-  </section>
+      <div class="cta-block__card cta-block__card--ready">
+        <p class="cta-block__label">Stay ready</p>
+        <p class="cta-block__action"><strong>Request a working group invitation</strong> &mdash; small-jurisdiction working group, regional agency roundtable.</p>
+      </div>
+    </section>
+  </div>
 </ModuleLayout>

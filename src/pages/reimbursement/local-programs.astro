@@ -14,22 +14,28 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <p>If you run a local recycling program, coordinate community outreach, or help residents understand how to participate, a lot of what you do is now eligible for reimbursement under SB 54. This is a meaningful opportunity to expand what your program can do with funding behind it.</p>
   </section>
 
-  <section class="section section--video">
-    <h2>Video</h2>
-    <p><em>Video pending — embed will be available here.</em></p>
-  </section>
+  <div class="video-placeholder">
+    <div class="video-placeholder__inner">
+      <span class="video-placeholder__icon" aria-hidden="true">&#9654;</span>
+      <span class="video-placeholder__label">Module video &mdash; coming soon</span>
+    </div>
+  </div>
 
-  <section class="section">
-    <h2>Why this matters to you</h2>
-    <p>SB 54 reimburses eligible new and additional costs for local program implementation along with education and outreach. That includes jurisdictions, Tribal governments, community-based organizations, and service providers delivering work tied directly to SB 54 requirements.</p>
-  </section>
+  <!-- Split: media-right (alternates with 3b/3c) -->
+  <div class="split split--media-right">
+    <figure class="split__media fpo">
+      <span class="fpo__tag">Image &middot; FPO</span>
+      <span class="fpo__desc">Community photography: a local outreach event or curbside drop-off &mdash; residents engaging with a recycling program, clean bins, organized materials. People as collaborators, not subjects.</span>
+    </figure>
+    <div class="split__body">
+      <h2>Why this matters to you</h2>
+      <p>SB 54 reimburses eligible new and additional costs for local program implementation along with education and outreach. That includes jurisdictions, Tribal governments, community-based organizations, and service providers delivering work tied directly to SB 54 requirements.</p>
+    </div>
+  </div>
 
-  <figure class="fpo">
-    <span class="fpo__tag">Image &middot; FPO</span>
-    <span class="fpo__desc">Community photography: a local outreach event or curbside drop-off &mdash; residents engaging with a recycling program, clean bins, organized materials. People as collaborators, not subjects.</span>
-  </figure>
+  <p class="callout">Funding covers new and additional work only &mdash; the activities you take on to meet SB 54, beyond what your program was already doing.</p>
 
-  <section class="section">
+  <div class="band band--tint-navy">
     <h2>Key messages</h2>
     <ul>
       <li>Eligible activities include public education campaigns, contamination reduction efforts, community outreach and translation services, program administration, and support for reuse and refill programs at the local level.</li>
@@ -39,7 +45,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <li>Applications go through CAA's online portal and require a plan for activities, outcomes, and measurement. Reporting on actual results is required after funding is received.</li>
       <li>Equity is a required consideration. Programs must improve access, engage underserved communities, and avoid placing additional burdens on areas already impacted by environmental harm.</li>
     </ul>
-  </section>
+  </div>
 
   <section class="section">
     <h2>Questions</h2>
@@ -71,35 +77,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </div>
   </section>
 
-  <section class="cta-block">
-    <h2>What to do next</h2>
+  <div class="band band--tint-teal">
+    <section class="cta-block">
+      <h2>What to do next</h2>
 
-    <div class="cta-block__card">
-      <p class="cta-block__label">Staffed jurisdictions</p>
-      <p class="cta-block__action"><strong>Start a funding conversation with CAA</strong> — calendar or intake form.</p>
-    </div>
+      <div class="cta-block__card">
+        <p class="cta-block__label">Staffed jurisdictions</p>
+        <p class="cta-block__action"><strong>Start a funding conversation with CAA</strong> &mdash; calendar or intake form.</p>
+      </div>
 
-    <div class="cta-block__card">
-      <p class="cta-block__label">All audiences</p>
-      <p class="cta-block__action"><strong>Download the eligibility checklist</strong></p>
-    </div>
+      <div class="cta-block__card">
+        <p class="cta-block__label">All audiences</p>
+        <p class="cta-block__action"><strong>Download the eligibility checklist</strong></p>
+      </div>
 
-    <div class="cta-block__card">
-      <p class="cta-block__label">Tribal governments and small community partners</p>
-      <p class="cta-block__action"><strong>Request the Tribal government office hours invite</strong></p>
-    </div>
-
-    <div class="cta-block__card cta-block__card--ready">
-      <p class="cta-block__label">Stay ready</p>
-      <p class="cta-block__action"><strong>Request a working group invitation</strong> — Tribal government office hours, small-jurisdiction working group, or regional agency roundtable.</p>
-    </div>
-  </section>
-
-  <section class="section section--resources">
-    <h2>Resources</h2>
-    <ul class="resources-list">
-      <li><strong>Slide deck</strong> — <em>Deck pending — download will be available here.</em></li>
-      <li><strong>Eligibility checklist</strong> — <em>Download pending — what qualifies for local program reimbursement.</em></li>
-    </ul>
-  </section>
+      <div class="cta-block__card cta-block__card--ready">
+        <p class="cta-block__label">Stay ready</p>
+        <p class="cta-block__action"><strong>Request a working group invitation</strong> &mdash; Tribal government office hours, small-jurisdiction working group, or regional agency roundtable.</p>
+      </div>
+    </section>
+  </div>
 </ModuleLayout>
