@@ -1,17 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionNav from '../components/SectionNav.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <BaseLayout title="SB 54 in California" description="SB 54 interest-holder education materials — understand the law, your role, and how to access reimbursement.">
-  <div class="hub">
-    <div class="hub__hero">
+  <SectionNav currentPath={`${base}/`} />
+  <div class="page">
+    <div class="hero">
       <h1>SB 54 in California</h1>
       <p class="hub__subtitle">
         California is taking on one of its most ambitious recycling and packaging challenges yet. SB 54 is a groundbreaking law that shifts responsibility for funding the recycling system to the companies that make and sell packaging, and sets bold goals for what that system can achieve.
       </p>
+    </div>
 
+    <!-- Stat band — reproduces the live CAA "Key Goals" grid -->
+    <div class="band band--tint-teal">
+      <p class="band__eyebrow">By January 1, 2032, SB 54 aims to:</p>
       <div class="stat-row">
         <div class="stat">
           <span class="stat__number">25%</span>
@@ -26,10 +32,19 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <span class="stat__label">of packaging recyclable or compostable</span>
         </div>
       </div>
+    </div>
 
-      <p class="hub__subtitle">
-        The people who will make that happen are already out there doing this work. If that includes you, this site is here to help you understand what is changing, where you fit, and how to access the support and funding that comes with it.
-      </p>
+    <!-- Split: who this is for, beside a brand graphic -->
+    <div class="split split--media-right">
+      <figure class="split__media fpo">
+        <span class="fpo__tag">Image &middot; FPO</span>
+        <span class="fpo__desc">Abstract Circular Motion: layered, semi-transparent Unity Spark arcs in teal and navy &mdash; a system coming together. No literal objects; the brand signature as the cover image.</span>
+      </figure>
+      <div class="split__body">
+        <p class="hub__subtitle">
+          The people who will make that happen are already out there doing this work. If that includes you, this site is here to help you understand what is changing, where you fit, and how to access the support and funding that comes with it.
+        </p>
+      </div>
     </div>
 
     <div class="video-placeholder">
@@ -39,10 +54,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       </div>
     </div>
 
+    <h2 class="hub__heading">Start with the part that fits you</h2>
     <div class="card-grid">
       <div class="card">
         <span class="card__number">1</span>
-        <h2 class="card__title">What SB 54 Means for You</h2>
+        <h3 class="card__title">What SB 54 Means for You</h3>
         <p class="card__description">
           Understand what is changing, what is not, and why it matters for your organization.
         </p>
@@ -51,7 +67,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
       <div class="card">
         <span class="card__number">2</span>
-        <h2 class="card__title">Roles and Responsibilities</h2>
+        <h3 class="card__title">Roles and Responsibilities</h3>
         <p class="card__description">
           See how your work connects to the bigger picture and where you fit in the new system.
         </p>
@@ -60,7 +76,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
       <div class="card">
         <span class="card__number">3</span>
-        <h2 class="card__title">Reimbursement for Covered Costs</h2>
+        <h3 class="card__title">Reimbursement for Covered Costs</h3>
         <p class="card__description">
           Producer funding is flowing back into the system. Find out what is eligible and how to prepare.
         </p>
@@ -69,31 +85,21 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </div>
 
     <div class="hub__links">
-      <a href={`${base}/questions/`}>Questions</a> &middot;
-      <a href={`${base}/temp/`}>Temporary landing page</a> &middot;
       <a href="mailto:internalcomms@circularaction.org">Contact CAA Communications</a>
     </div>
   </div>
 </BaseLayout>
 
 <style>
-  .hub {
-    max-width: calc(var(--content-width) + var(--sidebar-width) + var(--space-2xl));
-    margin: 0 auto;
-    padding: var(--space-xl);
-  }
-
-  .hub__hero {
-    padding: var(--space-3xl) 0 var(--space-2xl);
-    border-bottom: 3px solid var(--caa-teal);
-    margin-bottom: var(--space-2xl);
-  }
-
   .hub__subtitle {
     font-size: var(--text-lg);
     color: var(--caa-navy);
     max-width: var(--max-line-length);
     opacity: 0.85;
+  }
+
+  .hub__heading {
+    margin-top: var(--space-2xl);
   }
 
   .card__number {
@@ -112,7 +118,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   }
 
   .hub__links {
-    padding-top: var(--space-xl);
+    padding-top: var(--space-2xl);
     font-size: var(--text-sm);
     color: var(--caa-ink);
     opacity: 0.7;
