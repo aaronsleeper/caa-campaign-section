@@ -1,11 +1,14 @@
 /* CAA Visual Standards v1 — Design Tokens */
 
 :root {
-  /* Core palette (95–100% of any composition) */
-  --caa-teal: #218CA5;
-  --caa-navy: #0B3647;
-  --caa-yellow: #FFB81C;
-  --caa-ink: #242424;
+  /* Core palette — matched to the LIVE circularactionalliance.org site (primary source, 2026-05-24).
+     Supersedes the stale Visual Standards v1 hexes for site-alignment. */
+  --caa-teal: #196D80;   /* live primary teal (was v1 #218CA5) */
+  --caa-navy: #031D2D;   /* live navy / body text (was v1 #0B3647) */
+  --caa-yellow: #FFD364; /* live gold accent, used liberally (was v1 #FFB81C) */
+  --caa-gold-deep: #DA9C10; /* live darker gold (timeline dots) */
+  --caa-green: #3DE87A;  /* live accent green */
+  --caa-ink: #031D2D;
   --caa-paper: #FFFFFF;
 
   /* Secondary palette (0–5%, data viz only) */
@@ -19,9 +22,9 @@
   /* Accessible teal for links on light backgrounds (~5.2:1 on white) */
   --caa-teal-dark: #1a7389;
 
-  /* Typography */
-  --font-body: "Nunito Sans", system-ui, sans-serif; /* Fallback — Avenir Next LT Pro pending license */
-  --font-display: "Montserrat", "Nunito Sans", sans-serif;
+  /* Typography — live site uses DM Sans throughout (headings at light weight 200–300) */
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-display: "DM Sans", system-ui, sans-serif;
   --body-size: 16px;
   --line-height: 1.6;
   --max-line-length: 72ch;

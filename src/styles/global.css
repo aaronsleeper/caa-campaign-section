@@ -32,20 +32,21 @@ h1, h2, h3 {
 
 h1 {
   font-size: var(--text-4xl);
-  font-weight: 700;
+  font-weight: 300;
+  letter-spacing: -0.01em;
   margin-bottom: var(--space-md);
 }
 
 h2 {
-  font-size: var(--text-2xl);
-  font-weight: 600;
+  font-size: var(--text-3xl);
+  font-weight: 300;
   margin-top: var(--space-2xl);
   margin-bottom: var(--space-md);
 }
 
 h3 {
   font-size: var(--text-xl);
-  font-weight: 600;
+  font-weight: 500;
   margin-top: var(--space-xl);
   margin-bottom: var(--space-sm);
 }
@@ -160,11 +161,11 @@ li {
   display: inline-block;
   font-family: var(--font-display);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--caa-navy);
   background: var(--caa-yellow);
   padding: var(--space-sm) var(--space-lg);
-  border-radius: 4px;
+  border-radius: 999px;
   text-decoration: none;
   align-self: flex-start;
   transition: background 0.15s, color 0.15s;
@@ -376,20 +377,21 @@ li {
 
 .timeline__dot {
   position: absolute;
-  top: 0;
+  top: -4px;
   left: 0;
-  width: 12px;
-  height: 12px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  background: var(--caa-teal);
+  background: var(--caa-gold-deep);
 }
 
 .timeline__date {
   display: block;
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: var(--text-base, 1rem);
-  color: var(--caa-teal);
+  font-weight: 300;
+  font-size: var(--text-xl);
+  color: var(--caa-navy);
+  margin-top: var(--space-md);
   margin-bottom: var(--space-xs);
 }
 
