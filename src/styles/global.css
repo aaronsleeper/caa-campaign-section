@@ -297,13 +297,25 @@ li {
 
 /* Full-width-feel color bands — the alternating-rhythm signature.
    Edge-bleed within the content column to read as bands, not boxed cards. */
+/* Full-width content column (replaces the left-rail grid) */
+.page {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-xl);
+}
+
+/* True full-bleed bands — span the viewport, content re-centered to the column */
 .band {
-  margin: var(--space-2xl) calc(-1 * var(--space-xl));
-  padding: var(--space-2xl) var(--space-xl);
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  margin-block: var(--space-2xl);
+  padding-block: var(--space-2xl);
+  padding-inline: max(var(--space-xl), calc((100vw - var(--content-width)) / 2 + var(--space-xl)));
 }
 
 .band__inner {
-  max-width: var(--max-line-length);
+  max-width: var(--content-width);
+  margin: 0 auto;
 }
 
 .band--tint-teal {
