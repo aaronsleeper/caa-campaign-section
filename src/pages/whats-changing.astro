@@ -13,32 +13,81 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <p>California has some of the most dedicated recycling programs in the country. The work jurisdictions, haulers, and local operators have put in for years is the foundation this new system is built on. SB 54 does not start from scratch. It brings new funding, clearer expectations, and statewide coordination to support and strengthen what is already working.</p>
   </section>
 
+  <div class="video-placeholder">
+    <div class="video-placeholder__inner">
+      <span class="video-placeholder__icon" aria-hidden="true">&#9654;</span>
+      <span class="video-placeholder__label">Module video &mdash; coming soon</span>
+    </div>
+  </div>
+
   <section class="section">
     <h2>Why this matters to you</h2>
     <p>For the first time, the companies that make and sell packaging are responsible for funding upgrades to the recycling system. That changes the resources available to you and the expectations around how the system performs. This is a real opportunity to do more with better support behind you.</p>
   </section>
 
+  <!-- Stat band — reproduces the live CAA "Key Goals" 3-up grid -->
+  <div class="band band--tint-teal">
+    <p class="band__eyebrow">By January 1, 2032, SB 54 aims to:</p>
+    <div class="stat-row">
+      <div class="stat">
+        <span class="stat__number">25%</span>
+        <span class="stat__label">reduction in single-use plastic packaging</span>
+      </div>
+      <div class="stat">
+        <span class="stat__number">65%</span>
+        <span class="stat__label">recycling rate for single-use plastic packaging</span>
+      </div>
+      <div class="stat">
+        <span class="stat__number">100%</span>
+        <span class="stat__label">of packaging recyclable or compostable</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Milestone timeline — reproduces the live CAA "Key Milestones" device.
+       Confirmed dates only (Dec 27 2026 deliberately omitted pending source confirm). -->
   <section class="section">
+    <h2>How the rollout unfolds</h2>
+    <div class="timeline">
+      <div class="timeline__step">
+        <span class="timeline__dot" aria-hidden="true"></span>
+        <span class="timeline__date">2022</span>
+        <span class="timeline__label">SB 54 is signed into law in California.</span>
+      </div>
+      <div class="timeline__step">
+        <span class="timeline__dot" aria-hidden="true"></span>
+        <span class="timeline__date">2024&ndash;2025</span>
+        <span class="timeline__label">CalRecycle publishes and updates the Covered Material Categories list.</span>
+      </div>
+      <div class="timeline__step">
+        <span class="timeline__dot" aria-hidden="true"></span>
+        <span class="timeline__date">By Jan. 1, 2027</span>
+        <span class="timeline__label">CalRecycle approves the program plan and implementation begins.</span>
+      </div>
+      <div class="timeline__step">
+        <span class="timeline__dot" aria-hidden="true"></span>
+        <span class="timeline__date">By 2032</span>
+        <span class="timeline__label">Statewide reduction, recycling, and recyclability targets come due.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key messages on a navy-tint band -->
+  <div class="band band--tint-navy">
     <h2>Key messages</h2>
     <ul>
       <li>SB 54 is California's Extended Producer Responsibility, or EPR, law for packaging. Producers now fund the system and are required to redesign packaging to meet recyclability and compostability requirements.</li>
-      <li>The goals are ambitious: reduce single-use plastic packaging by 25%, reach a 65% recycling rate, and make 100% of packaging recyclable or compostable.</li>
       <li>Covered Material Categories, or CMCs, define exactly which materials fall under the law. Everything in this program, from funding to tracking to accountability, starts and ends with covered materials.</li>
       <li>SB 54 also encourages reuse and refill infrastructure. Refill stations, returnable containers, and durable packaging models are all part of what this law supports.</li>
       <li>SB 54 builds on existing laws like SB 1383, SB 343, and AB 1201. It does not replace them.</li>
-      <li>Implementation happens in phases. CAA will provide guidance and support at every stage, and your participation is not just welcome, it is essential to making it work.</li>
     </ul>
-  </section>
+  </div>
 
-  <section class="section">
-    <h2>Slide deck</h2>
-    <p><em>Deck pending — download will be available here.</em></p>
-  </section>
-
-  <section class="section">
-    <h2>Video</h2>
-    <p><em>Video pending — embed will be available here.</em></p>
-  </section>
+  <!-- FPO imagery zone — names the intended image for generation -->
+  <figure class="fpo">
+    <span class="fpo__tag">Image &middot; FPO</span>
+    <span class="fpo__desc">Community photography: recycling-program staff or local operators at work, clean and purposeful, framed within a circular crop that echoes the Unity Spark. Recyclables shown as valuable commodities, never as trash.</span>
+  </figure>
 
   <section class="section">
     <h2>Questions</h2>
@@ -100,22 +149,25 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </div>
   </section>
 
-  <section class="cta-block">
-    <h2>What to do next</h2>
+  <!-- CTA band — the page's single Action Yellow lives here -->
+  <div class="band band--tint-teal">
+    <section class="cta-block">
+      <h2>What to do next</h2>
 
-    <div class="cta-block__card">
-      <p class="cta-block__label">All audiences</p>
-      <p class="cta-block__action"><strong>Get the SB 54 milestone calendar</strong> — key dates and deadlines as a PDF or calendar subscription.</p>
-    </div>
+      <div class="cta-block__card">
+        <p class="cta-block__label">All audiences</p>
+        <p class="cta-block__action"><strong>Get the SB 54 milestone calendar</strong> &mdash; key dates and deadlines as a PDF or calendar subscription.</p>
+      </div>
 
-    <div class="cta-block__card">
-      <p class="cta-block__label">All audiences</p>
-      <p class="cta-block__action"><a href={`${base}/roles-and-responsibilities/`}><strong>Find your role under SB 54 &rarr;</strong></a></p>
-    </div>
+      <div class="cta-block__card">
+        <p class="cta-block__label">All audiences</p>
+        <p class="cta-block__action"><a href={`${base}/roles-and-responsibilities/`}><strong>Find your role under SB 54 &rarr;</strong></a></p>
+      </div>
 
-    <div class="cta-block__card cta-block__card--ready">
-      <p class="cta-block__label">Stay ready</p>
-      <p class="cta-block__action"><strong>Join the California interest-holder briefing</strong> — quarterly updates segmented by role.</p>
-    </div>
-  </section>
+      <div class="cta-block__card cta-block__card--ready">
+        <p class="cta-block__label">Stay ready</p>
+        <p class="cta-block__action"><strong>Join the California interest-holder briefing</strong> &mdash; quarterly updates segmented by role.</p>
+      </div>
+    </section>
+  </div>
 </ModuleLayout>
