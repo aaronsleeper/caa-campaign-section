@@ -4,7 +4,7 @@ Local static prototype for the SB 54 interest-holder campaign section on `circul
 
 ## Source of truth
 
-All IA, UX, and copy decisions live in `Stack Overflowed/Projects/Change Craft/CAA/`:
+All IA, UX, and copy decisions live in `Knowledge/Projects/Change Craft/CAA/`:
 - `IA and UX Recommendation.md` — approved IA, page templates, gateway pattern, CTAs, navigation, terminology
 - `Design Brief.md` — colors, typography, logo rules, imagery style
 - `Creative Brief - Interest Holder Materials 4-10-26.md` — per-module content (objectives, audiences, key messages, user journeys)
@@ -38,7 +38,7 @@ Core + white space = 95–100% of any composition. Action Yellow on exactly one 
 - One logo per page. Prefer corner placement.
 - Occupy no more than 1/3 live-area width.
 - Clear space = height of the "C" in the logo.
-- Source vector: `../Stack Overflowed/Projects/Change Craft/CAA/CAA-logo-page-vector.svg` (needs isolation in Illustrator/Figma).
+- Source vector: `Knowledge/Projects/Change Craft/CAA/CAA-logo-page-vector.svg` (needs isolation in Illustrator/Figma).
 
 ### Imagery
 - Packaging as Circular Art / Community Photography / Abstract circular forms.
@@ -96,4 +96,4 @@ GOV.UK step-by-step simplified:
 - Use haven-ui components or tokens — this is a separate brand system
 - Commit Avenir Next LT Pro font files (licensing unresolved)
 - Deploy to a publicly indexed URL without CAA approval
-- Edit files in `Stack Overflowed/Projects/Change Craft/CAA/` from this project — those are source-of-truth docs
+- Edit files in `Knowledge/Projects/Change Craft/CAA/` from this project — those are source-of-truth docs
