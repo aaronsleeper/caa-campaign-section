@@ -731,10 +731,11 @@ li {
   color: var(--caa-paper);
 }
 
-/* On dark panels the teal em-bar is invisible — highlight goes gold. */
+/* On dark panels the teal em-bar is invisible and gold-on-white reads low —
+   highlight goes aqua (cooler, holds up against the reverse white text). */
 .hero-panel h1 em,
 .hero--band h1 em {
-  background: linear-gradient(to bottom, transparent 55%, var(--caa-yellow) 55%, var(--caa-yellow) 86%, transparent 86%);
+  background: linear-gradient(to bottom, transparent 55%, var(--caa-aqua) 55%, var(--caa-aqua) 86%, transparent 86%);
   font-style: normal;
 }
 
