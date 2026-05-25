@@ -321,15 +321,20 @@ li {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: var(--caa-yellow);
-  color: var(--caa-navy);
+  /* Ghosted / disabled — the video isn't live yet, so the play affordance
+     reads as pending rather than clickable. Outline + faded glyph, no gold. */
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.32);
   font-size: 1.5rem;
   padding-left: 4px;
 }
 
 .video-placeholder__label {
   font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 /* Full-width-feel color bands — the alternating-rhythm signature.
