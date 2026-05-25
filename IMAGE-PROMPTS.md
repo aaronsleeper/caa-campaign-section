@@ -121,7 +121,9 @@ Abstract Circular Motion (accent — the one abstract worth keeping) · **Aspect
 Expert: tighten toward "material flowing to end markets" — show commodities resolving into the loop, not a generic swoosh.
 
 ```
-Abstract conceptual graphic: small clean recovered materials (pellets, flakes, fiber) at the edges resolving into smooth interlocking ribbon-loops that flow in a continuous closed circuit — recovered material moving through processing into viable end markets. Trusted teal #196D80 and navy #031D2D ribbons over a clean ground, one soft gold #FFD364 accent loop. Sense of motion, flow, and closed-loop continuity; flat vector art direction, generous negative space. Aspect ratio 16:9.
+Abstract conceptual graphic: small clean recovered materials (pellets, flakes, fiber) at the edges resolving into smooth interlocking ribbon-loops that flow in a continuous closed circuit — recovered material moving through processing into viable end markets. Trusted teal #196D80 ribbons over a deep navy #031D2D ground, one soft gold #FFD364 accent loop. Sense of motion, flow, and closed-loop continuity; flat vector art direction, generous negative space. Aspect ratio 16:9.
+
+> Regen note (2026-05-24): the first cut came back on a WHITE ground that bled into the page white. Navy ground specified above fixes contrast + matches the rest of the set. A CSS containment edge (`.fpo--filled` border + shadow) is also in place as a guardrail for any light-ground image.
 ```
 
 ### 10 · Processing — circular art (M3c) — `src/pages/reimbursement/processing.astro:53`

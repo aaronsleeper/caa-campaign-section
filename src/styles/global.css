@@ -465,6 +465,10 @@ li {
   padding: 0;
   overflow: hidden;
   position: relative;
+  /* Containment edge — keeps light-ground images (e.g. a white-backed abstract)
+     from bleeding into the page white. Invisible on dark/teal-ground images. */
+  border: 1px solid rgba(3, 29, 45, 0.12);
+  box-shadow: 0 1px 4px rgba(3, 29, 45, 0.1);
 }
 
 .fpo--filled img,
