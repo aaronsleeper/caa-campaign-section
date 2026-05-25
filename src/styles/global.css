@@ -51,6 +51,21 @@ h3 {
   margin-bottom: var(--space-sm);
 }
 
+/* Gold-highlighted section headings — the live site's signature device */
+h2 {
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 5px;
+  background: var(--caa-yellow);
+  border-radius: 3px;
+  margin-top: var(--space-sm);
+}
+
 p {
   max-width: var(--max-line-length);
   margin-bottom: var(--space-md);
@@ -401,11 +416,12 @@ li {
 }
 
 /* FPO image zone — designed placeholder that names the intended image */
+/* FPO image zone — solid teal placeholder block, matching how the live
+   site ships missing imagery (teal rectangles). */
 .fpo {
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: color-mix(in srgb, var(--caa-teal) 5%, var(--caa-paper));
-  border: 1px dashed color-mix(in srgb, var(--caa-navy) 30%, transparent);
+  background: var(--caa-teal);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -426,13 +442,78 @@ li {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--caa-teal);
+  color: var(--caa-yellow);
 }
 
 .fpo__desc {
   font-size: var(--text-sm);
-  color: var(--caa-navy);
+  color: rgba(255, 255, 255, 0.92);
   max-width: 40ch;
+}
+
+/* Checkmark stat row — the live CAA goals pattern (checkmark circle + text) */
+.checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+  margin-top: var(--space-lg);
+}
+
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  flex: 1 1 220px;
+}
+
+.check__mark {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid var(--caa-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--caa-teal);
+  font-size: var(--text-base);
+}
+
+.check__text {
+  color: var(--caa-navy);
+}
+
+/* Icon grid — converts key-message lists to the live "operating principles"
+   circular-icon grid. Circular outline is an icon placeholder (real icons via CAA Comms). */
+.icon-grid {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-lg) 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+}
+
+.icon-grid li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.icon-grid li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--caa-teal);
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+  .icon-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Two-column media + text split — the live CAA "image beside text" device.

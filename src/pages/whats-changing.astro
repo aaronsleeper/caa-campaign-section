@@ -28,18 +28,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <!-- Stat band — reproduces the live CAA "Key Goals" 3-up grid -->
   <div class="band band--tint-teal">
     <p class="band__eyebrow">By January 1, 2032, SB 54 aims to:</p>
-    <div class="stat-row">
-      <div class="stat">
-        <span class="stat__number">25%</span>
-        <span class="stat__label">reduction in single-use plastic packaging</span>
+    <div class="checks">
+      <div class="check">
+        <span class="check__mark" aria-hidden="true">&check;</span>
+        <span class="check__text">25% reduction in single-use plastic packaging</span>
       </div>
-      <div class="stat">
-        <span class="stat__number">65%</span>
-        <span class="stat__label">recycling rate for single-use plastic packaging</span>
+      <div class="check">
+        <span class="check__mark" aria-hidden="true">&check;</span>
+        <span class="check__text">65% recycling rate for single-use plastic packaging</span>
       </div>
-      <div class="stat">
-        <span class="stat__number">100%</span>
-        <span class="stat__label">of packaging recyclable or compostable</span>
+      <div class="check">
+        <span class="check__mark" aria-hidden="true">&check;</span>
+        <span class="check__text">100% of packaging recyclable or compostable</span>
       </div>
     </div>
   </div>
@@ -75,7 +75,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <!-- Key messages on a navy-tint band -->
   <div class="band band--tint-navy">
     <h2>Key messages</h2>
-    <ul>
+    <ul class="icon-grid">
       <li>SB 54 is California's Extended Producer Responsibility, or EPR, law for packaging. Producers now fund the system and are required to redesign packaging to meet recyclability and compostability requirements.</li>
       <li>Covered Material Categories, or CMCs, define exactly which materials fall under the law. Everything in this program, from funding to tracking to accountability, starts and ends with covered materials.</li>
       <li>SB 54 also encourages reuse and refill infrastructure. Refill stations, returnable containers, and durable packaging models are all part of what this law supports.</li>
