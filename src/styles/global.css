@@ -62,7 +62,7 @@ h2::after {
   width: 2.5rem;
   height: 5px;
   background: var(--caa-yellow);
-  border-radius: 3px;
+  border-radius: var(--radius-bar);
   margin-top: var(--space-sm);
 }
 
@@ -165,7 +165,7 @@ li {
 .card {
   border: 1px solid hsla(var(--darkAccent-hsl, 191.07,67.32%,30%), 0.15);
   border-top: 4px solid var(--caa-teal);
-  border-radius: var(--card-radius);
+  border-radius: var(--radius-rect);
   padding: var(--space-lg);
   background: var(--caa-paper);
   box-shadow: var(--card-shadow);
@@ -197,7 +197,7 @@ li {
   color: var(--caa-navy);
   background: var(--caa-yellow);
   padding: var(--space-sm) var(--space-lg);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   text-decoration: none;
   align-self: flex-start;
   transition: background 0.15s, color 0.15s;
@@ -221,7 +221,7 @@ li {
   padding: var(--space-md) var(--space-lg);
   margin-bottom: var(--space-md);
   background: hsla(var(--darkAccent-hsl, 191.07,67.32%,30%), 0.03);
-  border-radius: 0 var(--card-radius) var(--card-radius) 0;
+  border-radius: var(--radius-rect);
 }
 
 .cta-block__card--ready {
@@ -295,7 +295,7 @@ li {
   aspect-ratio: 16 / 9;
   background: var(--caa-navy);
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-media);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -439,7 +439,7 @@ li {
   width: 100%;
   aspect-ratio: 16 / 9;
   background: var(--caa-teal);
-  border-radius: 8px;
+  border-radius: var(--radius-media);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -588,7 +588,7 @@ li {
 .hero--framed {
   background: color-mix(in srgb, var(--caa-teal) 8%, var(--caa-paper));
   border-bottom: none;
-  border-radius: var(--card-radius);
+  border-radius: var(--radius-rect);
   padding: var(--space-2xl);
 }
 
@@ -731,11 +731,11 @@ li {
   color: var(--caa-paper);
 }
 
-/* On dark panels the teal em-bar is invisible and gold-on-white reads low —
-   highlight goes aqua (cooler, holds up against the reverse white text). */
+/* Reverse-panel highlight: teal bar (dark enough that the white "SB 54" reads
+   on top, and it stays on-palette against the navy panel). */
 .hero-panel h1 em,
 .hero--band h1 em {
-  background: linear-gradient(to bottom, transparent 55%, var(--caa-aqua) 55%, var(--caa-aqua) 86%, transparent 86%);
+  background: linear-gradient(to bottom, transparent 55%, var(--caa-teal) 55%, var(--caa-teal) 86%, transparent 86%);
   font-style: normal;
 }
 
@@ -754,7 +754,7 @@ li {
 
 .hero-fpo {
   background: var(--caa-teal);
-  border-radius: 6px;
+  border-radius: var(--radius-media);
   aspect-ratio: 16 / 10;
   display: flex;
   flex-direction: column;

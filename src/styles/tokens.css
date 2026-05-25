@@ -58,6 +58,17 @@
   /* Layout */
   --content-width: 960px;
   --sidebar-width: 240px;
-  --card-radius: 8px;
   --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+  /* Corner-radius system (CAA Visual Designer, 2026-05-24). Brand logic is a
+     two-state binary: rectangles are hard-square; round is reserved for pills
+     + circles (the Unity Spark's geometry). Media gets a hairline radius to
+     mark the inset photo layer. Set explicitly to beat Squarespace Image-Block
+     Site Styles on port. */
+  --radius-rect: 0;        /* structural rectangles: cards, panels, mats, fields */
+  --radius-media: 4px;     /* contained photo / video wells only */
+  --radius-pill: 300px;    /* buttons — matches live site's literal value */
+  --radius-circle: 50%;    /* icon dots, badges, marks */
+  --radius-bar: 0;         /* h2::after accent bar */
+  --card-radius: 8px;      /* legacy — used only by the internal recommendation/ deliverable, not the campaign section */
 }
