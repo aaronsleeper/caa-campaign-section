@@ -145,7 +145,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   .hub__links {
     padding-top: var(--space-2xl);
     font-size: var(--text-sm);
-    color: var(--caa-ink);
-    opacity: 0.7;
+  }
+
+  /* Full-strength accessible teal link (the container's old opacity:0.7 washed it out). */
+  .hub__links a {
+    color: var(--caa-teal-dark);
+    font-weight: 600;
   }
 </style>
