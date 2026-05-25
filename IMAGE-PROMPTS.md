@@ -24,7 +24,7 @@ Brand image system for the Circular Action Alliance (CAA) SB 54 campaign. Every 
 
 PALETTE: deep Source Navy #031D2D, Trusted Teal #196D80 (primary), warm Action Gold #FFD364 (accent only — exactly one focal moment), optional sparing green #3DE87A, clean white. Brand colors fill 95–100% of the composition.
 
-MOTIF — the Unity Spark: a four-fold radial pinwheel of interlocking curved arches (overlapping crescent forms in rotational symmetry, spiraling from a center). May appear as a semi-transparent overlay or as a soft circular crop. It is a geometric brand mark, never a literal sun or flower.
+MOTIF — the Unity Spark: a four-fold radial pinwheel of interlocking curved arches (overlapping crescent forms in rotational symmetry, spiraling from a center). It is a geometric brand mark, never a literal sun or flower. Use it ONLY in abstract/graphic images. NEVER paint arcs, swirls, circular crops, or pinwheel shapes on top of a photograph — photographs stay clean and full-bleed; any circular framing is added later in CSS by the page, not by the image.
 
 COMMODITIES: recyclable materials always read as valuable commodities — clean, sorted, organized, intentional. Never as trash, litter, dirt, spillage, or mess.
 
@@ -70,7 +70,7 @@ A wide hero cover built entirely from the brand signature: large, layered, semi-
 Community Photography · **Aspect 16:9**
 
 ```
-Documentary-style photograph: recycling-program staff and local operators at work in a clean, well-lit facility, purposeful and engaged, handling sorted recyclable materials that look like valuable commodities. Composition framed within a soft circular crop echoing the radial pinwheel motif. Teal and navy environmental tones, warm natural light, optimistic and dignified. People as collaborators. Aspect ratio 16:9.
+Clean, full-bleed documentary-style photograph (no graphic shapes or arcs overlaid): recycling-program staff and local operators at work in a clean, well-lit facility, purposeful and engaged, handling sorted recyclable materials that look like valuable commodities. Teal and navy environmental tones, warm natural light, optimistic and dignified. People as collaborators. Aspect ratio 16:9.
 ```
 
 ### 5 · Roles & Responsibilities (M2) — `src/pages/roles-and-responsibilities.astro:30`
@@ -78,7 +78,7 @@ Documentary-style photograph: recycling-program staff and local operators at wor
 Community Photography · **Aspect 16:9**
 
 ```
-Documentary-style photograph: a jurisdiction coordinator and a hauler operator in friendly conversation on-site at a clean, organized recycling facility — two roles collaborating as partners. Sorted recyclable materials visible as valuable commodities in the background. Soft circular crop echoing the radial pinwheel motif; teal and navy environmental tones, warm even light, respectful and constructive. Aspect ratio 16:9.
+Clean, full-bleed documentary-style photograph (no graphic shapes or arcs overlaid): a jurisdiction coordinator and a hauler operator in friendly conversation on-site at a clean, organized recycling facility — two roles collaborating as partners. Sorted recyclable materials visible as valuable commodities in the background. Teal and navy environmental tones, warm even light, respectful and constructive. Aspect ratio 16:9.
 ```
 
 ### 6 · Reimbursement gateway (M3) — `src/pages/reimbursement/index.astro:18`
@@ -94,7 +94,7 @@ A bold still-life of covered-material categories — beverage cartons, clean bot
 Community Photography / Abstract Motion · **Aspect 16:9**
 
 ```
-Documentary-style photograph of an organized recycling collection route: a tidy fleet of collection carts or a clean collection truck on a residential street, purposeful and well-maintained, covered materials collected cleanly with no spillage. Soft circular crop echoing the radial pinwheel motif; teal and navy tones, bright optimistic daylight. Orderly and professional. Aspect ratio 16:9.
+Clean, full-bleed documentary-style photograph (no graphic shapes or arcs overlaid): an organized recycling collection route — a tidy fleet of recycling collection carts or a clean recycling truck on a residential street, purposeful and well-maintained, covered materials collected cleanly with no spillage. Teal and navy tones, bright optimistic daylight. Orderly and professional. Aspect ratio 16:9.
 ```
 
 ### 8 · Local programs (M3a) — `src/pages/reimbursement/local-programs.astro:29`

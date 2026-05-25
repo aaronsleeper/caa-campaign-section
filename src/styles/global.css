@@ -453,6 +453,42 @@ li {
   aspect-ratio: 4 / 5;
 }
 
+/* Filled FPO — a real generated image replaces the teal placeholder block.
+   The figure keeps its aspect-ratio + radius; the image covers it edge-to-edge. */
+.fpo--filled,
+.hero-fpo--filled {
+  background: none;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.fpo--filled img,
+.hero-fpo--filled img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* FPO defect badge — marks images carrying a known generation issue (e.g. Unity
+   Spark arcs painted over people) so they are not mistaken for final assets. */
+.fpo__badge {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--caa-navy);
+  background: var(--caa-yellow);
+  padding: 0.25em 0.6em;
+  border-radius: var(--radius-pill, 999px);
+}
+
 .fpo__tag {
   font-family: var(--font-display);
   font-size: var(--text-xs);
