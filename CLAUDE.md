@@ -10,6 +10,10 @@ All IA, UX, and copy decisions live in `Stack Overflowed/Projects/Change Craft/C
 - `Creative Brief - Interest Holder Materials 4-10-26.md` — per-module content (objectives, audiences, key messages, user journeys)
 - `Questions for Brandon.md` — open external questions (don't assume answers)
 
+## Copy review trigger
+
+When updated SB54 copy arrives from Tony / CAA Comms, **do not implement it directly.** First run the 3-pass copy review (claim validation → plain language → brand voice) defined in `Knowledge/Projects/Change Craft/CAA/Copy Review Workflow.md`, then hand the consolidated feedback memo to Aaron → Dana → Tony. Implement only the revisions CAA confirms. This resolves the `[VERIFY]` tags required below and the "which version is canonical / is it correct" question.
+
 ## Brand rules (from Design Brief)
 
 ### Colors
