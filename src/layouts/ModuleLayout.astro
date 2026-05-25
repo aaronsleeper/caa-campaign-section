@@ -24,9 +24,11 @@ const { title, titleHtml, subtitle, description, currentPath, prev, next } = Ast
 <BaseLayout title={title} description={description}>
   <SectionNav currentPath={currentPath} />
   <div class="page">
-    <div class="hero">
-      {titleHtml ? <h1 set:html={titleHtml} /> : <h1>{title}</h1>}
-      {subtitle && <p class="hero__subtitle">{subtitle}</p>}
+    <div class="hero--band">
+      <div class="hero--band__inner">
+        {titleHtml ? <h1 set:html={titleHtml} /> : <h1>{title}</h1>}
+        {subtitle && <p>{subtitle}</p>}
+      </div>
     </div>
     <slot />
     <PageNav prev={prev} next={next} />

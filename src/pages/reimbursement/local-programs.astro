@@ -23,10 +23,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   <!-- Split: media-right (alternates with 3b/3c) -->
   <div class="split split--media-right">
-    <figure class="split__media fpo">
-      <span class="fpo__tag">Image &middot; FPO</span>
-      <span class="fpo__desc">Community photography: a local outreach event or curbside drop-off &mdash; residents engaging with a recycling program, clean bins, organized materials. People as collaborators, not subjects.</span>
-    </figure>
+    <div class="split__media media-frame">
+      <figure class="fpo">
+        <span class="fpo__tag">Image &middot; FPO</span>
+        <span class="fpo__desc">Community photography: a local outreach event or curbside drop-off &mdash; residents engaging with a recycling program, clean bins, organized materials. People as collaborators, not subjects.</span>
+      </figure>
+    </div>
     <div class="split__body">
       <h2>Why this matters to you</h2>
       <p>SB 54 reimburses eligible new and additional costs for local program implementation along with education and outreach. That includes jurisdictions, Tribal governments, community-based organizations, and service providers delivering work tied directly to SB 54 requirements.</p>

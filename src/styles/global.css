@@ -164,6 +164,7 @@ li {
 
 .card {
   border: 1px solid hsla(var(--darkAccent-hsl, 191.07,67.32%,30%), 0.15);
+  border-top: 4px solid var(--caa-teal);
   border-radius: var(--card-radius);
   padding: var(--space-lg);
   background: var(--caa-paper);
@@ -292,8 +293,8 @@ li {
   width: 100%;
   max-width: var(--max-line-length);
   aspect-ratio: 16 / 9;
-  background: color-mix(in srgb, var(--caa-navy) 6%, var(--caa-paper));
-  border: 1px solid color-mix(in srgb, var(--caa-navy) 15%, transparent);
+  background: var(--caa-navy);
+  border: none;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -305,26 +306,26 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-sm);
-  color: var(--caa-navy);
+  gap: var(--space-md);
+  color: var(--caa-paper);
 }
 
 .video-placeholder__icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  background: var(--caa-teal);
-  color: var(--caa-paper);
-  font-size: 1.25rem;
+  background: var(--caa-yellow);
+  color: var(--caa-navy);
+  font-size: 1.5rem;
   padding-left: 4px;
 }
 
 .video-placeholder__label {
   font-size: var(--text-sm);
-  opacity: 0.7;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Full-width-feel color bands — the alternating-rhythm signature.
@@ -674,4 +675,193 @@ li {
 .soft-egress a {
   color: var(--caa-teal);
   font-weight: 600;
+}
+
+/* ============================================================
+   Composition components — bold color-block layouts adapted from the live
+   /california page (layered panels, offset media, reverse text). Built on the
+   same tokens; this is the brand-feel layer over the inherit-ready base.
+   Hierarchy: .hero--blocked = rich contained panel (hub);
+              .hero--band   = slim full-bleed reverse band (module + sub pages);
+              .media-frame  = photo well offset on a gold field (content).
+   ============================================================ */
+
+/* --- Color-blocked hero (hub): dark panel offset against gold + teal mats --- */
+.hero--blocked {
+  position: relative;
+  margin: var(--space-lg) 0 var(--space-3xl);
+  padding: var(--space-xl);
+}
+
+.hero--blocked::before { /* gold mat — peeks top-left */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 46%;
+  height: 66%;
+  background: var(--caa-gold-deep);
+  z-index: 0;
+}
+
+.hero--blocked::after { /* teal mat — peeks bottom-right */
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 40%;
+  height: 56%;
+  background: var(--caa-teal);
+  z-index: 0;
+}
+
+.hero-panel {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 0.82fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  background: var(--caa-navy);
+  padding: var(--space-2xl);
+}
+
+.hero-panel h1 {
+  margin-top: 0;
+  color: var(--caa-paper);
+}
+
+/* On dark panels the teal em-bar is invisible — highlight goes gold. */
+.hero-panel h1 em,
+.hero--band h1 em {
+  background: linear-gradient(to bottom, transparent 55%, var(--caa-yellow) 55%, var(--caa-yellow) 86%, transparent 86%);
+  font-style: normal;
+}
+
+.hero-panel p {
+  color: var(--caa-paper);
+  opacity: 0.92;
+  max-width: 44ch;
+  margin-bottom: 0;
+}
+
+.hero-panel__media {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.hero-fpo {
+  background: var(--caa-teal);
+  border-radius: 6px;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.hero-fpo--short {
+  aspect-ratio: 16 / 7;
+}
+
+.hero-fpo .fpo__tag {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--caa-yellow);
+}
+
+.hero-fpo .fpo__desc {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 34ch;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.hero-links a {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--caa-paper);
+  text-decoration: none;
+  border-bottom: 2px solid var(--caa-yellow);
+  padding-bottom: 2px;
+}
+
+.hero-links a:hover {
+  color: var(--caa-yellow);
+}
+
+/* --- Title band (module + sub pages): slim full-bleed reverse band --- */
+.hero--band {
+  position: relative;
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  margin-bottom: var(--space-2xl);
+  padding-block: var(--space-2xl);
+  padding-inline: max(var(--space-xl), calc((100vw - var(--content-width)) / 2 + var(--space-xl)));
+  background: var(--caa-navy);
+  border-left: 8px solid var(--caa-yellow);
+}
+
+.hero--band__inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.hero--band h1 {
+  margin-top: 0;
+  color: var(--caa-paper);
+}
+
+.hero--band p {
+  color: var(--caa-paper);
+  opacity: 0.9;
+  margin-top: var(--space-sm);
+  margin-bottom: 0;
+}
+
+/* --- Layered media frame: photo well offset on a gold field --- */
+.media-frame {
+  position: relative;
+  padding: var(--space-lg) 0 0 var(--space-lg);
+}
+
+.media-frame::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 72%;
+  height: 82%;
+  background: var(--caa-gold-deep);
+  z-index: 0;
+}
+
+.media-frame > * {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .hero-panel {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+  }
+  .hero--blocked::before { width: 62%; height: 32%; }
+  .hero--blocked::after { width: 52%; height: 26%; }
 }
