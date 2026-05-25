@@ -1,4 +1,69 @@
-# Squarespace port — temp landing mapping
+# Squarespace port mapping
+
+Two parts:
+- **Part 1 — Full-section inherit-readiness** (below): how the whole 7-page Astro build is wired to inherit live Site Styles. The durable reference.
+- **Part 2 — Temp landing mapping** (further down): the original single-page `paste-to-squarespace.html` notes. Delete once that page is pasted and approved.
+
+---
+
+## Part 1 — Full-section inherit-readiness (2026-05-24)
+
+The Astro source is wired so the *same* CSS works two ways: standalone (GitHub Pages preview) it uses fallback values; pasted into Squarespace it inherits the live Site Styles. This fixes the "stale styles" root cause — when CAA evolves their site, the section follows.
+
+### Verified live token mapping (primary source)
+
+Pulled from the live `site.css` / `custom.css` on 2026-05-24 (not inferred). Each fallback triple equals our prior hex, so the standalone preview is unchanged:
+
+| Our token | Live Squarespace token | Live value | Hex equiv |
+|---|---|---|---|
+| `--caa-teal` | `--darkAccent-hsl` | `191.07,67.32%,30%` | `#196D80` |
+| `--caa-navy` / `--caa-ink` | `--black-hsl` | `202.86,87.5%,9.41%` | `#031D2D` |
+| `--caa-yellow` | `--accent-hsl` | `42.97,100%,69.61%` | `#FFD364` |
+| `--caa-green` | `--lightAccent-hsl` | `141.4,78.8%,57.45%` | `#3DE87A` |
+| `--caa-paper` | `--white-hsl` | `0,0%,100%` | `#FFFFFF` |
+| `--font-body` | `--body-font-font-family` | `"DM Sans"` | — |
+| `--font-display` | `--heading-font-font-family` | `"DM Sans"` | — |
+
+Heading sizes (unitless, fluid `calc()` on the live site): h1 `2.6`, h2 `2.3`, h3 `1.8`, h4 `1`. We do **not** wire these — see below.
+
+### The dual-mode pattern
+
+`src/styles/tokens.css` defines colors as `hsla(var(--<token>, <fallback-triple>), 1)` and fonts as `var(--<token>, "DM Sans"), system-ui, sans-serif`. In Squarespace the `:root` token resolves (inherits live Site Styles); standalone the fallback activates. No per-element rewrites — every page picks it up through the existing `var(--caa-*)` / `var(--font-*)` usage.
+
+What's wired vs not:
+- ✅ **Font family** — inherits via `--body/heading-font-font-family`.
+- ✅ **Brand colors** — inherit via the HSL tokens above (incl. the `rgba()` brand-tint literals in `global.css`, now `hsla(var(--token, …), α)`).
+- ❌ **Heading font-size** — kept on our rem scale. The live site sizes headings with a 3-breakpoint fluid `calc()`; a flat `* 1rem` override would be worse. Minor, intentional divergence.
+
+### Native heading highlight
+
+The live `custom.css` styles `h1 em` (teal bar `#218ca5`) and `h1 strong` / `h3 strong` (yellow bar `#ffd364`) **globally with `!important`**. So:
+- Markup uses `<h1>…<em>SB&nbsp;54</em>…</h1>` on the three "SB 54" titles (hub, whats-changing, roles). In Squarespace the site's `!important` rule paints the bar.
+- `global.css` carries a non-`!important` fallback copy of those exact gradients so the bar also renders standalone. Site `!important` wins in-context; fallback wins standalone.
+- The hand-built `h2::after` gold bar is kept for section headings (our device; the live site doesn't auto-bar h2).
+- Module pages take the highlight via the optional `titleHtml` prop on `ModuleLayout`.
+
+### Buttons
+
+`.card__cta` anchors carry `sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary` in addition to `.card__cta`. The markup is port-ready; standalone, our `.card__cta` CSS styles the pill. **At paste time, strip the `.card__cta` button CSS** so the site's button styling inherits (matches `paste-to-squarespace.html`).
+
+### Generating a paste artifact from a page
+
+The Astro build IS the standalone preview. To produce a Squarespace paste for a page (as was done for the temp landing):
+1. Wrap content under a `.caa-sb54` (or page-specific) wrapper so custom CSS can't leak into the host site.
+2. Strip the `@import` DM Sans webfont (BaseLayout) — the site serves DM Sans via Site Styles.
+3. Strip our `.card__cta` button CSS — let the site button inherit.
+4. Keep: layout, spacing, custom containers (bands, cards, timeline, FPO), brand-accent borders. The token wiring already inherits the rest.
+
+Leak-prevention (success criterion "scoped under a wrapper") is enforced at this paste-generation step; the global element rules in `global.css` are the standalone preview layer and do not travel.
+
+### Still to verify
+
+Token *names* are confirmed present on the live site. The end-to-end "paste auto-inherits" check requires pasting into the CAA Squarespace CMS (needs CAA access) — do this when porting each page.
+
+---
+
+## Part 2 — Temp landing mapping
 
 Working doc for porting `src/pages/temp/index.astro` to circularactionalliance.org as an unpublished page. Captures the class taxonomy and CSS-token mapping inferred from the live site (May 2026). Delete once the page is pasted and approved.
 

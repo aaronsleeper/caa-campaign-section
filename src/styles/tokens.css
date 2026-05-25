@@ -1,15 +1,20 @@
 /* CAA Visual Standards v1 — Design Tokens */
 
 :root {
-  /* Core palette — matched to the LIVE circularactionalliance.org site (primary source, 2026-05-24).
-     Supersedes the stale Visual Standards v1 hexes for site-alignment. */
-  --caa-teal: #196D80;   /* live primary teal (was v1 #218CA5) */
-  --caa-navy: #031D2D;   /* live navy / body text (was v1 #0B3647) */
-  --caa-yellow: #FFD364; /* live gold accent, used liberally (was v1 #FFB81C) */
-  --caa-gold-deep: #DA9C10; /* live darker gold (timeline dots) */
-  --caa-green: #3DE87A;  /* live accent green */
-  --caa-ink: #031D2D;
-  --caa-paper: #FFFFFF;
+  /* Core palette — INHERIT-READY (dual-mode). Each token reads the live
+     Squarespace :root HSL token; the fallback triple equals the hex comment
+     so the standalone preview renders identically. Verified against the live
+     site.css 2026-05-24 (primary source): the fallbacks ARE the current site
+     values. Squarespace stores HSL triples comma-separated, so the form is
+     hsla(<triple>, <alpha>). In Squarespace the token resolves (inherits live
+     Site Styles); standalone the fallback triple activates. */
+  --caa-teal: hsla(var(--darkAccent-hsl, 191.07,67.32%,30%), 1);    /* #196D80 */
+  --caa-navy: hsla(var(--black-hsl, 202.86,87.5%,9.41%), 1);        /* #031D2D */
+  --caa-yellow: hsla(var(--accent-hsl, 42.97,100%,69.61%), 1);      /* #FFD364 */
+  --caa-green: hsla(var(--lightAccent-hsl, 141.4,78.8%,57.45%), 1); /* #3DE87A */
+  --caa-ink: hsla(var(--black-hsl, 202.86,87.5%,9.41%), 1);         /* #031D2D */
+  --caa-paper: hsla(var(--white-hsl, 0,0%,100%), 1);                /* #FFFFFF */
+  --caa-gold-deep: #DA9C10; /* live darker gold (timeline dots) — no site token, kept as hex */
 
   /* Secondary palette (0–5%, data viz only) */
   --caa-blue-deep: #08518F;
@@ -22,9 +27,11 @@
   /* Accessible teal for links on light backgrounds (~5.2:1 on white) */
   --caa-teal-dark: #1a7389;
 
-  /* Typography — live site uses DM Sans throughout (headings at light weight 200–300) */
-  --font-body: "DM Sans", system-ui, sans-serif;
-  --font-display: "DM Sans", system-ui, sans-serif;
+  /* Typography — INHERIT-READY. Read the Squarespace Site Styles font tokens;
+     fall back to DM Sans (the live value, verified 2026-05-24) for standalone.
+     When CAA switches Site Styles fonts, our pasted content follows automatically. */
+  --font-body: var(--body-font-font-family, "DM Sans"), system-ui, sans-serif;
+  --font-display: var(--heading-font-font-family, "DM Sans"), system-ui, sans-serif;
   --body-size: 16px;
   --line-height: 1.6;
   --max-line-length: 72ch;

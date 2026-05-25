@@ -5,6 +5,12 @@ import PageNav from '../components/PageNav.astro';
 
 interface Props {
   title: string;
+  /* Optional HTML for the visible hero heading. Use to apply the site-native
+     highlight, e.g. titleHtml={`What <em>SB&nbsp;54</em> Means for You`} renders
+     a teal underline bar on "SB 54" (inherits the live `h1 em` rule in
+     Squarespace; the global.css fallback replicates it standalone). The plain
+     `title` string is still used for the <title> tag and as the fallback. */
+  titleHtml?: string;
   subtitle?: string;
   description?: string;
   currentPath: string;
@@ -12,14 +18,14 @@ interface Props {
   next?: { href: string; label: string };
 }
 
-const { title, subtitle, description, currentPath, prev, next } = Astro.props;
+const { title, titleHtml, subtitle, description, currentPath, prev, next } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
   <SectionNav currentPath={currentPath} />
   <div class="page">
     <div class="hero">
-      <h1>{title}</h1>
+      {titleHtml ? <h1 set:html={titleHtml} /> : <h1>{title}</h1>}
       {subtitle && <p class="hero__subtitle">{subtitle}</p>}
     </div>
     <slot />

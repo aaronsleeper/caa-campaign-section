@@ -66,6 +66,22 @@ h2::after {
   margin-top: var(--space-sm);
 }
 
+/* Native heading highlight — mirrors the live site's custom.css gradients verbatim
+   (#218ca5 teal bar on h1 em, #ffd364 yellow bar on h1/h3 strong). In Squarespace
+   those rules carry !important and win; these non-!important fallbacks render the
+   same bars standalone. Markup: <h1>…<em>SB 54</em>…</h1> for teal. */
+h1 em {
+  background: linear-gradient(to bottom, transparent 55%, #218ca5 30%, #218ca5 83%, transparent 72%);
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 strong,
+h3 strong {
+  background: linear-gradient(to bottom, transparent 55%, #ffd364 30%, #ffd364 83%, #fff 72%);
+  font-weight: normal;
+}
+
 p {
   max-width: var(--max-line-length);
   margin-bottom: var(--space-md);
@@ -147,7 +163,7 @@ li {
 }
 
 .card {
-  border: 1px solid rgba(33, 140, 165, 0.15);
+  border: 1px solid hsla(var(--darkAccent-hsl, 191.07,67.32%,30%), 0.15);
   border-radius: var(--card-radius);
   padding: var(--space-lg);
   background: var(--caa-paper);
@@ -196,14 +212,14 @@ li {
   max-width: var(--max-line-length);
   margin-top: var(--space-2xl);
   padding-top: var(--space-xl);
-  border-top: 1px solid rgba(11, 54, 71, 0.1);
+  border-top: 1px solid hsla(var(--black-hsl, 202.86,87.5%,9.41%), 0.1);
 }
 
 .cta-block__card {
   border-left: 3px solid var(--caa-teal);
   padding: var(--space-md) var(--space-lg);
   margin-bottom: var(--space-md);
-  background: rgba(33, 140, 165, 0.03);
+  background: hsla(var(--darkAccent-hsl, 191.07,67.32%,30%), 0.03);
   border-radius: 0 var(--card-radius) var(--card-radius) 0;
 }
 
@@ -581,7 +597,7 @@ li {
   justify-content: space-between;
   padding: var(--space-xl) 0;
   margin-top: var(--space-2xl);
-  border-top: 1px solid rgba(11, 54, 71, 0.1);
+  border-top: 1px solid hsla(var(--black-hsl, 202.86,87.5%,9.41%), 0.1);
   gap: var(--space-md);
 }
 
@@ -609,7 +625,7 @@ li {
 }
 
 .accordion__item {
-  border-bottom: 1px solid rgba(11, 54, 71, 0.1);
+  border-bottom: 1px solid hsla(var(--black-hsl, 202.86,87.5%,9.41%), 0.1);
 }
 
 .accordion__trigger {
