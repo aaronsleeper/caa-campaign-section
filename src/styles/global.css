@@ -200,6 +200,10 @@ li {
   border-radius: var(--radius-pill);
   text-decoration: none;
   align-self: flex-start;
+  /* Even out multi-line labels so wraps read as intentional, not orphaned.
+     The arrow is bound to the last word with &nbsp; in markup so it never
+     drops to its own line. */
+  text-wrap: balance;
   transition: background 0.15s, color 0.15s;
 }
 
