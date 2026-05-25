@@ -10,6 +10,12 @@ Generation prompts for **For-Placement-Only** imagery across the SB 54 campaign 
 
 Do **not** paste the whole file — pasting all the context plus layout notes made Gemini bake the page's chrome (corner blocks, edge arcs) into the image. The context block below is the trimmed, image-safe version.
 
+## Imagery-mode strategy (CAA Visual Designer, 2026-05-24)
+
+- **Primary modes: Community Photography + Packaging-as-Circular-Art.** This is an operator-facing education microsite — interest holders need to see real work, real people, and their materials as commodities. These modes carry the section.
+- **Abstract Circular Motion is an accent, not a hero.** Use it for section dividers, a quiet background band behind a heading, or a hero's secondary panel — never as a standalone primary hero. It's connective tissue, not the headline act.
+- **Unity Spark on photos lives in CSS, never in the image.** Generated brand-art (packaging still lifes, pure abstract) may embody the Spark internally; photographs get any circular crop / arc framing from the page (clip-path / mask / SVG overlay) so it never slices a subject. When the Spark appears it is CAA's interlocking-arches mark, not a generic spirograph.
+
 ## Source of truth
 
 - **On-page descriptions** are canonical in the `.astro` sources (the `fpo__desc` spans). This file caches them per slot and owns the *generation prompts*. If a description changes, edit the `.astro` file first, then re-derive the prompt.
@@ -22,7 +28,7 @@ Do **not** paste the whole file — pasting all the context plus layout notes ma
 ```
 Brand image system for the Circular Action Alliance (CAA) SB 54 campaign. Every image follows these rules:
 
-PALETTE: deep Source Navy #031D2D, Trusted Teal #196D80 (primary), warm Action Gold #FFD364 (accent only — exactly one focal moment), optional sparing green #3DE87A, clean white. Brand colors fill 95–100% of the composition.
+PALETTE: deep Source Navy #031D2D, Trusted Teal #196D80 (primary), warm Action Gold #FFD364, optional sparing green #3DE87A, clean white. Gold is the warm accent and may be used freely — but it must be the soft live-site gold #FFD364, NEVER a saturated amber/marigold (#FFB81C). Brand colors fill 95–100% of the composition.
 
 MOTIF — the Unity Spark: a four-fold radial pinwheel of interlocking curved arches (overlapping crescent forms in rotational symmetry, spiraling from a center). It is a geometric brand mark, never a literal sun or flower. Use it ONLY in abstract/graphic images. NEVER paint arcs, swirls, circular crops, or pinwheel shapes on top of a photograph — photographs stay clean and full-bleed; any circular framing is added later in CSS by the page, not by the image.
 
@@ -43,26 +49,29 @@ NEGATIVE PROMPT: trash, garbage, litter, dirty, messy, waste pile, spillage, tex
 
 ### 1 · Hub hero panel A — `src/pages/index.astro:18`
 
-Abstract Circular Motion · **Aspect 3:4** (narrow side-by-side panel)
+Packaging as Circular Art · **Aspect 3:4** (narrow side-by-side panel)
+**REGEN** — expert reassigned from abstract to packaging-art, to partner with panel B. (Don't give a meaningless spirograph half the most important viewport on the site.)
 
 ```
-Layered, semi-transparent interlocking curved arches in four-fold radial symmetry — a pinwheel of crescent forms spiraling from a center, suggesting a system coming together. Deep navy ground, trusted teal arcs, a single warm gold highlight arc. Flat vector style, smooth gradients, purely abstract with no literal objects. Aspect ratio 3:4.
+A clean, organized arrangement of recovered recyclable materials shot from above on a deep navy ground — sorted clear plastics, aluminum cans, paper fiber — presented as valuable commodities in a tidy, intentional composition. Materials look pristine, like a product display. Soft even lighting, a single soft gold #FFD364 accent. Aspect ratio 3:4.
 ```
 
-### 2 · Hub hero panel B — `src/pages/index.astro:22`
+### 2 · Hub hero panel B — `src/pages/index.astro:22` — ✅ KEEP
 
 Packaging as Circular Art · **Aspect 3:4** (narrow side-by-side panel)
+Expert verdict: best image in the set, on-thesis. Regen only if pairing with a new panel 1 demands a matched ground.
 
 ```
 A clean, organized arrangement of recovered recyclable materials — clear glass cullet, baled paper fiber, sorted plastic pellets, aluminum ingots — presented as valuable commodities in a tidy, intentional composition on a trusted teal ground. Materials look pristine, like a product display. Soft even lighting, a single warm gold accent. Aspect ratio 3:4.
 ```
 
-### 3 · Hub cover image — `src/pages/index.astro:63`
+### 3 · Hub "who this is for" split — `src/pages/index.astro:63`
 
-Abstract Circular Motion · **Aspect 16:9**
+Community Photography · **Aspect 16:9**
+**REPLACE-MODE** — expert moved this off abstract. The slot routes audiences (jurisdictions, haulers, MRFs, Tribal staff); it should show those people, not a spirograph. (Alternative: a calm teal/navy live-site-style color block — decide in layout.)
 
 ```
-A wide hero cover built entirely from the brand signature: large, layered, semi-transparent interlocking curved arches in four-fold radial symmetry — overlapping crescent petals spiraling outward, conveying motion, depth, and connection. Deep navy and trusted teal arcs over a clean ground, one warm gold accent arc. Purely abstract, no literal objects, generous negative space. Aspect ratio 16:9.
+Clean, full-bleed documentary-style photograph (no graphic shapes or arcs overlaid): a small group of recycling-system operators — a jurisdiction coordinator, a hauler in hi-vis, an MRF worker — standing together on-site at a clean facility, approachable and capable. Sorted recyclable commodities visible nearby. Teal and navy environmental tones, warm even light, institutional and grounded. Aspect ratio 16:9.
 ```
 
 ### 4 · What's Changing (M1) — `src/pages/whats-changing.astro:90`
@@ -81,9 +90,10 @@ Community Photography · **Aspect 16:9**
 Clean, full-bleed documentary-style photograph (no graphic shapes or arcs overlaid): a jurisdiction coordinator and a hauler operator in friendly conversation on-site at a clean, organized recycling facility — two roles collaborating as partners. Sorted recyclable materials visible as valuable commodities in the background. Teal and navy environmental tones, warm even light, respectful and constructive. Aspect ratio 16:9.
 ```
 
-### 6 · Reimbursement gateway (M3) — `src/pages/reimbursement/index.astro:18`
+### 6 · Reimbursement gateway (M3) — `src/pages/reimbursement/index.astro:18` — ✅ KEEP
 
 Packaging as Circular Art · **Aspect 16:9**
+Expert verdict: right mode for a gateway hero, on-brand. Optional micro-nit: make the green flecks read as ground pellet/material, not confetti.
 
 ```
 A bold still-life of covered-material categories — beverage cartons, clean bottles, paper fiber, plastic film — composed into a precise circular layout, like a designed product flat-lay. Materials are pristine, sorted, reframed as valuable commodities. Trusted teal ground with navy depth and a single warm gold accent. Crisp studio lighting, brand-forward art direction. Aspect ratio 16:9.
@@ -102,21 +112,23 @@ Clean, full-bleed documentary-style photograph (no graphic shapes or arcs overla
 Community Photography · **Aspect 16:9**
 
 ```
-Documentary-style photograph: a local recycling outreach event or curbside drop-off where residents engage warmly with a recycling program — clean labeled bins, organized sorted materials, friendly volunteers. People shown as active collaborators, not subjects. Teal and navy environmental accents, warm natural light, welcoming and community-driven. Aspect ratio 16:9.
+Clean, full-bleed documentary-style photograph (no graphic shapes or arcs overlaid): a local recycling outreach event or curbside drop-off where residents engage with a recycling program — clean labeled bins, organized sorted materials, volunteers in teal vests. People shown as active collaborators, not subjects. Neutral, operational daylight (avoid golden-hour glow or sentimental campaign mood). Teal and navy environmental accents. Aspect ratio 16:9.
 ```
 
 ### 9 · Processing — abstract (M3c) — `src/pages/reimbursement/processing.astro:28`
 
-Abstract Circular Motion · **Aspect 16:9**
+Abstract Circular Motion (accent — the one abstract worth keeping) · **Aspect 16:9**
+Expert: tighten toward "material flowing to end markets" — show commodities resolving into the loop, not a generic swoosh.
 
 ```
-Abstract conceptual graphic: dynamic looping ribbon-like forms flowing in a continuous circuit, suggesting recovered material moving through processing into viable end markets. Built from smooth interlocking arcs in trusted teal and navy over a clean ground, with one warm gold accent loop. Sense of motion, flow, and closed-loop continuity; flat vector art direction, generous negative space. No literal facility. Aspect ratio 16:9.
+Abstract conceptual graphic: small clean recovered materials (pellets, flakes, fiber) at the edges resolving into smooth interlocking ribbon-loops that flow in a continuous closed circuit — recovered material moving through processing into viable end markets. Trusted teal #196D80 and navy #031D2D ribbons over a clean ground, one soft gold #FFD364 accent loop. Sense of motion, flow, and closed-loop continuity; flat vector art direction, generous negative space. Aspect ratio 16:9.
 ```
 
 ### 10 · Processing — circular art (M3c) — `src/pages/reimbursement/processing.astro:53`
 
 Packaging as Circular Art · **Aspect 16:9**
+**GENERATE** — not yet made; expert prioritized this (the missing packaging-art piece) over re-running abstracts.
 
 ```
-A bold, organized composition of a materials recovery facility sorting line or neatly stacked bales of clean recovered commodities — sorted plastics, fiber, and metal presented as valuable industrial material, precise and orderly. Brand-palette ground in trusted teal and navy, crisp directional lighting, a single warm gold accent. Reads as valuable commodity, never as waste. Aspect ratio 16:9.
+A bold, organized still-life of neatly stacked bales of clean recovered commodities — baled PET, crushed aluminum, baled paper fiber — arranged into a precise circular composition like a designed product flat-lay, presented as valuable industrial material, precise and orderly. Trusted teal #196D80 ground with navy #031D2D depth, crisp directional lighting, a single soft gold #FFD364 accent. Reads as valuable commodity, never as waste. Aspect ratio 16:9.
 ```
