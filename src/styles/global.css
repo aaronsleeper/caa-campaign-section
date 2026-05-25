@@ -471,6 +471,39 @@ li {
   display: block;
 }
 
+/* Unity Spark framing — applied by the PAGE, never baked into the photo.
+   A semi-transparent Spark mark bleeds off a corner of the image as brand
+   connective tissue. Driven entirely by CSS vars so opacity / color / size /
+   corner are tunable per slot without regenerating the image. The mark is the
+   real CAA interlocking-arches asset (public/brand/unity-spark.svg), masked so
+   --spark-color recolors it. Compose with .fpo--filled. */
+.fpo--framed {
+  --spark-size: 52%;
+  --spark-opacity: 0.2;
+  --spark-color: #ffffff;
+  --spark-offset: -8%;
+}
+
+.fpo--framed::after {
+  content: "";
+  position: absolute;
+  bottom: var(--spark-offset);
+  right: var(--spark-offset);
+  width: var(--spark-size);
+  aspect-ratio: 1;
+  background-color: var(--spark-color);
+  -webkit-mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+  mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+  opacity: var(--spark-opacity);
+  pointer-events: none;
+}
+
+/* Teal-on-light variant for photos with bright/white-heavy grounds */
+.fpo--framed.fpo--framed-teal {
+  --spark-color: var(--caa-teal);
+  --spark-opacity: 0.22;
+}
+
 /* FPO defect badge — marks images carrying a known generation issue (e.g. Unity
    Spark arcs painted over people) so they are not mistaken for final assets. */
 .fpo__badge {

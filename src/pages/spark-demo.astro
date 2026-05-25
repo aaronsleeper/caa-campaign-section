@@ -1,0 +1,87 @@
+---
+// THROWAWAY demo — shows the CSS Unity Spark framing treatment in isolation,
+// on clean stand-in surfaces (no baked-in spark). Delete once clean photos land.
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout title="Unity Spark framing — demo" description="CSS-applied Unity Spark framing on clean surfaces.">
+  <div class="page" style="max-width:64rem;margin:0 auto;padding:2rem 1.25rem;">
+    <h1>Unity Spark framing <em>demo</em></h1>
+    <p>The Spark is applied by CSS over a clean photo surface — never baked into the image. Every tile below uses the same gray stand-in “photo”; only the CSS vars differ. On real photos these stand-ins become the regenerated clean shots.</p>
+
+    <h2>The mark, full strength</h2>
+    <p>The real CAA interlocking-arches asset, masked so any brand color drives it.</p>
+    <div class="chip-row">
+      <span class="chip chip--navy" style="--c:#031d2d"></span>
+      <span class="chip chip--teal" style="--c:#196d80"></span>
+      <span class="chip chip--dark"><span class="chip__mark" style="--c:#ffffff"></span></span>
+      <span class="chip chip--tealbg"><span class="chip__mark" style="--c:#ffd364"></span></span>
+    </div>
+
+    <h2 style="margin-top:2.5rem;">Applied as subtle framing on a photo</h2>
+    <div class="demo-grid">
+      <figure class="fpo fpo--filled fpo--framed">
+        <div class="demo-photo"></div>
+        <figcaption class="demo-cap">Default — white spark, 16% opacity, bottom-right</figcaption>
+      </figure>
+
+      <figure class="fpo fpo--filled fpo--framed fpo--framed-teal">
+        <div class="demo-photo demo-photo--light"></div>
+        <figcaption class="demo-cap">Teal variant — for light/white-heavy photos</figcaption>
+      </figure>
+
+      <figure class="fpo fpo--filled fpo--framed" style="--spark-opacity:0.28;--spark-size:48%;">
+        <div class="demo-photo"></div>
+        <figcaption class="demo-cap">Stronger + smaller — <code>--spark-opacity:.28; --spark-size:48%</code></figcaption>
+      </figure>
+
+      <figure class="fpo fpo--filled fpo--framed" style="--spark-color:#FFD364;--spark-opacity:0.5;left:0;">
+        <div class="demo-photo"></div>
+        <figcaption class="demo-cap">Gold mark — <code>--spark-color:#FFD364</code> (accent use)</figcaption>
+      </figure>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .demo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .demo-photo {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #031d2d, #0d3a4a 55%, #196d80);
+  }
+  .demo-photo--light {
+    background: linear-gradient(135deg, #e9eef0, #cdd8dc 60%, #aebcc2);
+  }
+  .demo-cap {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    background: rgba(3, 29, 45, 0.72);
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.6rem;
+  }
+  .demo-cap code { color: #FFD364; }
+
+  .chip-row { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+  .chip, .chip__mark {
+    -webkit-mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+    mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+    background-color: var(--c);
+  }
+  .chip { width: 7rem; height: 7rem; display: grid; place-items: center; }
+  /* chips with a background ground hold a recolored mark inside */
+  .chip--dark, .chip--tealbg {
+    -webkit-mask: none; mask: none; background-color: initial;
+    border-radius: var(--radius-media, 10px);
+  }
+  .chip--dark { background: #031d2d; }
+  .chip--tealbg { background: #196d80; }
+  .chip__mark { width: 5rem; height: 5rem; }
+</style>
