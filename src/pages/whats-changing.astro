@@ -21,11 +21,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </div>
   </div>
 
-  <section class="section">
-    <h2>Why this matters to you</h2>
-    <p>For the first time, the companies that make and sell packaging are responsible for funding upgrades to the recycling system. That changes the resources available to you and the expectations around how the system performs. This is a real opportunity to do more with better support behind you.</p>
-  </section>
-
   <!-- Stat band — reproduces the live CAA "Key Goals" 3-up grid -->
   <div class="band band--tint-teal">
     <p class="band__eyebrow">By January 1, 2032, SB 54 aims to:</p>
@@ -73,24 +68,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </div>
   </section>
 
-  <!-- Key messages on a navy-tint band -->
-  <div class="band band--tint-navy">
-    <h2>Key messages</h2>
-    <ul class="icon-grid">
-      <li>SB 54 is California's Extended Producer Responsibility, or EPR, law for packaging. Producers now fund the system and are required to redesign packaging to meet recyclability and compostability requirements.</li>
-      <li>Covered Material Categories, or CMCs, define exactly which materials fall under the law. Everything in this program, from funding to tracking to accountability, starts and ends with covered materials.</li>
-      <li>SB 54 also encourages reuse and refill infrastructure. Refill stations, returnable containers, and durable packaging models are all part of what this law supports.</li>
-      <li>SB 54 builds on existing laws like SB 1383, SB 343, and AB 1201. It does not replace them.</li>
-    </ul>
-  </div>
-
   <!-- FPO imagery zone — names the intended image for generation -->
   <figure class="fpo fpo--filled fpo--framed">
     <img src={`${base}/fpo/4.png`} alt="Recycling-program staff sorting clean materials at a facility." />
   </figure>
 
   <section class="section">
-    <h2>Questions</h2>
+    <h2>Find out what SB 54 means for your work</h2>
+    <p>SB 54 changes how the recycling system is funded and what is expected of it, and that has real consequences for the organizations already doing the work. The questions below cover what is changing, what stays the same, and where you fit. Start here.</p>
     <div class="accordion">
       <details class="accordion__item">
         <summary class="accordion__trigger">What is SB 54, in simple terms?</summary>
@@ -149,25 +134,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </div>
   </section>
 
-  <!-- CTA band — the page's single Action Yellow lives here -->
+  <!-- CTA band — the page's single Action Yellow lives here. One engagement
+       action: the SB 54 interest-holder participation form. -->
   <div class="band band--tint-teal">
-    <section class="cta-block">
+    <section class="cta-block cta-block--single">
       <h2>What to do next</h2>
-
-      <div class="cta-block__card">
-        <p class="cta-block__label">All audiences</p>
-        <p class="cta-block__action"><strong>Get the SB 54 milestone calendar</strong> &mdash; key dates and deadlines as a PDF or calendar subscription.</p>
-      </div>
-
-      <div class="cta-block__card">
-        <p class="cta-block__label">All audiences</p>
-        <p class="cta-block__action"><a href={`${base}/roles-and-responsibilities/`}><strong>Find your role under SB 54 &rarr;</strong></a></p>
-      </div>
-
-      <div class="cta-block__card cta-block__card--ready">
-        <p class="cta-block__label">Stay ready</p>
-        <p class="cta-block__action"><strong>Join the California interest-holder briefing</strong> &mdash; quarterly updates segmented by role.</p>
-      </div>
+      <p>Tell us how you fit into SB 54. Your answers help CAA get the right information, funding details, and updates to the people doing this work across California.</p>
+      <a href="https://www.surveymonkey.com/r/2M3GMYV" class="cta-button" target="_blank" rel="noopener">Share how you fit in&nbsp;&rarr;</a>
     </section>
   </div>
 </ModuleLayout>

@@ -8,29 +8,52 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 <BaseLayout title="SB 54 in California" description="SB 54 interest-holder education materials — understand the law, your role, and how to access reimbursement.">
   <SectionNav currentPath={`${base}/`} />
   <div class="page">
-    <!-- Color-blocked hero — adapts the live /california layered-panel device:
-         dark panel + reverse white text + photo collage, offset against gold + teal mats. -->
-    <div class="hero--blocked">
-      <div class="hero-panel">
-        <div class="hero-panel__media">
-          <figure class="hero-fpo hero-fpo--filled">
-            <img src={`${base}/fpo/1.png`} alt="Recovered recyclable materials arranged as valuable commodities." />
-          </figure>
-          <figure class="hero-fpo hero-fpo--short hero-fpo--filled">
-            <img src={`${base}/fpo/2.png`} alt="Clean recovered recyclable materials arranged as valuable commodities." />
-          </figure>
+    <!-- Hero: heading + lead-in sit above the rectangle; the navy rectangle IS the
+         video, offset against the gold + teal mats (the live /california layered-panel
+         device). No video file yet, so it renders as a 'Coming soon' placeholder. -->
+    <div class="hero-intro">
+      <h1><em>SB&nbsp;54</em> in California</h1>
+      <p class="hero-intro__lead">
+        California is taking on one of its most ambitious recycling and packaging challenges yet. SB&nbsp;54 is a groundbreaking law that shifts responsibility for funding the recycling system to the companies that make and sell packaging, and sets bold goals for what that system can achieve.
+      </p>
+    </div>
+
+    <div class="hero--blocked hero--blocked--video">
+      <div class="video-placeholder hero-video">
+        <div class="video-placeholder__inner">
+          <span class="video-placeholder__icon" aria-hidden="true">&#9654;</span>
+          <span class="video-placeholder__label">Coming soon</span>
         </div>
-        <div class="hero-panel__body">
-          <h1><em>SB&nbsp;54</em> in California</h1>
-          <p>
-            California is taking on one of its most ambitious recycling and packaging challenges yet. SB&nbsp;54 is a groundbreaking law that shifts responsibility for funding the recycling system to the companies that make and sell packaging, and sets bold goals for what that system can achieve.
-          </p>
-          <nav class="hero-links" aria-label="Jump to a section">
-            <a href={`${base}/whats-changing/`}>What&rsquo;s Changing &rarr;</a>
-            <a href={`${base}/roles-and-responsibilities/`}>Roles &rarr;</a>
-            <a href={`${base}/reimbursement/`}>Reimbursement &rarr;</a>
-          </nav>
-        </div>
+      </div>
+    </div>
+
+    <h2 class="hub__heading">Start with the part that fits you</h2>
+    <div class="card-grid">
+      <div class="card">
+        <span class="card__number">1</span>
+        <h3 class="card__title">What SB 54 Means for You</h3>
+        <p class="card__description">
+          Understand what is changing, what is not, and why it matters for your organization.
+        </p>
+        <a href={`${base}/whats-changing/`} class="card__cta sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">Start here &rarr;</a>
+      </div>
+
+      <div class="card">
+        <span class="card__number">2</span>
+        <h3 class="card__title">Roles and Responsibilities</h3>
+        <p class="card__description">
+          See how your work connects to the bigger picture and where you fit in the new system.
+        </p>
+        <a href={`${base}/roles-and-responsibilities/`} class="card__cta sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">Find your role &rarr;</a>
+      </div>
+
+      <div class="card">
+        <span class="card__number">3</span>
+        <h3 class="card__title">Reimbursement for Covered Costs</h3>
+        <p class="card__description">
+          Producer funding is flowing back into the system. Find out what is eligible and how to prepare.
+        </p>
+        <a href={`${base}/reimbursement/`} class="card__cta sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">See reimbursement &rarr;</a>
       </div>
     </div>
 
@@ -64,43 +87,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <p class="hub__subtitle">
           The people who will make that happen are already out there doing this work. If that includes you, this site is here to help you understand what is changing, where you fit, and how to access the support and funding that comes with it.
         </p>
-      </div>
-    </div>
-
-    <div class="video-placeholder">
-      <div class="video-placeholder__inner">
-        <span class="video-placeholder__icon" aria-hidden="true">&#9654;</span>
-        <span class="video-placeholder__label">Coming soon</span>
-      </div>
-    </div>
-
-    <h2 class="hub__heading">Start with the part that fits you</h2>
-    <div class="card-grid">
-      <div class="card">
-        <span class="card__number">1</span>
-        <h3 class="card__title">What SB 54 Means for You</h3>
-        <p class="card__description">
-          Understand what is changing, what is not, and why it matters for your organization.
-        </p>
-        <a href={`${base}/whats-changing/`} class="card__cta sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">Start here &rarr;</a>
-      </div>
-
-      <div class="card">
-        <span class="card__number">2</span>
-        <h3 class="card__title">Roles and Responsibilities</h3>
-        <p class="card__description">
-          See how your work connects to the bigger picture and where you fit in the new system.
-        </p>
-        <a href={`${base}/roles-and-responsibilities/`} class="card__cta sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">Find your role &rarr;</a>
-      </div>
-
-      <div class="card">
-        <span class="card__number">3</span>
-        <h3 class="card__title">Reimbursement for Covered Costs</h3>
-        <p class="card__description">
-          Producer funding is flowing back into the system. Find out what is eligible and how to prepare.
-        </p>
-        <a href={`${base}/reimbursement/`} class="card__cta sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">See reimbursement &rarr;</a>
       </div>
     </div>
 

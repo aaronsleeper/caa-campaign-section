@@ -250,6 +250,32 @@ li {
   font-weight: 600;
 }
 
+/* Single-action CTA — drives the one key engagement: the participation form. */
+.cta-block--single {
+  border-top: none;
+  padding-top: 0;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--caa-navy);
+  background: var(--caa-yellow);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  text-wrap: balance;
+  transition: background 0.15s, color 0.15s;
+}
+
+.cta-button:hover {
+  background: var(--caa-navy);
+  color: var(--caa-paper);
+}
+
 /* Section */
 .section {
   max-width: var(--max-line-length);
@@ -795,6 +821,36 @@ li {
   height: 56%;
   background: var(--caa-teal);
   z-index: 0;
+}
+
+/* --- Hub intro: heading + lead-in lifted above the video rectangle --- */
+.hero-intro {
+  margin: var(--space-2xl) 0 var(--space-lg);
+}
+
+.hero-intro h1 {
+  margin-bottom: var(--space-md);
+}
+
+.hero-intro__lead {
+  font-size: var(--text-lg);
+  color: var(--caa-navy);
+  max-width: var(--max-line-length);
+  opacity: 0.9;
+}
+
+/* --- Hero video: the navy rectangle IS the video, sitting on the gold+teal mats.
+   Reuses .video-placeholder visuals; this variant lifts it over the mats and lets
+   them peek through the .hero--blocked padding. --- */
+.hero--blocked--video {
+  margin-top: 0;
+}
+
+.hero-video {
+  position: relative;
+  z-index: 1;
+  max-width: none;
+  margin: 0;
 }
 
 .hero-panel {
