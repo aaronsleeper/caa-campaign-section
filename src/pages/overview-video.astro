@@ -1,0 +1,37 @@
+---
+import ModuleLayout from '../layouts/ModuleLayout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<!-- Dedicated overview-video page (Option B). A single-purpose destination for the
+     June interest-holder push: one shareable URL (/overview-video/), the video,
+     and one engagement action (the inquiry form). Keeps the hub hero reserved for
+     the eventual animated piece. Recommended by the Demand-Gen / Content Design /
+     CAA Visual lenses (2026-05-27). -->
+<ModuleLayout
+  title="Watch the SB 54 Overview"
+  titleHtml={`Watch the <em>SB&nbsp;54</em> Overview`}
+  currentPath={`${base}/overview-video/`}
+>
+  <section class="section section--intro">
+    <p>A few minutes on what SB 54 means for California&rsquo;s recycling system: what is changing, who it affects, and the funding and support now available to the organizations doing the work. When you are ready, tell us how you fit in and CAA will point you to the right next steps.</p>
+  </section>
+
+  <div class="video-placeholder">
+    <div class="video-placeholder__inner">
+      <span class="video-placeholder__icon" aria-hidden="true">&#9654;</span>
+      <span class="video-placeholder__label">Video coming soon</span>
+    </div>
+  </div>
+
+  <!-- CTA band — the page's single Action Yellow lives here. One engagement
+       action: the SB 54 interest-holder inquiry form. -->
+  <div class="band band--tint-teal">
+    <section class="cta-block cta-block--single">
+      <h2>Get connected with CAA</h2>
+      <p>If you haven&rsquo;t connected with CAA yet, complete the CAA California Recycling &amp; Reuse System Inquiry Form. Knowing a bit more about your organization helps CAA point you to the best next steps.</p>
+      <a href="https://www.surveymonkey.com/r/2M3GMYV" class="cta-button" target="_blank" rel="noopener">Complete the inquiry form&nbsp;&rarr;</a>
+    </section>
+  </div>
+</ModuleLayout>
