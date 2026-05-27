@@ -66,12 +66,14 @@ h2::after {
   margin-top: var(--space-sm);
 }
 
-/* Native heading highlight — mirrors the live site's custom.css gradients verbatim
-   (#218ca5 teal bar on h1 em, #ffd364 yellow bar on h1/h3 strong). In Squarespace
-   those rules carry !important and win; these non-!important fallbacks render the
-   same bars standalone. Markup: <h1>…<em>SB 54</em>…</h1> for teal. */
+/* Native heading highlight — yellow bar on h1/h3 strong mirrors the live site.
+   For teal on h1 em (dark text on a light ground), the live site's mid-glyph bar
+   left black-on-teal too low-contrast (Aaron, 2026-05-27); dropped to a true
+   underline band below the glyphs so the dark heading reads at full contrast and
+   the teal still accents. The reverse-panel rule (.hero--band h1 em) keeps the
+   white-text-on-teal-bar treatment. Markup: <h1>…<em>SB 54</em>…</h1> for teal. */
 h1 em {
-  background: linear-gradient(to bottom, transparent 55%, #218ca5 30%, #218ca5 83%, transparent 72%);
+  background: linear-gradient(to bottom, transparent 78%, #218ca5 78%, #218ca5 92%, transparent 92%);
   font-weight: normal;
   font-style: normal;
 }
