@@ -13,12 +13,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <p>Better sorting. Cleaner materials. Stronger end markets. Processing is where covered materials are either recovered or lost. SB 54 invests in making the system deliver all the way through, and that investment flows directly to the facilities and operators doing that work.</p>
   </section>
 
-  <div class="video-placeholder">
-    <div class="video-placeholder__inner">
-      <span class="video-placeholder__icon" aria-hidden="true">&#9654;</span>
-      <span class="video-placeholder__label">Coming soon</span>
+  <figure class="video-placeholder video-placeholder--image" aria-label="Video coming">
+    <img src={`${base}/fpo/9.png`} alt="Dynamic looping forms suggesting material flowing through to viable end markets — video coming." class="video-placeholder__image" />
+    <div class="video-placeholder__overlay">
+      <div class="video-placeholder__mark" aria-hidden="true">
+        <div class="video-placeholder__spark"></div>
+        <span class="video-placeholder__play">&#9654;</span>
+      </div>
+      <span class="video-placeholder__label">Video coming</span>
     </div>
-  </div>
+  </figure>
 
   <!-- Split: media-right (alternates with 3b) -->
   <div class="split split--media-right">

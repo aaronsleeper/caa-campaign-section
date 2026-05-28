@@ -18,12 +18,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <p>A few minutes on what SB 54 means for California&rsquo;s recycling system: what is changing, who it affects, and the funding and support now available to the organizations doing the work. When you are ready, tell us how you fit in and CAA will point you to the right next steps.</p>
   </section>
 
-  <div class="video-placeholder">
-    <div class="video-placeholder__inner">
-      <span class="video-placeholder__icon" aria-hidden="true">&#9654;</span>
-      <span class="video-placeholder__label">Video coming soon</span>
+  <figure class="video-placeholder video-placeholder--image video-placeholder--wide" aria-label="Video coming">
+    <img src={`${base}/fpo/3.png`} alt="Recycling-system operators — coordinator, hauler, MRF worker — together on-site — video coming." class="video-placeholder__image" />
+    <div class="video-placeholder__overlay">
+      <div class="video-placeholder__mark" aria-hidden="true">
+        <div class="video-placeholder__spark"></div>
+        <span class="video-placeholder__play">&#9654;</span>
+      </div>
+      <span class="video-placeholder__label">Video coming</span>
     </div>
-  </div>
+  </figure>
 
   <!-- CTA band — the page's single Action Yellow lives here. One engagement
        action: the SB 54 interest-holder inquiry form. -->

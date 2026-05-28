@@ -15,12 +15,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <p>SB 54 only works if everyone plays their part. The good news is, the people who need to make it happen are already in the system, already doing the work. What changes is how that work is connected, funded, and supported.</p>
   </section>
 
-  <div class="video-placeholder">
-    <div class="video-placeholder__inner">
-      <span class="video-placeholder__icon" aria-hidden="true">&#9654;</span>
-      <span class="video-placeholder__label">Coming soon</span>
+  <figure class="video-placeholder video-placeholder--image" aria-label="Video coming">
+    <img src={`${base}/fpo/5.png`} alt="A jurisdiction coordinator and a hauler operator in conversation on-site — video coming." class="video-placeholder__image" />
+    <div class="video-placeholder__overlay">
+      <div class="video-placeholder__mark" aria-hidden="true">
+        <div class="video-placeholder__spark"></div>
+        <span class="video-placeholder__play">&#9654;</span>
+      </div>
+      <span class="video-placeholder__label">Video coming</span>
     </div>
-  </div>
+  </figure>
 
   <!-- Two-column split: image beside the imagery device (live CAA pattern) -->
   <div class="split">

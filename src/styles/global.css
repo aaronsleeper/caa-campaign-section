@@ -365,6 +365,71 @@ li {
   letter-spacing: 0.08em;
 }
 
+/* Image-poster variant — Dana asked for visual texture while we wait for real
+   videos on the inner pages (2026-05-28). Scrim + Unity Spark + ghosted play
+   read as "this page's video lands here" without faking a live, clickable
+   asset. Designed by the CAA Visual Designer against v1; hub keeps its mat
+   composition (no modifier). */
+.video-placeholder--image {
+  overflow: hidden;
+}
+
+.video-placeholder__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-placeholder--image {
+  position: relative;
+}
+
+.video-placeholder__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  text-align: center;
+  background: rgba(11, 54, 71, 0.70); /* --caa-navy at 70% — the scrim */
+  color: #fff;
+}
+
+.video-placeholder__mark {
+  position: relative;
+  width: clamp(96px, 12vw, 160px);
+  aspect-ratio: 1;
+  color: rgba(255, 255, 255, 0.35); /* drives spark + play via currentColor */
+}
+
+.video-placeholder__spark {
+  width: 100%;
+  height: 100%;
+  background-color: currentColor;
+  -webkit-mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+  mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+}
+
+.video-placeholder__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  line-height: 1;
+  padding-left: 0.15em; /* optical center of the play glyph */
+}
+
+/* Overview Video page — single-purpose centerpiece, slightly wider. */
+.video-placeholder--wide {
+  max-width: var(--content-width);
+}
+
 /* Full-width-feel color bands — the alternating-rhythm signature.
    Edge-bleed within the content column to read as bands, not boxed cards. */
 /* Full-width content column (replaces the left-rail grid) */

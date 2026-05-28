@@ -14,12 +14,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <p>If you run a local recycling program, coordinate community outreach, or help residents understand how to participate, a lot of what you do is now eligible for reimbursement under SB 54. This is a meaningful opportunity to expand what your program can do with funding behind it.</p>
   </section>
 
-  <div class="video-placeholder">
-    <div class="video-placeholder__inner">
-      <span class="video-placeholder__icon" aria-hidden="true">&#9654;</span>
-      <span class="video-placeholder__label">Coming soon</span>
+  <figure class="video-placeholder video-placeholder--image" aria-label="Video coming">
+    <img src={`${base}/fpo/8.png`} alt="A local recycling outreach event — residents engaging with a recycling program — video coming." class="video-placeholder__image" />
+    <div class="video-placeholder__overlay">
+      <div class="video-placeholder__mark" aria-hidden="true">
+        <div class="video-placeholder__spark"></div>
+        <span class="video-placeholder__play">&#9654;</span>
+      </div>
+      <span class="video-placeholder__label">Video coming</span>
     </div>
-  </div>
+  </figure>
 
   <!-- Split: media-right (alternates with 3b/3c) -->
   <div class="split split--media-right">

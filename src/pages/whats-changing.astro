@@ -14,12 +14,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <p>California has some of the most dedicated recycling programs in the country. The work jurisdictions, haulers, and local operators have put in for years is the foundation this new system is built on. SB 54 does not start from scratch. It brings new funding, clearer expectations, and statewide coordination to support and strengthen what is already working.</p>
   </section>
 
-  <div class="video-placeholder">
-    <div class="video-placeholder__inner">
-      <span class="video-placeholder__icon" aria-hidden="true">&#9654;</span>
-      <span class="video-placeholder__label">Coming soon</span>
+  <figure class="video-placeholder video-placeholder--image" aria-label="Video coming">
+    <img src={`${base}/fpo/4.png`} alt="Recycling-program staff sorting clean materials at a facility — video coming." class="video-placeholder__image" />
+    <div class="video-placeholder__overlay">
+      <div class="video-placeholder__mark" aria-hidden="true">
+        <div class="video-placeholder__spark"></div>
+        <span class="video-placeholder__play">&#9654;</span>
+      </div>
+      <span class="video-placeholder__label">Video coming</span>
     </div>
-  </div>
+  </figure>
 
   <!-- Stat band — reproduces the live CAA "Key Goals" 3-up grid -->
   <div class="band band--tint-teal">
