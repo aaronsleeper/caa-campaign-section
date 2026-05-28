@@ -19,12 +19,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </div>
 
     <div class="hero--blocked hero--blocked--video">
-      <div class="video-placeholder hero-video">
-        <div class="video-placeholder__inner">
-          <span class="video-placeholder__icon" aria-hidden="true">&#9654;</span>
-          <span class="video-placeholder__label">Coming soon</span>
+      <figure class="video-placeholder video-placeholder--image hero-video" aria-label="Video coming">
+        <img src={`${base}/fpo/2.png`} alt="Sorted recyclable materials presented as valuable commodities on a teal ground — video coming." class="video-placeholder__image" />
+        <div class="video-placeholder__overlay">
+          <div class="video-placeholder__mark" aria-hidden="true">
+            <div class="video-placeholder__spark"></div>
+            <span class="video-placeholder__play">&#9654;</span>
+          </div>
+          <span class="video-placeholder__label">Video coming</span>
         </div>
-      </div>
+      </figure>
     </div>
 
     <h2 class="hub__heading">Start with the part that fits you</h2>
