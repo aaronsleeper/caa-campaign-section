@@ -7,11 +7,12 @@ const { currentPath } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 // Top section-nav strip. Reimbursement sub-pages (3a/3b/3c) are parallel cards
-// on the gateway, not strip items (no implied sequence). Overview Video sits
-// between Home and the modules as an orientation entry point.
+// on the gateway, not strip items (no implied sequence). The overview-video
+// page exists at /overview-video/ as an unlinked direct-link destination
+// (Option 2, confirmed by CAA 2026-05-29) — it intentionally does not appear
+// in the nav.
 const navItems = [
   { href: `${base}/`, label: 'SB 54 Home' },
-  { href: `${base}/overview-video/`, label: 'Overview Video' },
   { href: `${base}/whats-changing/`, label: "What's Changing" },
   { href: `${base}/roles-and-responsibilities/`, label: 'Roles' },
   { href: `${base}/reimbursement/`, label: 'Reimbursement' },
