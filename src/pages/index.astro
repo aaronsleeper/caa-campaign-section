@@ -14,7 +14,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <div class="hero-intro">
       <h1><em>SB&nbsp;54</em> in California</h1>
       <p class="hero-intro__lead">
-        California is taking on one of its most ambitious recycling and packaging challenges yet. SB&nbsp;54 is a groundbreaking law that shifts responsibility for funding the recycling system to the companies that make and sell packaging, and sets bold goals for what that system can achieve.
+        California is taking on one of its most ambitious recycling and packaging challenges yet. SB&nbsp;54 is one of the most comprehensive and far-reaching packaging responsibility laws in the U.S., creating a producer-funded system to support recycling, composting, and waste management improvements across the state.
       </p>
     </div>
 
@@ -31,13 +31,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       </figure>
     </div>
 
-    <h2 class="hub__heading">Start with the part that fits you</h2>
+    <h2 class="hub__heading">Start with the topic that's most relevant to where you are right now</h2>
     <div class="card-grid">
       <div class="card">
         <span class="card__number">1</span>
         <h3 class="card__title">What SB 54 Means for You</h3>
         <p class="card__description">
-          Understand what is changing, what is not, and why it matters for your organization.
+          Learn what is changing under SB 54, what stays the same, and what to expect as implementation moves forward.
         </p>
         <a href={`${base}/whats-changing/`} class="card__cta sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">Start here &rarr;</a>
       </div>
@@ -46,24 +46,25 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <span class="card__number">2</span>
         <h3 class="card__title">Roles and Responsibilities</h3>
         <p class="card__description">
-          See how your work connects to the bigger picture and where you fit in the new system.
+          Understand who does what under SB 54, how responsibilities are shared, and where your organization fits.
         </p>
         <a href={`${base}/roles-and-responsibilities/`} class="card__cta sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">Find your role &rarr;</a>
       </div>
 
       <div class="card">
         <span class="card__number">3</span>
-        <h3 class="card__title">Reimbursement for Covered Costs</h3>
+        <h3 class="card__title">Reimbursement for Covered Costs <span class="card__tag">(Coming Soon)</span></h3>
         <p class="card__description">
-          Producer funding is flowing back into the system. Find out what is eligible and how to prepare.
+          Learn how reimbursement works, what costs may be eligible, and how to prepare for future funding opportunities.
         </p>
-        <a href={`${base}/reimbursement/`} class="card__cta sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">See reimbursement &rarr;</a>
+        <a href={`${base}/reimbursement/`} class="card__cta sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">See reimbursement overview &rarr;</a>
       </div>
     </div>
 
-    <!-- Stat band — reproduces the live CAA "Key Goals" grid -->
+    <!-- Goals of SB 54 — reproduces the live CAA "Key Goals" grid -->
     <div class="band band--tint-teal">
-      <p class="band__eyebrow">By January 1, 2032, SB 54 aims to:</p>
+      <p class="band__title">Goals of SB 54</p>
+      <p class="band__eyebrow">By January 1, 2032:</p>
       <div class="checks">
         <div class="stat">
           <span class="stat__figure">25%</span>
@@ -89,7 +90,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       </div>
       <div class="split__body">
         <p class="hub__subtitle">
-          The people who will make that happen are already out there doing this work. If that includes you, this site is here to help you understand what is changing, where you fit, and how to access the support and funding that comes with it.
+          Whether you're already involved in this work or just beginning to learn about SB 54, this site is here to help you understand what is changing, where you fit, and how to access available support and funding.
         </p>
       </div>
     </div>
@@ -116,6 +117,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   .hub__heading {
     margin-top: var(--space-2xl);
+  }
+
+  .card__tag {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--caa-teal-dark, var(--caa-teal));
+    opacity: 0.85;
+    margin-left: var(--space-xs);
+    letter-spacing: 0.02em;
   }
 
   .card__number {
