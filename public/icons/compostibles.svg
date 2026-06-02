@@ -10,7 +10,7 @@
       }
     </style>
   </defs>
-  <path class="cls-1" d="M12,22c0-2.21,1.79-4,4-4h40c2.21,0,4,1.79,4,4v13H12v-13Z"/>
-  <path class="cls-1" d="M12,38h48v13c0,2.21-1.79,4-4,4H16c-2.21,0-4-1.79-4-4v-13Z"/>
-  <path class="cls-1" d="M32,32h8v8h-8z"/>
+  <path class="cls-1" d="M14,26 L26,14 L36,26 L46,14 L58,26 L54,58 L18,58 Z"/>
+  <path class="cls-1" d="M16,30 L56,30"/>
+  <path class="cls-1" d="M22,14 Q36,2 50,14"/>
 </svg>
