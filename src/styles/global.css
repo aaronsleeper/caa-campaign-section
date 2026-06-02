@@ -1,5 +1,35 @@
 @import './tokens.css';
 
+/* ============================================================
+   This file LAYERS ON TOP of the live circularactionalliance.org
+   stylesheet bundle (site.css + static.css + custom.css), which
+   BaseLayout.astro links in <head> ahead of this file. The live
+   stylesheets supply the brand baseline: type, color tokens, link
+   styling, button styling, the h1 em / h1 strong / h3 strong inline
+   highlight treatments (those use !important and beat any rule here).
+
+   What lives in this file:
+     • Universal reset (border-box + zeroed margins) — load-bearing
+       for our component layouts.
+     • body { color } — site.css doesn't set body color, so without
+       this everything defaults to browser black instead of navy.
+     • h1/h2/h3 base scale — overrides live with our own type scale.
+     • h2::after gold-underline-bar — INTENTIONAL EXTENSION. The live
+       site uses inline <strong> highlights inside h2 text, not a
+       universal underline. Aaron added this device deliberately.
+     • Component CSS (cards, bands, FPOs, timeline, accordion, hero
+       variants, page-nav, split, callout, stat callouts) — all
+       styling patterns the live site doesn't have a native form for.
+
+   What is INTENTIONALLY ABSENT here:
+     • h1 em / h1 strong / h3 strong rules — removed 2026-06-02 as
+       dead code; custom.css pins them with !important.
+
+   When adding rules: if it styles a generic element (h1, p, ul) and
+   the live site already does it the way we want, don't add it. Only
+   add overrides when the live default doesn't match our design.
+   ============================================================ */
+
 /* Reset */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -23,7 +53,10 @@ body {
   background: var(--caa-paper);
 }
 
-/* Typography */
+/* Typography — type scale only. The live site's h1/h2/h3 weights and
+   sizes from site.css are overridden here to match our designed scale.
+   Inline highlight treatments (h1 em / h1 strong / h3 strong) come
+   from the live custom.css via !important. */
 h1, h2, h3 {
   font-family: var(--font-display);
   color: var(--caa-navy);
@@ -51,7 +84,10 @@ h3 {
   margin-bottom: var(--space-sm);
 }
 
-/* Gold-highlighted section headings — the live site's signature device */
+/* h2 gold-underline-bar — intentional design extension, not a live-site
+   pattern. The live site highlights h2s with inline <strong> spans
+   inside the heading text; this rule adds a universal bar under every
+   h2 as a section-divider device Aaron added. */
 h2 {
   position: relative;
 }
@@ -64,24 +100,6 @@ h2::after {
   background: var(--caa-yellow);
   border-radius: var(--radius-bar);
   margin-top: var(--space-sm);
-}
-
-/* Native heading highlight — yellow bar on h1/h3 strong mirrors the live site.
-   For teal on h1 em (dark text on a light ground), the live site's mid-glyph bar
-   left black-on-teal too low-contrast (Aaron, 2026-05-27); dropped to a true
-   underline band below the glyphs so the dark heading reads at full contrast and
-   the teal still accents. The reverse-panel rule (.hero--band h1 em) keeps the
-   white-text-on-teal-bar treatment. Markup: <h1>…<em>SB 54</em>…</h1> for teal. */
-h1 em {
-  background: linear-gradient(to bottom, transparent 78%, #218ca5 78%, #218ca5 92%, transparent 92%);
-  font-weight: normal;
-  font-style: normal;
-}
-
-h1 strong,
-h3 strong {
-  background: linear-gradient(to bottom, transparent 55%, #ffd364 30%, #ffd364 83%, #fff 72%);
-  font-weight: normal;
 }
 
 p {
@@ -669,6 +687,18 @@ li {
   flex: 1 1 220px;
   padding-top: var(--space-sm);
   border-top: 3px solid var(--caa-teal);
+}
+
+.stat__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.stat__icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
 }
 
 .stat__figure {

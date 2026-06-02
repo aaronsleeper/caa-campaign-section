@@ -67,15 +67,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <p class="band__eyebrow">By January 1, 2032:</p>
       <div class="checks">
         <div class="stat">
-          <span class="stat__figure">25%</span>
+          <div class="stat__head">
+            <img class="stat__icon" src={`${base}/icons/bottle.svg`} alt="" aria-hidden="true" />
+            <span class="stat__figure">25%</span>
+          </div>
           <span class="stat__label">reduction in single-use plastic packaging</span>
         </div>
         <div class="stat">
-          <span class="stat__figure">65%</span>
+          <div class="stat__head">
+            <img class="stat__icon" src={`${base}/icons/recycle.svg`} alt="" aria-hidden="true" />
+            <span class="stat__figure">65%</span>
+          </div>
           <span class="stat__label">recycling rate</span>
         </div>
         <div class="stat">
-          <span class="stat__figure">100%</span>
+          <div class="stat__head">
+            <img class="stat__icon" src={`${base}/icons/compostibles.svg`} alt="" aria-hidden="true" />
+            <span class="stat__figure">100%</span>
+          </div>
           <span class="stat__label">of packaging recyclable or compostable</span>
         </div>
       </div>
