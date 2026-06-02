@@ -18,6 +18,30 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet" />
+
+  <!--
+    LIVE CAA SITE STYLES — direct-linked from circularactionalliance.org's CDN.
+
+    Loading these in this <head> makes the standalone preview render with the
+    same Squarespace stylesheet bundle the production site uses, so reviewers
+    see the section as it will look once Larine builds the pages natively
+    (per SQUARESPACE-BUILD-SPEC.md). Our own global.css layers on top below
+    and adds rules for the custom components Squarespace doesn't have a
+    native pattern for (numbered step cards, stats callout, layout grids).
+
+    URLs were extracted from view-source:circularactionalliance.org on
+    2026-06-02. They are versioned/hashed by Squarespace and stable until
+    CAA pushes a Site Styles change; if the preview starts looking wrong,
+    re-extract from the live <head>.
+
+    Load order matters: live styles first (baseline tokens + type + custom
+    accents), then our global.css (overrides where needed, plus components
+    that don't exist live). custom.css uses !important on h1 em / h3 strong
+    so it pins those treatments regardless of cascade order.
+  -->
+  <link rel="stylesheet" href="https://static1.squarespace.com/static/versioned-site-css/64260ed078c36925b1cf3385/252/5c5a519771c10ba3470d8101/64260ed178c36925b1cf339f/1789/site.css?nocustom=true" />
+  <link rel="stylesheet" href="https://static1.squarespace.com/static/vta/5c5a519771c10ba3470d8101/versioned-assets/1780419127951-K5FIIEY2NNREJWC8JB19/static.css" />
+  <link rel="stylesheet" href="https://static1.squarespace.com/static/custom-css/64260ed078c36925b1cf3385/64260ed178c36925b1cf339f/1/custom.css" />
 </head>
 <body>
   <!-- CONTEXT ONLY: a faithful representation of CAA's existing site header,
