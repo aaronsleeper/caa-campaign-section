@@ -1,26 +1,21 @@
 <!--
-  CAA SB 54 — Squarespace paste artifact (scoped, dual-mode CSS)
-  Page: Module 2 — Roles and Responsibilities Under SB 54
-  Target: paste into a Code Block on the "Blank 2 for Change Craft" page in Squarespace.
+  CAA SB 54 — Module 2 — Roles and Responsibilities Under SB 54 — Squarespace paste (matches Hub v4.1 approach)
+  Target: Code Block on "Blank 2 for Change Craft" page in Squarespace.
 
-  HOW TO USE
-    1. Open the page in Squarespace editor.
-    2. Add a Code Block in a full-width section. Let our wrapper handle max-width.
-    3. "Display Source" → OFF.
-    4. Paste everything below this comment (opening <style> through closing </div>). Save.
+  STRUCTURE (same as Hub paste)
+    - global.css + SectionNav component CSS + Squarespace-fit overrides,
+      all scoped under .caa-sb54-paste
+    - tokens.css inlined (so brand variables resolve in dual-mode)
+    - .band drops 100vw breakout → fills content area width
+    - .section-nav not sticky, constrained to content-width
+    - Wrapper has margin:0 padding:0 (Squarespace section provides outer space)
 
-  CSS SCOPING
-    All CSS rules are scoped under .caa-sb54-paste — they cannot affect
-    Squarespace's header, footer, or other sections. Brand tokens use the
-    dual-mode pattern from tokens.css: they READ Squarespace's Site Styles
-    HSL vars first, fall back to the live CAA brand values, so the paste
-    inherits future Site Styles updates automatically.
-
-  KNOWN LIMITS
-    - Squarespace's surrounding Section padding still applies on the outside
-      of the Code Block. If the page reads cramped, set the Section to
-      minimal padding / "Full Bleed" in Squarespace's section settings.
-    - Images load from https://aaronsleeper.github.io/caa-campaign-section/ — swap to CAA's media library when uploaded.
+  POST-PASTE TODOS
+    - Section-nav links point to GitHub Pages preview URLs. Edit in the
+      Code Block source: replace each href with the actual Squarespace
+      page URL (About SB 54 / Blank 1 / Blank 2 / Blank 3).
+    - Adjust Squarespace Section padding-top in section settings if there's
+      too much space above the nav.
 -->
 
 <style>
@@ -583,8 +578,8 @@
   width: 100%;
   height: 100%;
   background-color: currentColor;
-  -webkit-mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
-  mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+  -webkit-mask: url("https://aaronsleeper.github.io/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+  mask: url("https://aaronsleeper.github.io/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
 }
 
 
@@ -799,8 +794,8 @@
   width: var(--spark-size);
   aspect-ratio: 1;
   background-color: var(--spark-color);
-  -webkit-mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
-  mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+  -webkit-mask: url("https://aaronsleeper.github.io/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+  mask: url("https://aaronsleeper.github.io/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
   opacity: var(--spark-opacity);
   pointer-events: none;
 }
@@ -1379,20 +1374,107 @@
 }
 
 
-/* Wrapper sizing: explicit so Squarespace's section padding doesn't crush
-   or stretch our content. Matches the prototype's content-width. */
+
+/* === SectionNav component === */
+.caa-sb54-paste .section-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--caa-paper);
+    border-bottom: 1px solid color-mix(in srgb, var(--caa-navy) 12%, transparent);
+  }
+
+
+  .caa-sb54-paste .section-nav__inner {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+  }
+
+
+  .caa-sb54-paste .section-nav__list {
+    display: flex;
+    gap: var(--space-xl);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .caa-sb54-paste .section-nav__item a {
+    display: block;
+    padding: var(--space-md) 0;
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--caa-navy);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+
+  .caa-sb54-paste .section-nav__item a:hover {
+    color: var(--caa-teal);
+  }
+
+
+  .caa-sb54-paste .section-nav__item--current a {
+    color: var(--caa-teal);
+    border-bottom-color: var(--caa-teal);
+  }
+
+
+  @media (max-width: 768px) {
+
+    .caa-sb54-paste .section-nav__list {
+      gap: var(--space-md);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+  
+}
 .caa-sb54-paste {
   display: block;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2.5rem 1.5rem;
-  font-family: var(--font-body);
   color: var(--caa-ink);
   line-height: var(--line-height);
+  margin: 0;
+  padding: 0;
 }
+
+
+/* === Squarespace-fit overrides (v4.1) ===================================== */
+
+/* Bands: drop 100vw breakout, fill content area. */
+.caa-sb54-paste .band {
+  width: 100%;
+  margin-inline: 0;
+  margin-block: var(--space-2xl);
+  padding: var(--space-2xl) var(--space-xl);
+}
+
+/* Section-nav: not sticky, constrained to content-width, aligned with .page. */
+.caa-sb54-paste .section-nav {
+  position: static;
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto var(--space-xl);
+}
+.caa-sb54-paste .section-nav__inner { padding: 0; }
+
+/* Zero first/last child top/bottom margins. */
+.caa-sb54-paste > *:first-child,
+.caa-sb54-paste > *:first-child > *:first-child { margin-top: 0; }
+.caa-sb54-paste > *:last-child,
+.caa-sb54-paste > *:last-child > *:last-child { margin-bottom: 0; }
+
+/* Page wrapper: no extra padding. */
+.caa-sb54-paste .page { padding: 0; }
 
 </style>
 
 <div class="caa-sb54-paste">
-<div class="page"> <div class="hero--band"> <div class="hero--band__inner"> <h1>Roles and Responsibilities Under <em>SB&nbsp;54</em></h1>  </div> </div>  <section class="section section--intro"> <p>SB 54 builds on work that is already happening across California. The people and organizations involved today remain central to making the system work. What changes is how that work is connected, funded, and supported.</p> </section> <figure class="video-placeholder video-placeholder--image" aria-label="Video coming"> <img src="https://aaronsleeper.github.io/caa-campaign-section/fpo/5.png" alt="A jurisdiction coordinator and a hauler operator in conversation on-site — video coming." class="video-placeholder__image"> <div class="video-placeholder__overlay"> <div class="video-placeholder__mark" aria-hidden="true"> <div class="video-placeholder__spark"></div> <span class="video-placeholder__play">&#9654;</span> </div> <span class="video-placeholder__label">Video coming</span> </div> </figure> <section class="section"> <h2>Find where you fit under SB 54</h2> <p>SB 54 involves many organizations with different responsibilities. The questions below explain how the system is structured, who does what, and how the pieces fit together.</p> <div class="accordion"> <details class="accordion__item"> <summary class="accordion__trigger">What is CAA responsible for?</summary> <div class="accordion__content"> <p>CAA implements and manages the statewide SB 54 program on behalf of producers. That includes managing producer registration and reporting, distributing funding to support local programs and system improvements, coordinating with jurisdictions and haulers, and providing guidance and technical assistance. CAA coordinates and supports the system. It does not replace local programs or regulate the industry.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">What is the difference between CAA and CalRecycle?</summary> <div class="accordion__content"> <p>CalRecycle sets the rules, approves the program plan, and enforces compliance. CAA implements the program within that framework. For policy or regulatory questions, contact CalRecycle. For funding, implementation, or coordination questions, contact CAA.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">What are producers responsible for?</summary> <div class="accordion__content"> <p>Producers register with CAA, report packaging data, fund system improvements, and redesign packaging to meet recyclability, compostability, and source reduction targets.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">What is my organization responsible for?</summary> <div class="accordion__content"> <p>Local jurisdictions and service providers are responsible for including all materials on CalRecycle's CMC list in their collection and recycling programs. Depending on your role, that may involve running local outreach programs, managing collection routes, or sorting and processing covered materials. Funding is available to support new and additional work tied to those responsibilities.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">Will SB 54 change who makes local decisions?</summary> <div class="accordion__content"> <p>No. Local partners continue making day-to-day program decisions. SB 54 creates statewide standards and coordination, but it does not replace local decision-making.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">Who manages the Plastic Pollution Mitigation Fund?</summary> <div class="accordion__content"> <p>CAA collects PPMF fees from producers and remits them to the California Department of Tax and Fee Administration. CalEPA and other state entities oversee how those funds are allocated and used.</p> </div> </details> </div> </section>  <div class="band band--tint-teal"> <section class="cta-block cta-block--single"> <h2>What to do next</h2> <p>Tell us how you fit into SB 54. Your answers help CAA share relevant information, funding opportunities, and updates with organizations across California.</p> <a href="https://www.surveymonkey.com/r/2M3GMYV" class="cta-button" target="_blank" rel="noopener">Share how you fit in&nbsp;&rarr;</a> </section> </div>   </div>
+<nav class="section-nav" aria-label="In this section"> <div class="section-nav__inner"> <ul class="section-nav__list"> <li class="section-nav__item"> <a href="https://aaronsleeper.github.io/caa-campaign-section/">SB 54 Home</a> </li><li class="section-nav__item"> <a href="https://aaronsleeper.github.io/caa-campaign-section/whats-changing/">What&#39;s Changing</a> </li><li class="section-nav__item section-nav__item--current"> <a href="https://aaronsleeper.github.io/caa-campaign-section/roles-and-responsibilities/" aria-current="page">Roles</a> </li><li class="section-nav__item"> <a href="https://aaronsleeper.github.io/caa-campaign-section/reimbursement/">Reimbursement</a> </li> </ul> </div> </nav> <div class="page"> <div class="hero--band"> <div class="hero--band__inner"> <h1>Roles and Responsibilities Under <em>SB&nbsp;54</em></h1>  </div> </div>  <section class="section section--intro"> <p>SB 54 builds on work that is already happening across California. The people and organizations involved today remain central to making the system work. What changes is how that work is connected, funded, and supported.</p> </section> <figure class="video-placeholder video-placeholder--image" aria-label="Video coming"> <img src="https://aaronsleeper.github.io/caa-campaign-section/fpo/5.png" alt="A jurisdiction coordinator and a hauler operator in conversation on-site — video coming." class="video-placeholder__image"> <div class="video-placeholder__overlay"> <div class="video-placeholder__mark" aria-hidden="true"> <div class="video-placeholder__spark"></div> <span class="video-placeholder__play">&#9654;</span> </div> <span class="video-placeholder__label">Video coming</span> </div> </figure> <section class="section"> <h2>Find where you fit under SB 54</h2> <p>SB 54 involves many organizations with different responsibilities. The questions below explain how the system is structured, who does what, and how the pieces fit together.</p> <div class="accordion"> <details class="accordion__item"> <summary class="accordion__trigger">What is CAA responsible for?</summary> <div class="accordion__content"> <p>CAA implements and manages the statewide SB 54 program on behalf of producers. That includes managing producer registration and reporting, distributing funding to support local programs and system improvements, coordinating with jurisdictions and haulers, and providing guidance and technical assistance. CAA coordinates and supports the system. It does not replace local programs or regulate the industry.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">What is the difference between CAA and CalRecycle?</summary> <div class="accordion__content"> <p>CalRecycle sets the rules, approves the program plan, and enforces compliance. CAA implements the program within that framework. For policy or regulatory questions, contact CalRecycle. For funding, implementation, or coordination questions, contact CAA.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">What are producers responsible for?</summary> <div class="accordion__content"> <p>Producers register with CAA, report packaging data, fund system improvements, and redesign packaging to meet recyclability, compostability, and source reduction targets.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">What is my organization responsible for?</summary> <div class="accordion__content"> <p>Local jurisdictions and service providers are responsible for including all materials on CalRecycle's CMC list in their collection and recycling programs. Depending on your role, that may involve running local outreach programs, managing collection routes, or sorting and processing covered materials. Funding is available to support new and additional work tied to those responsibilities.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">Will SB 54 change who makes local decisions?</summary> <div class="accordion__content"> <p>No. Local partners continue making day-to-day program decisions. SB 54 creates statewide standards and coordination, but it does not replace local decision-making.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">Who manages the Plastic Pollution Mitigation Fund?</summary> <div class="accordion__content"> <p>CAA collects PPMF fees from producers and remits them to the California Department of Tax and Fee Administration. CalEPA and other state entities oversee how those funds are allocated and used.</p> </div> </details> </div> </section>  <div class="band band--tint-teal"> <section class="cta-block cta-block--single"> <h2>What to do next</h2> <p>Tell us how you fit into SB 54. Your answers help CAA share relevant information, funding opportunities, and updates with organizations across California.</p> <a href="https://www.surveymonkey.com/r/2M3GMYV" class="cta-button" target="_blank" rel="noopener">Share how you fit in&nbsp;&rarr;</a> </section> </div>   </div>
 </div>

@@ -1,26 +1,21 @@
 <!--
-  CAA SB 54 — Squarespace paste artifact (scoped, dual-mode CSS)
-  Page: Module 1 — What SB 54 Means for You
-  Target: paste into a Code Block on the "Blank 1 for Change" page in Squarespace.
+  CAA SB 54 — Module 1 — What SB 54 Means for You — Squarespace paste (matches Hub v4.1 approach)
+  Target: Code Block on "Blank 1 for Change" page in Squarespace.
 
-  HOW TO USE
-    1. Open the page in Squarespace editor.
-    2. Add a Code Block in a full-width section. Let our wrapper handle max-width.
-    3. "Display Source" → OFF.
-    4. Paste everything below this comment (opening <style> through closing </div>). Save.
+  STRUCTURE (same as Hub paste)
+    - global.css + SectionNav component CSS + Squarespace-fit overrides,
+      all scoped under .caa-sb54-paste
+    - tokens.css inlined (so brand variables resolve in dual-mode)
+    - .band drops 100vw breakout → fills content area width
+    - .section-nav not sticky, constrained to content-width
+    - Wrapper has margin:0 padding:0 (Squarespace section provides outer space)
 
-  CSS SCOPING
-    All CSS rules are scoped under .caa-sb54-paste — they cannot affect
-    Squarespace's header, footer, or other sections. Brand tokens use the
-    dual-mode pattern from tokens.css: they READ Squarespace's Site Styles
-    HSL vars first, fall back to the live CAA brand values, so the paste
-    inherits future Site Styles updates automatically.
-
-  KNOWN LIMITS
-    - Squarespace's surrounding Section padding still applies on the outside
-      of the Code Block. If the page reads cramped, set the Section to
-      minimal padding / "Full Bleed" in Squarespace's section settings.
-    - Images load from https://aaronsleeper.github.io/caa-campaign-section/ — swap to CAA's media library when uploaded.
+  POST-PASTE TODOS
+    - Section-nav links point to GitHub Pages preview URLs. Edit in the
+      Code Block source: replace each href with the actual Squarespace
+      page URL (About SB 54 / Blank 1 / Blank 2 / Blank 3).
+    - Adjust Squarespace Section padding-top in section settings if there's
+      too much space above the nav.
 -->
 
 <style>
@@ -583,8 +578,8 @@
   width: 100%;
   height: 100%;
   background-color: currentColor;
-  -webkit-mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
-  mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+  -webkit-mask: url("https://aaronsleeper.github.io/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+  mask: url("https://aaronsleeper.github.io/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
 }
 
 
@@ -799,8 +794,8 @@
   width: var(--spark-size);
   aspect-ratio: 1;
   background-color: var(--spark-color);
-  -webkit-mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
-  mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+  -webkit-mask: url("https://aaronsleeper.github.io/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+  mask: url("https://aaronsleeper.github.io/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
   opacity: var(--spark-opacity);
   pointer-events: none;
 }
@@ -1379,20 +1374,107 @@
 }
 
 
-/* Wrapper sizing: explicit so Squarespace's section padding doesn't crush
-   or stretch our content. Matches the prototype's content-width. */
+
+/* === SectionNav component === */
+.caa-sb54-paste .section-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--caa-paper);
+    border-bottom: 1px solid color-mix(in srgb, var(--caa-navy) 12%, transparent);
+  }
+
+
+  .caa-sb54-paste .section-nav__inner {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+  }
+
+
+  .caa-sb54-paste .section-nav__list {
+    display: flex;
+    gap: var(--space-xl);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .caa-sb54-paste .section-nav__item a {
+    display: block;
+    padding: var(--space-md) 0;
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--caa-navy);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+
+  .caa-sb54-paste .section-nav__item a:hover {
+    color: var(--caa-teal);
+  }
+
+
+  .caa-sb54-paste .section-nav__item--current a {
+    color: var(--caa-teal);
+    border-bottom-color: var(--caa-teal);
+  }
+
+
+  @media (max-width: 768px) {
+
+    .caa-sb54-paste .section-nav__list {
+      gap: var(--space-md);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+  
+}
 .caa-sb54-paste {
   display: block;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2.5rem 1.5rem;
-  font-family: var(--font-body);
   color: var(--caa-ink);
   line-height: var(--line-height);
+  margin: 0;
+  padding: 0;
 }
+
+
+/* === Squarespace-fit overrides (v4.1) ===================================== */
+
+/* Bands: drop 100vw breakout, fill content area. */
+.caa-sb54-paste .band {
+  width: 100%;
+  margin-inline: 0;
+  margin-block: var(--space-2xl);
+  padding: var(--space-2xl) var(--space-xl);
+}
+
+/* Section-nav: not sticky, constrained to content-width, aligned with .page. */
+.caa-sb54-paste .section-nav {
+  position: static;
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto var(--space-xl);
+}
+.caa-sb54-paste .section-nav__inner { padding: 0; }
+
+/* Zero first/last child top/bottom margins. */
+.caa-sb54-paste > *:first-child,
+.caa-sb54-paste > *:first-child > *:first-child { margin-top: 0; }
+.caa-sb54-paste > *:last-child,
+.caa-sb54-paste > *:last-child > *:last-child { margin-bottom: 0; }
+
+/* Page wrapper: no extra padding. */
+.caa-sb54-paste .page { padding: 0; }
 
 </style>
 
 <div class="caa-sb54-paste">
-<div class="page"> <div class="hero--band"> <div class="hero--band__inner"> <h1>What <em>SB&nbsp;54</em> Means for You</h1>  </div> </div>  <section class="section section--intro"> <p>California has some of the most dedicated recycling programs in the country. Jurisdictions, haulers, and local operators have been doing this work for years. SB 54 is designed to support and strengthen those efforts through additional funding, coordination, and statewide alignment.</p> </section> <figure class="video-placeholder video-placeholder--image" aria-label="Video coming"> <img src="https://aaronsleeper.github.io/caa-campaign-section/fpo/4.png" alt="Recycling-program staff sorting clean materials at a facility — video coming." class="video-placeholder__image"> <div class="video-placeholder__overlay"> <div class="video-placeholder__mark" aria-hidden="true"> <div class="video-placeholder__spark"></div> <span class="video-placeholder__play">&#9654;</span> </div> <span class="video-placeholder__label">Video coming</span> </div> </figure>  <div class="band band--tint-teal"> <p class="band__title">Goals of SB 54</p> <p class="band__eyebrow">By January 1, 2032:</p> <div class="checks"> <div class="stat"> <div class="stat__head"> <img class="stat__icon" src="https://aaronsleeper.github.io/caa-campaign-section/icons/bottle.svg" alt="" aria-hidden="true"> <span class="stat__figure">25%</span> </div> <span class="stat__label">reduction in single-use plastic packaging</span> </div> <div class="stat"> <div class="stat__head"> <img class="stat__icon" src="https://aaronsleeper.github.io/caa-campaign-section/icons/recycle.svg" alt="" aria-hidden="true"> <span class="stat__figure">65%</span> </div> <span class="stat__label">recycling rate for single-use plastic packaging</span> </div> <div class="stat"> <div class="stat__head"> <img class="stat__icon" src="https://aaronsleeper.github.io/caa-campaign-section/icons/compostibles.svg" alt="" aria-hidden="true"> <span class="stat__figure">100%</span> </div> <span class="stat__label">of packaging recyclable or compostable</span> </div> </div> </div>  <section class="section"> <h2>How SB 54 unfolds</h2> <div class="timeline"> <div class="timeline__step"> <span class="timeline__dot" aria-hidden="true"></span> <span class="timeline__date">2022</span> <span class="timeline__label">SB 54 is signed into law in California.</span> </div> <div class="timeline__step"> <span class="timeline__dot" aria-hidden="true"></span> <span class="timeline__date">2024&ndash;2025</span> <span class="timeline__label">CalRecycle publishes and updates the Covered Material Categories (CMC) list.</span> </div> <div class="timeline__step"> <span class="timeline__dot" aria-hidden="true"></span> <span class="timeline__date">Late 2026 / Early 2027</span> <span class="timeline__label">Pending CalRecycle approval of the program plan, implementation roll out begins.</span> </div> <div class="timeline__step"> <span class="timeline__dot" aria-hidden="true"></span> <span class="timeline__date">By 2032</span> <span class="timeline__label">Statewide reduction, recycling, and recyclability targets come due.</span> </div> </div> </section>  <figure class="fpo fpo--filled fpo--framed"> <img src="https://aaronsleeper.github.io/caa-campaign-section/fpo/4.png" alt="Recycling-program staff sorting clean materials at a facility."> </figure> <section class="section"> <h2>Find out what SB 54 means for your work</h2> <p>SB 54 brings changes to how the recycling system is funded and what is expected of it. The questions below cover what is changing, what stays the same, and how different organizations may be affected. Start here.</p> <div class="accordion"> <details class="accordion__item"> <summary class="accordion__trigger">What is SB 54, in simple terms?</summary> <div class="accordion__content"> <p>SB 54 is the Plastic Pollution Prevention and Packaging Producer Responsibility Act. It creates a new, producer-funded system to manage packaging and food serviceware, along with improving recycling and composting efforts across California. Producers take on an active role in funding system improvements while local governments continue to operate existing programs.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">What issue is SB 54 trying to address?</summary> <div class="accordion__content"> <p>California's recycling system faces real challenges. Operational and capacity gaps exist across the state, recycling outcomes vary by community, and local programs have historically carried most of the responsibility. SB 54 is designed to improve how packaging is managed, strengthen recycling performance, and create a more consistent and coordinated system statewide.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">What is Extended Producer Responsibility, or EPR?</summary> <div class="accordion__content"> <p>EPR is a policy approach that shifts the cost of managing packaging from local governments and taxpayers to the companies that make and sell it. Under EPR, producers pay fees that fund collection, processing, education and outreach, infrastructure improvements, and end market development.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">What is actually changing?</summary> <div class="accordion__content"> <p>Funding is shifting from primarily local sources to a producer-funded model. Responsibility is more clearly shared across producers, jurisdictions, and service providers. And statewide standards for recycling and reporting are being established for the first time.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">What is NOT changing?</summary> <div class="accordion__content"> <p>Local programs stay local. Jurisdictions, haulers, and recyclers remain responsible for day-to-day operations. Existing laws like SB 1383 still apply. SB 54 supports and strengthens what is already in place.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">What are Covered Material Categories, or CMCs?</summary> <div class="accordion__content"> <p>CMCs are the standardized classifications of packaging covered under SB 54. They define what must meet recyclability or compostability standards and what gets tracked and reported. CalRecycle defines and updates the CMC list annually.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">How does SB 54 connect to existing laws?</summary> <div class="accordion__content"> <p>SB 54 builds on SB 1383, which focuses on organics and composting; SB 343, which defines recyclable materials; and AB 1201, which sets labeling requirements for compostable products. Together these laws address the full arc of how materials are designed, labeled, collected, and recovered.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">When does implementation begin?</summary> <div class="accordion__content"> <p>Pending approval of the program plan by CalRecycle by December 27, 2026, CAA will begin implementation in January 2027.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">Will this increase costs for local governments or ratepayers?</summary> <div class="accordion__content"> <p>No. CAA is responsible for covering all new and additional costs related to statewide SB 54 implementation.</p> </div> </details> </div> </section>  <div class="band band--tint-teal"> <section class="cta-block cta-block--single"> <h2>What to do next</h2> <p>Tell us how you fit into SB 54. Your answers help CAA share relevant information, funding opportunities, and updates with organizations across California.</p> <a href="https://www.surveymonkey.com/r/2M3GMYV" class="cta-button" target="_blank" rel="noopener">Share how you fit in&nbsp;&rarr;</a> </section> </div>   </div>
+<nav class="section-nav" aria-label="In this section"> <div class="section-nav__inner"> <ul class="section-nav__list"> <li class="section-nav__item"> <a href="https://aaronsleeper.github.io/caa-campaign-section/">SB 54 Home</a> </li><li class="section-nav__item section-nav__item--current"> <a href="https://aaronsleeper.github.io/caa-campaign-section/whats-changing/" aria-current="page">What&#39;s Changing</a> </li><li class="section-nav__item"> <a href="https://aaronsleeper.github.io/caa-campaign-section/roles-and-responsibilities/">Roles</a> </li><li class="section-nav__item"> <a href="https://aaronsleeper.github.io/caa-campaign-section/reimbursement/">Reimbursement</a> </li> </ul> </div> </nav> <div class="page"> <div class="hero--band"> <div class="hero--band__inner"> <h1>What <em>SB&nbsp;54</em> Means for You</h1>  </div> </div>  <section class="section section--intro"> <p>California has some of the most dedicated recycling programs in the country. Jurisdictions, haulers, and local operators have been doing this work for years. SB 54 is designed to support and strengthen those efforts through additional funding, coordination, and statewide alignment.</p> </section> <figure class="video-placeholder video-placeholder--image" aria-label="Video coming"> <img src="https://aaronsleeper.github.io/caa-campaign-section/fpo/4.png" alt="Recycling-program staff sorting clean materials at a facility — video coming." class="video-placeholder__image"> <div class="video-placeholder__overlay"> <div class="video-placeholder__mark" aria-hidden="true"> <div class="video-placeholder__spark"></div> <span class="video-placeholder__play">&#9654;</span> </div> <span class="video-placeholder__label">Video coming</span> </div> </figure>  <div class="band band--tint-teal"> <p class="band__title">Goals of SB 54</p> <p class="band__eyebrow">By January 1, 2032:</p> <div class="checks"> <div class="stat"> <div class="stat__head"> <img class="stat__icon" src="https://aaronsleeper.github.io/caa-campaign-section/icons/bottle.svg" alt="" aria-hidden="true"> <span class="stat__figure">25%</span> </div> <span class="stat__label">reduction in single-use plastic packaging</span> </div> <div class="stat"> <div class="stat__head"> <img class="stat__icon" src="https://aaronsleeper.github.io/caa-campaign-section/icons/recycle.svg" alt="" aria-hidden="true"> <span class="stat__figure">65%</span> </div> <span class="stat__label">recycling rate for single-use plastic packaging</span> </div> <div class="stat"> <div class="stat__head"> <img class="stat__icon" src="https://aaronsleeper.github.io/caa-campaign-section/icons/compostibles.svg" alt="" aria-hidden="true"> <span class="stat__figure">100%</span> </div> <span class="stat__label">of packaging recyclable or compostable</span> </div> </div> </div>  <section class="section"> <h2>How SB 54 unfolds</h2> <div class="timeline"> <div class="timeline__step"> <span class="timeline__dot" aria-hidden="true"></span> <span class="timeline__date">2022</span> <span class="timeline__label">SB 54 is signed into law in California.</span> </div> <div class="timeline__step"> <span class="timeline__dot" aria-hidden="true"></span> <span class="timeline__date">2024&ndash;2025</span> <span class="timeline__label">CalRecycle publishes and updates the Covered Material Categories (CMC) list.</span> </div> <div class="timeline__step"> <span class="timeline__dot" aria-hidden="true"></span> <span class="timeline__date">Late 2026 / Early 2027</span> <span class="timeline__label">Pending CalRecycle approval of the program plan, implementation roll out begins.</span> </div> <div class="timeline__step"> <span class="timeline__dot" aria-hidden="true"></span> <span class="timeline__date">By 2032</span> <span class="timeline__label">Statewide reduction, recycling, and recyclability targets come due.</span> </div> </div> </section>  <figure class="fpo fpo--filled fpo--framed"> <img src="https://aaronsleeper.github.io/caa-campaign-section/fpo/4.png" alt="Recycling-program staff sorting clean materials at a facility."> </figure> <section class="section"> <h2>Find out what SB 54 means for your work</h2> <p>SB 54 brings changes to how the recycling system is funded and what is expected of it. The questions below cover what is changing, what stays the same, and how different organizations may be affected. Start here.</p> <div class="accordion"> <details class="accordion__item"> <summary class="accordion__trigger">What is SB 54, in simple terms?</summary> <div class="accordion__content"> <p>SB 54 is the Plastic Pollution Prevention and Packaging Producer Responsibility Act. It creates a new, producer-funded system to manage packaging and food serviceware, along with improving recycling and composting efforts across California. Producers take on an active role in funding system improvements while local governments continue to operate existing programs.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">What issue is SB 54 trying to address?</summary> <div class="accordion__content"> <p>California's recycling system faces real challenges. Operational and capacity gaps exist across the state, recycling outcomes vary by community, and local programs have historically carried most of the responsibility. SB 54 is designed to improve how packaging is managed, strengthen recycling performance, and create a more consistent and coordinated system statewide.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">What is Extended Producer Responsibility, or EPR?</summary> <div class="accordion__content"> <p>EPR is a policy approach that shifts the cost of managing packaging from local governments and taxpayers to the companies that make and sell it. Under EPR, producers pay fees that fund collection, processing, education and outreach, infrastructure improvements, and end market development.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">What is actually changing?</summary> <div class="accordion__content"> <p>Funding is shifting from primarily local sources to a producer-funded model. Responsibility is more clearly shared across producers, jurisdictions, and service providers. And statewide standards for recycling and reporting are being established for the first time.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">What is NOT changing?</summary> <div class="accordion__content"> <p>Local programs stay local. Jurisdictions, haulers, and recyclers remain responsible for day-to-day operations. Existing laws like SB 1383 still apply. SB 54 supports and strengthens what is already in place.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">What are Covered Material Categories, or CMCs?</summary> <div class="accordion__content"> <p>CMCs are the standardized classifications of packaging covered under SB 54. They define what must meet recyclability or compostability standards and what gets tracked and reported. CalRecycle defines and updates the CMC list annually.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">How does SB 54 connect to existing laws?</summary> <div class="accordion__content"> <p>SB 54 builds on SB 1383, which focuses on organics and composting; SB 343, which defines recyclable materials; and AB 1201, which sets labeling requirements for compostable products. Together these laws address the full arc of how materials are designed, labeled, collected, and recovered.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">When does implementation begin?</summary> <div class="accordion__content"> <p>Pending approval of the program plan by CalRecycle by December 27, 2026, CAA will begin implementation in January 2027.</p> </div> </details> <details class="accordion__item"> <summary class="accordion__trigger">Will this increase costs for local governments or ratepayers?</summary> <div class="accordion__content"> <p>No. CAA is responsible for covering all new and additional costs related to statewide SB 54 implementation.</p> </div> </details> </div> </section>  <div class="band band--tint-teal"> <section class="cta-block cta-block--single"> <h2>What to do next</h2> <p>Tell us how you fit into SB 54. Your answers help CAA share relevant information, funding opportunities, and updates with organizations across California.</p> <a href="https://www.surveymonkey.com/r/2M3GMYV" class="cta-button" target="_blank" rel="noopener">Share how you fit in&nbsp;&rarr;</a> </section> </div>   </div>
 </div>
