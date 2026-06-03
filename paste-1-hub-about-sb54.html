@@ -1,26 +1,34 @@
 <!--
-  CAA SB 54 — Squarespace paste artifact (scoped, dual-mode CSS)
-  Page: Hub — SB 54 in California
-  Target: paste into a Code Block on the "About SB 54" page in Squarespace.
+  CAA SB 54 — Hub (About SB 54) — Squarespace paste (v2)
+  Target: paste into Code Block on the "About SB 54" page in Squarespace.
+
+  FIXES IN THIS VERSION (vs. previous paste):
+    - Page-specific styles from index.astro (card__number circle, hub__heading,
+      hub__cta, etc.) now inlined.
+    - All CSS url() references (unity-spark mask, etc.) rewritten to absolute
+      GitHub Pages URLs so the video spark mark renders.
+    - Wrapper is transparent: no max-width / no padding. Lets .page provide
+      content width and .band use its 100vw breakout for full-bleed bands.
+    - Section nav re-included at the top — BUT the links inside still point to
+      preview URLs (/caa-campaign-section/whats-changing/ etc.). After paste,
+      edit the Code Block source and replace those hrefs with the actual
+      Squarespace page URLs for Blank 1, 2, 3.
+
+  STILL TO VERIFY ON THIS PASTE-PROOF:
+    - Does the teal Goals band actually go edge-to-edge? The .band rule uses
+      width: 100vw + margin-inline: calc(50% - 50vw) — this works if the
+      Squarespace section above doesn't clip overflow. If the band only goes
+      to the section's width, set the Squarespace Section to "Full Bleed" or
+      remove its horizontal padding.
+    - Does the video spark mark render? Should be a stylized circular CAA
+      spark with a play triangle, not a plain triangle on a square.
+    - Do the card numbers appear as filled teal circles, not plain text?
 
   HOW TO USE
-    1. Open the page in Squarespace editor.
-    2. Add a Code Block in a full-width section. Let our wrapper handle max-width.
+    1. Open About SB 54 in editor.
+    2. Add a Code Block in a section with minimal padding (or Full Bleed).
     3. "Display Source" → OFF.
-    4. Paste everything below this comment (opening <style> through closing </div>). Save.
-
-  CSS SCOPING
-    All CSS rules are scoped under .caa-sb54-paste — they cannot affect
-    Squarespace's header, footer, or other sections. Brand tokens use the
-    dual-mode pattern from tokens.css: they READ Squarespace's Site Styles
-    HSL vars first, fall back to the live CAA brand values, so the paste
-    inherits future Site Styles updates automatically.
-
-  KNOWN LIMITS
-    - Squarespace's surrounding Section padding still applies on the outside
-      of the Code Block. If the page reads cramped, set the Section to
-      minimal padding / "Full Bleed" in Squarespace's section settings.
-    - Images load from https://aaronsleeper.github.io/caa-campaign-section/ — swap to CAA's media library when uploaded.
+    4. Paste everything below this comment. Save.
 -->
 
 <style>
@@ -583,8 +591,8 @@
   width: 100%;
   height: 100%;
   background-color: currentColor;
-  -webkit-mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
-  mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+  -webkit-mask: url("https://aaronsleeper.github.io/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+  mask: url("https://aaronsleeper.github.io/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
 }
 
 
@@ -799,8 +807,8 @@
   width: var(--spark-size);
   aspect-ratio: 1;
   background-color: var(--spark-color);
-  -webkit-mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
-  mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+  -webkit-mask: url("https://aaronsleeper.github.io/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+  mask: url("https://aaronsleeper.github.io/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
   opacity: var(--spark-opacity);
   pointer-events: none;
 }
@@ -1379,14 +1387,77 @@
 }
 
 
-/* Wrapper sizing: explicit so Squarespace's section padding doesn't crush
-   or stretch our content. Matches the prototype's content-width. */
+
+/* === Page-specific styles (from index.astro) === */
+/* Hero composition lives in global.css (.hero--blocked et al.) so module
+     pages can reuse it. This block holds hub-specific bits only. */
+  .caa-sb54-paste .hub__subtitle {
+    font-size: var(--text-lg);
+    color: var(--caa-navy);
+    max-width: var(--max-line-length);
+    opacity: 0.85;
+  }
+
+
+  .caa-sb54-paste .hub__heading {
+    margin-top: var(--space-2xl);
+  }
+
+
+  .caa-sb54-paste .card__tag {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--caa-teal-dark, var(--caa-teal));
+    opacity: 0.85;
+    margin-left: var(--space-xs);
+    letter-spacing: 0.02em;
+  }
+
+
+  .caa-sb54-paste .card__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--caa-teal);
+    color: var(--caa-paper);
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+  }
+
+
+  .caa-sb54-paste .hub__cta {
+    padding-top: var(--space-2xl);
+    max-width: var(--max-line-length);
+  }
+
+  .caa-sb54-paste .hub__cta-lead {
+    font-size: var(--text-base);
+    color: var(--caa-navy);
+  }
+
+  .caa-sb54-paste .hub__cta-secondary {
+    font-size: var(--text-sm);
+    color: var(--caa-navy);
+    margin-top: var(--space-md);
+  }
+
+  /* Full-strength accessible teal link (the container's old opacity:0.7 washed it out). */
+  .caa-sb54-paste .hub__cta-secondary a {
+    color: var(--caa-teal-dark);
+    font-weight: 600;
+  }
+/* Wrapper is transparent: no max-width, no padding, no font-family override.
+   .page provides content width; .band uses 100vw breakout for full-bleed.
+   Squarespace's surrounding section padding is the only thing on the outside. */
 .caa-sb54-paste {
   display: block;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2.5rem 1.5rem;
-  font-family: var(--font-body);
   color: var(--caa-ink);
   line-height: var(--line-height);
 }
@@ -1394,7 +1465,7 @@
 </style>
 
 <div class="caa-sb54-paste">
-<div class="page"> <!-- Hero: heading + lead-in sit above the rectangle; the navy rectangle IS the
+  <nav class="section-nav" aria-label="In this section"> <div class="section-nav__inner"> <ul class="section-nav__list"> <li class="section-nav__item section-nav__item--current"> <a href="https://aaronsleeper.github.io/caa-campaign-section/" aria-current="page">SB 54 Home</a> </li><li class="section-nav__item"> <a href="https://aaronsleeper.github.io/caa-campaign-section/whats-changing/">What&#39;s Changing</a> </li><li class="section-nav__item"> <a href="https://aaronsleeper.github.io/caa-campaign-section/roles-and-responsibilities/">Roles</a> </li><li class="section-nav__item"> <a href="https://aaronsleeper.github.io/caa-campaign-section/reimbursement/">Reimbursement</a> </li> </ul> </div> </nav> <div class="page"> <!-- Hero: heading + lead-in sit above the rectangle; the navy rectangle IS the
          video, offset against the gold + teal mats (the live /california layered-panel
          device). No video file yet, so it renders as a 'Coming soon' placeholder. --> <div class="hero-intro"> <h1><em>SB&nbsp;54</em> in California</h1> <p class="hero-intro__lead">
 California is taking on one of its most ambitious recycling and packaging challenges yet. SB&nbsp;54 is one of the most comprehensive and far-reaching packaging responsibility laws in the U.S., creating a producer-funded system to support recycling, composting, and waste management improvements across the state.
@@ -1407,5 +1478,5 @@ Learn how reimbursement works, what costs may be eligible, and how to prepare fo
 </p> <a href="https://aaronsleeper.github.io/caa-campaign-section/reimbursement/" class="card__cta sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">Reimbursement overview &rarr;</a> </div> </div> <!-- Goals of SB 54 — reproduces the live CAA "Key Goals" grid --> <div class="band band--tint-teal"> <p class="band__title">Goals of SB 54</p> <p class="band__eyebrow">By January 1, 2032:</p> <div class="checks"> <div class="stat"> <div class="stat__head"> <img class="stat__icon" src="https://aaronsleeper.github.io/caa-campaign-section/icons/bottle.svg" alt="" aria-hidden="true"> <span class="stat__figure">25%</span> </div> <span class="stat__label">reduction in single-use plastic packaging</span> </div> <div class="stat"> <div class="stat__head"> <img class="stat__icon" src="https://aaronsleeper.github.io/caa-campaign-section/icons/recycle.svg" alt="" aria-hidden="true"> <span class="stat__figure">65%</span> </div> <span class="stat__label">recycling rate</span> </div> <div class="stat"> <div class="stat__head"> <img class="stat__icon" src="https://aaronsleeper.github.io/caa-campaign-section/icons/compostibles.svg" alt="" aria-hidden="true"> <span class="stat__figure">100%</span> </div> <span class="stat__label">of packaging recyclable or compostable</span> </div> </div> </div> <!-- Split: who this is for, beside a brand graphic --> <div class="split split--media-right"> <div class="split__media media-frame"> <figure class="fpo fpo--filled fpo--framed"> <img src="https://aaronsleeper.github.io/caa-campaign-section/fpo/3.png" alt="Recycling-system operators — coordinator, hauler, MRF worker — together on-site."> </figure> </div> <div class="split__body"> <p class="hub__subtitle">
 Whether you're already involved in this work or just beginning to learn about SB 54, this site is here to help you understand what is changing, where you fit, and how to access available support and funding.
 </p> </div> </div> <!-- Closing engagement block. Approved CTA wording from CAA Comms (Dana, 2026-05-27).
-         Primary action: the inquiry form (same participation form used across the modules). --> <div class="hub__cta"> <p class="hub__cta-lead">If you haven't connected with CAA yet, complete the CAA California Recycling &amp; Reuse System Inquiry Form. Knowing a bit more about your organization helps CAA point you to the best next steps.</p> <a href="https://www.surveymonkey.com/r/2M3GMYV" class="cta-button" target="_blank" rel="noopener">Complete the inquiry form&nbsp;&rarr;</a> <p class="hub__cta-secondary">You can also <a href="https://circularactionalliance.org/newsletter-subscription" class="hub__cta-newsletter" target="_blank" rel="noopener">sign up to receive CAA updates via our newsletter</a>.</p> </div> </div>
+         Primary action: the inquiry form (same participation form used across the modules). --> <div class="hub__cta"> <p class="hub__cta-lead">If you haven't connected with CAA yet, complete the CAA California Recycling &amp; Reuse System Inquiry Form. Knowing a bit more about your organization helps CAA point you to the best next steps.</p> <a href="https://www.surveymonkey.com/r/2M3GMYV" class="cta-button" target="_blank" rel="noopener">Complete the inquiry form&nbsp;&rarr;</a> <p class="hub__cta-secondary">You can also <a href="https://circularactionalliance.org/newsletter-subscription" class="hub__cta-newsletter" target="_blank" rel="noopener">sign up to receive CAA updates via our newsletter</a>.</p> </div> </div>  
 </div>
