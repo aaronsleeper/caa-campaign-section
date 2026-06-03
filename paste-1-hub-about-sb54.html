@@ -1,18 +1,21 @@
 <!--
-  CAA SB 54 — Hub (About SB 54) — Squarespace paste (v3)
+  CAA SB 54 — Hub (About SB 54) — Squarespace paste (v4)
   Target: Code Block on "About SB 54" page.
 
-  v3 FIX: SectionNav component's CSS (.section-nav, .section-nav__list,
-  .section-nav__item--current, sticky-positioning, media queries) was
-  missing in v2 because Astro scopes component styles separately from
-  global.css. Now inlined alongside global.css + index.astro page styles.
+  v4 FIX: Squarespace-fit overrides at end of <style> block:
+    - .band no longer tries width:100vw breakout; just fills content width.
+      Goals band background spans the content-area width, not viewport.
+    - .section-nav not sticky (Code Block has no scroll context); spans
+      content-area width so its border-bottom underline goes full content.
+    - First-/last-child top/bottom margins zeroed so content hugs the
+      Squarespace section's inner edges.
+    - .caa-sb54-paste wrapper has margin: 0 / padding: 0; Squarespace's
+      section padding is the only outer spacing.
 
-  POST-PASTE TODOS
-    - Section-nav links point to GitHub Pages preview URLs
-      (https://aaronsleeper.github.io/caa-campaign-section/...). Edit them in the Code Block
-      source to your actual Squarespace page URLs for Blank 1/2/3.
-    - If Goals band doesn't go edge-to-edge: set the surrounding
-      Squarespace Section to "Full Bleed" / minimal horizontal padding.
+  POST-PASTE TODOS (unchanged from v3)
+    - Section-nav links → update to actual Squarespace page URLs.
+    - If still too much top space: trim Squarespace Section padding in
+      section settings.
 -->
 
 <style>
@@ -1439,7 +1442,7 @@
   }
 
 
-/* === SectionNav component (from SectionNav.astro) === */
+/* === SectionNav component === */
 .caa-sb54-paste .section-nav {
     position: sticky;
     top: 0;
@@ -1504,6 +1507,49 @@
   display: block;
   color: var(--caa-ink);
   line-height: var(--line-height);
+  margin: 0;
+  padding: 0;
+}
+
+
+/* === Squarespace-fit overrides ============================================
+   Neutralize CSS techniques that fight Squarespace's section/wrapper layout.
+   Bands and nav-border just fill the content area width instead of trying
+   to go viewport-wide. Top spacing comes from Squarespace's section padding
+   only (Aaron adjusts in section settings if too much).
+   ========================================================================== */
+
+/* Bands: drop the 100vw breakout — just fill the container width. */
+.caa-sb54-paste .band {
+  width: 100%;
+  margin-inline: 0;
+  margin-block: var(--space-2xl);
+  padding: var(--space-2xl) var(--space-xl);
+}
+
+/* Section-nav: not sticky inside a Code Block (no scroll context to stick to),
+   and let its border-bottom span the full content area. */
+.caa-sb54-paste .section-nav {
+  position: static;
+  width: 100%;
+  margin-bottom: var(--space-xl);
+}
+
+/* Zero out first/last child top/bottom margins so our content hugs the edges
+   of whatever Squarespace section it lives in. */
+.caa-sb54-paste > *:first-child,
+.caa-sb54-paste > *:first-child > *:first-child {
+  margin-top: 0;
+}
+.caa-sb54-paste > *:last-child,
+.caa-sb54-paste > *:last-child > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Page wrapper inside our paste: no extra padding (Squarespace's section
+   provides the outer padding). */
+.caa-sb54-paste .page {
+  padding: 0;
 }
 
 </style>
