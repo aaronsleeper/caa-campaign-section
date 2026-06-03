@@ -1,21 +1,28 @@
 <!--
-  CAA SB 54 — Module 3 Gateway — Reimbursement for Covered Costs — Squarespace paste (matches Hub v4.1 approach)
-  Target: Code Block on "Blank 3 for Change Craft" page in Squarespace.
+  CAA SB 54 — Module 3 Gateway — Reimbursement for Covered Costs
+  Target: paste into Code Block on the "Blank 4 for Change Craft" page (URL: /blank-4-for-change-craft).
 
-  STRUCTURE (same as Hub paste)
-    - global.css + SectionNav component CSS + Squarespace-fit overrides,
-      all scoped under .caa-sb54-paste
-    - tokens.css inlined (so brand variables resolve in dual-mode)
-    - .band drops 100vw breakout → fills content area width
-    - .section-nav not sticky, constrained to content-width
-    - Wrapper has margin:0 padding:0 (Squarespace section provides outer space)
+  STRUCTURE
+    - global.css + tokens.css + SectionNav component CSS + Squarespace-fit
+      overrides, all scoped under .caa-sb54-paste.
+    - Section-nav links + Hub card buttons (if present) are wired to the
+      Squarespace page URLs:
+        Blank 1: /blank-1-for-change          (Hub — SB 54 Home)
+        Blank 2: /blank-2-for-change-craft    (Module 1 — What's Changing)
+        Blank 3: /blank-3-for-change-craft    (Module 2 — Roles)
+        Blank 4: /blank-4-for-change-craft    (Module 3 — Reimbursement)
+    - Asset URLs (images, video-spark SVG) point to GitHub Pages CDN —
+      swap to CAA-hosted media library when uploaded.
 
-  POST-PASTE TODOS
-    - Section-nav links point to GitHub Pages preview URLs. Edit in the
-      Code Block source: replace each href with the actual Squarespace
-      page URL (About SB 54 / Blank 1 / Blank 2 / Blank 3).
-    - Adjust Squarespace Section padding-top in section settings if there's
-      too much space above the nav.
+  HOW TO USE
+    1. Open the Blank 4 for Change Craft page in Squarespace editor.
+    2. Add a Code Block in a section (Full Bleed / minimal padding helps).
+    3. "Display Source" → OFF.
+    4. Paste everything below this comment. Save.
+
+  POST-PASTE
+    - Adjust the section's padding-top in Squarespace section settings if
+      there's too much space above the nav.
 -->
 
 <style>
@@ -1446,16 +1453,12 @@
 
 
 /* === Squarespace-fit overrides (v4.1) ===================================== */
-
-/* Bands: drop 100vw breakout, fill content area. */
 .caa-sb54-paste .band {
   width: 100%;
   margin-inline: 0;
   margin-block: var(--space-2xl);
   padding: var(--space-2xl) var(--space-xl);
 }
-
-/* Section-nav: not sticky, constrained to content-width, aligned with .page. */
 .caa-sb54-paste .section-nav {
   position: static;
   width: 100%;
@@ -1463,18 +1466,14 @@
   margin: 0 auto var(--space-xl);
 }
 .caa-sb54-paste .section-nav__inner { padding: 0; }
-
-/* Zero first/last child top/bottom margins. */
 .caa-sb54-paste > *:first-child,
 .caa-sb54-paste > *:first-child > *:first-child { margin-top: 0; }
 .caa-sb54-paste > *:last-child,
 .caa-sb54-paste > *:last-child > *:last-child { margin-bottom: 0; }
-
-/* Page wrapper: no extra padding. */
 .caa-sb54-paste .page { padding: 0; }
 
 </style>
 
 <div class="caa-sb54-paste">
-<nav class="section-nav" aria-label="In this section"> <div class="section-nav__inner"> <ul class="section-nav__list"> <li class="section-nav__item"> <a href="https://aaronsleeper.github.io/caa-campaign-section/">SB 54 Home</a> </li><li class="section-nav__item"> <a href="https://aaronsleeper.github.io/caa-campaign-section/whats-changing/">What&#39;s Changing</a> </li><li class="section-nav__item"> <a href="https://aaronsleeper.github.io/caa-campaign-section/roles-and-responsibilities/">Roles</a> </li><li class="section-nav__item section-nav__item--current"> <a href="https://aaronsleeper.github.io/caa-campaign-section/reimbursement/" aria-current="page">Reimbursement</a> </li> </ul> </div> </nav> <div class="page"> <div class="hero--band"> <div class="hero--band__inner"> <h1>Reimbursement for Covered Costs</h1>  </div> </div>  <section class="section section--intro"> <p>SB 54 comes with real funding. CAA's reimbursement programs cover eligible new and additional costs from January 1, 2023 forward, using 2022 as the cost baseline &mdash; so the work you were already doing before SB 54 is not displaced, it's supported.</p> </section> <figure class="fpo fpo--filled"> <img src="https://aaronsleeper.github.io/caa-campaign-section/fpo/6.png" alt="Covered-material categories arranged as a clean circular still life — valuable commodities."> </figure> <div class="band band--tint-teal"> <h2>Reimbursement details are coming soon</h2> <p>CAA is developing reimbursement programs to support eligible activities under SB 54. Information about eligibility, covered costs, and reimbursement opportunities for different parts of the system will be published here as it becomes available.</p> <p>In the meantime, tell us how you fit into SB 54 so CAA can share relevant updates with your organization.</p> <a href="https://www.surveymonkey.com/r/2M3GMYV" class="cta-button" target="_blank" rel="noopener">Share how you fit in&nbsp;&rarr;</a> </div>   </div>
+<nav class="section-nav" aria-label="In this section"> <div class="section-nav__inner"> <ul class="section-nav__list"> <li class="section-nav__item"> <a href="/blank-1-for-change">SB 54 Home</a> </li><li class="section-nav__item"> <a href="/blank-2-for-change-craft">What&#39;s Changing</a> </li><li class="section-nav__item"> <a href="/blank-3-for-change-craft">Roles</a> </li><li class="section-nav__item section-nav__item--current"> <a href="/blank-4-for-change-craft" aria-current="page">Reimbursement</a> </li> </ul> </div> </nav> <div class="page"> <div class="hero--band"> <div class="hero--band__inner"> <h1>Reimbursement for Covered Costs</h1>  </div> </div>  <section class="section section--intro"> <p>SB 54 comes with real funding. CAA's reimbursement programs cover eligible new and additional costs from January 1, 2023 forward, using 2022 as the cost baseline &mdash; so the work you were already doing before SB 54 is not displaced, it's supported.</p> </section> <figure class="fpo fpo--filled"> <img src="https://aaronsleeper.github.io/caa-campaign-section/fpo/6.png" alt="Covered-material categories arranged as a clean circular still life — valuable commodities."> </figure> <div class="band band--tint-teal"> <h2>Reimbursement details are coming soon</h2> <p>CAA is developing reimbursement programs to support eligible activities under SB 54. Information about eligibility, covered costs, and reimbursement opportunities for different parts of the system will be published here as it becomes available.</p> <p>In the meantime, tell us how you fit into SB 54 so CAA can share relevant updates with your organization.</p> <a href="https://www.surveymonkey.com/r/2M3GMYV" class="cta-button" target="_blank" rel="noopener">Share how you fit in&nbsp;&rarr;</a> </div>   </div>
 </div>

@@ -1,21 +1,28 @@
 <!--
-  CAA SB 54 — Hub (About SB 54) — Squarespace paste (v4)
-  Target: Code Block on "About SB 54" page.
+  CAA SB 54 — Hub — SB 54 in California
+  Target: paste into Code Block on the "Blank 1 for Change" page (URL: /blank-1-for-change).
 
-  v4 FIX: Squarespace-fit overrides at end of <style> block:
-    - .band no longer tries width:100vw breakout; just fills content width.
-      Goals band background spans the content-area width, not viewport.
-    - .section-nav not sticky (Code Block has no scroll context); spans
-      content-area width so its border-bottom underline goes full content.
-    - First-/last-child top/bottom margins zeroed so content hugs the
-      Squarespace section's inner edges.
-    - .caa-sb54-paste wrapper has margin: 0 / padding: 0; Squarespace's
-      section padding is the only outer spacing.
+  STRUCTURE
+    - global.css + tokens.css + SectionNav component CSS + Squarespace-fit
+      overrides, all scoped under .caa-sb54-paste.
+    - Section-nav links + Hub card buttons (if present) are wired to the
+      Squarespace page URLs:
+        Blank 1: /blank-1-for-change          (Hub — SB 54 Home)
+        Blank 2: /blank-2-for-change-craft    (Module 1 — What's Changing)
+        Blank 3: /blank-3-for-change-craft    (Module 2 — Roles)
+        Blank 4: /blank-4-for-change-craft    (Module 3 — Reimbursement)
+    - Asset URLs (images, video-spark SVG) point to GitHub Pages CDN —
+      swap to CAA-hosted media library when uploaded.
 
-  POST-PASTE TODOS (unchanged from v3)
-    - Section-nav links → update to actual Squarespace page URLs.
-    - If still too much top space: trim Squarespace Section padding in
-      section settings.
+  HOW TO USE
+    1. Open the Blank 1 for Change page in Squarespace editor.
+    2. Add a Code Block in a section (Full Bleed / minimal padding helps).
+    3. "Display Source" → OFF.
+    4. Paste everything below this comment. Save.
+
+  POST-PASTE
+    - Adjust the section's padding-top in Squarespace section settings if
+      there's too much space above the nav.
 -->
 
 <style>
@@ -1375,7 +1382,7 @@
 
 
 
-/* === Page-specific (from index.astro) === */
+/* === Page-specific styles === */
 /* Hero composition lives in global.css (.hero--blocked et al.) so module
      pages can reuse it. This block holds hub-specific bits only. */
   .caa-sb54-paste .hub__subtitle {
@@ -1512,66 +1519,41 @@
 }
 
 
-/* === Squarespace-fit overrides ============================================
-   Neutralize CSS techniques that fight Squarespace's section/wrapper layout.
-   Bands and nav-border just fill the content area width instead of trying
-   to go viewport-wide. Top spacing comes from Squarespace's section padding
-   only (Aaron adjusts in section settings if too much).
-   ========================================================================== */
-
-/* Bands: drop the 100vw breakout — just fill the container width. */
+/* === Squarespace-fit overrides (v4.1) ===================================== */
 .caa-sb54-paste .band {
   width: 100%;
   margin-inline: 0;
   margin-block: var(--space-2xl);
   padding: var(--space-2xl) var(--space-xl);
 }
-
-/* Section-nav: not sticky (no scroll context in a Code Block), constrained to
-   content-width so its border-bottom aligns with .page below it. Also zero the
-   __inner padding so nav items line up with the hero text on the left edge. */
 .caa-sb54-paste .section-nav {
   position: static;
   width: 100%;
   max-width: var(--content-width);
   margin: 0 auto var(--space-xl);
 }
-.caa-sb54-paste .section-nav__inner {
-  padding: 0;
-}
-
-/* Zero out first/last child top/bottom margins so our content hugs the edges
-   of whatever Squarespace section it lives in. */
+.caa-sb54-paste .section-nav__inner { padding: 0; }
 .caa-sb54-paste > *:first-child,
-.caa-sb54-paste > *:first-child > *:first-child {
-  margin-top: 0;
-}
+.caa-sb54-paste > *:first-child > *:first-child { margin-top: 0; }
 .caa-sb54-paste > *:last-child,
-.caa-sb54-paste > *:last-child > *:last-child {
-  margin-bottom: 0;
-}
-
-/* Page wrapper inside our paste: no extra padding (Squarespace's section
-   provides the outer padding). */
-.caa-sb54-paste .page {
-  padding: 0;
-}
+.caa-sb54-paste > *:last-child > *:last-child { margin-bottom: 0; }
+.caa-sb54-paste .page { padding: 0; }
 
 </style>
 
 <div class="caa-sb54-paste">
-  <nav class="section-nav" aria-label="In this section"> <div class="section-nav__inner"> <ul class="section-nav__list"> <li class="section-nav__item section-nav__item--current"> <a href="https://aaronsleeper.github.io/caa-campaign-section/" aria-current="page">SB 54 Home</a> </li><li class="section-nav__item"> <a href="https://aaronsleeper.github.io/caa-campaign-section/whats-changing/">What&#39;s Changing</a> </li><li class="section-nav__item"> <a href="https://aaronsleeper.github.io/caa-campaign-section/roles-and-responsibilities/">Roles</a> </li><li class="section-nav__item"> <a href="https://aaronsleeper.github.io/caa-campaign-section/reimbursement/">Reimbursement</a> </li> </ul> </div> </nav> <div class="page"> <!-- Hero: heading + lead-in sit above the rectangle; the navy rectangle IS the
+<nav class="section-nav" aria-label="In this section"> <div class="section-nav__inner"> <ul class="section-nav__list"> <li class="section-nav__item section-nav__item--current"> <a href="/blank-1-for-change" aria-current="page">SB 54 Home</a> </li><li class="section-nav__item"> <a href="/blank-2-for-change-craft">What&#39;s Changing</a> </li><li class="section-nav__item"> <a href="/blank-3-for-change-craft">Roles</a> </li><li class="section-nav__item"> <a href="/blank-4-for-change-craft">Reimbursement</a> </li> </ul> </div> </nav> <div class="page"> <!-- Hero: heading + lead-in sit above the rectangle; the navy rectangle IS the
          video, offset against the gold + teal mats (the live /california layered-panel
          device). No video file yet, so it renders as a 'Coming soon' placeholder. --> <div class="hero-intro"> <h1><em>SB&nbsp;54</em> in California</h1> <p class="hero-intro__lead">
 California is taking on one of its most ambitious recycling and packaging challenges yet. SB&nbsp;54 is one of the most comprehensive and far-reaching packaging responsibility laws in the U.S., creating a producer-funded system to support recycling, composting, and waste management improvements across the state.
 </p> </div> <div class="hero--blocked hero--blocked--video"> <figure class="video-placeholder video-placeholder--image hero-video" aria-label="Video coming"> <img src="https://aaronsleeper.github.io/caa-campaign-section/fpo/2.png" alt="Sorted recyclable materials presented as valuable commodities on a teal ground — video coming." class="video-placeholder__image"> <div class="video-placeholder__overlay"> <div class="video-placeholder__mark" aria-hidden="true"> <div class="video-placeholder__spark"></div> <span class="video-placeholder__play">&#9654;</span> </div> <span class="video-placeholder__label">Video coming</span> </div> </figure> </div> <h2 class="hub__heading">Start with the topic that's most relevant to where you are right now</h2> <div class="card-grid"> <div class="card"> <span class="card__number">1</span> <h3 class="card__title">What SB 54 Means for You</h3> <p class="card__description">
 Learn what is changing under SB 54, what stays the same, and what to expect as implementation moves forward.
-</p> <a href="https://aaronsleeper.github.io/caa-campaign-section/whats-changing/" class="card__cta sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">Start here &rarr;</a> </div> <div class="card"> <span class="card__number">2</span> <h3 class="card__title">Roles and Responsibilities</h3> <p class="card__description">
+</p> <a href="/blank-2-for-change-craft" class="card__cta sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">Start here &rarr;</a> </div> <div class="card"> <span class="card__number">2</span> <h3 class="card__title">Roles and Responsibilities</h3> <p class="card__description">
 Understand who does what under SB 54, how responsibilities are shared, and where your organization fits.
-</p> <a href="https://aaronsleeper.github.io/caa-campaign-section/roles-and-responsibilities/" class="card__cta sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">Find your role &rarr;</a> </div> <div class="card"> <span class="card__number">3</span> <h3 class="card__title">Reimbursement for Covered Costs <span class="card__tag">(Coming Soon)</span></h3> <p class="card__description">
+</p> <a href="/blank-3-for-change-craft" class="card__cta sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">Find your role &rarr;</a> </div> <div class="card"> <span class="card__number">3</span> <h3 class="card__title">Reimbursement for Covered Costs <span class="card__tag">(Coming Soon)</span></h3> <p class="card__description">
 Learn how reimbursement works, what costs may be eligible, and how to prepare for future funding opportunities.
-</p> <a href="https://aaronsleeper.github.io/caa-campaign-section/reimbursement/" class="card__cta sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">Reimbursement overview &rarr;</a> </div> </div> <!-- Goals of SB 54 — reproduces the live CAA "Key Goals" grid --> <div class="band band--tint-teal"> <p class="band__title">Goals of SB 54</p> <p class="band__eyebrow">By January 1, 2032:</p> <div class="checks"> <div class="stat"> <div class="stat__head"> <img class="stat__icon" src="https://aaronsleeper.github.io/caa-campaign-section/icons/bottle.svg" alt="" aria-hidden="true"> <span class="stat__figure">25%</span> </div> <span class="stat__label">reduction in single-use plastic packaging</span> </div> <div class="stat"> <div class="stat__head"> <img class="stat__icon" src="https://aaronsleeper.github.io/caa-campaign-section/icons/recycle.svg" alt="" aria-hidden="true"> <span class="stat__figure">65%</span> </div> <span class="stat__label">recycling rate</span> </div> <div class="stat"> <div class="stat__head"> <img class="stat__icon" src="https://aaronsleeper.github.io/caa-campaign-section/icons/compostibles.svg" alt="" aria-hidden="true"> <span class="stat__figure">100%</span> </div> <span class="stat__label">of packaging recyclable or compostable</span> </div> </div> </div> <!-- Split: who this is for, beside a brand graphic --> <div class="split split--media-right"> <div class="split__media media-frame"> <figure class="fpo fpo--filled fpo--framed"> <img src="https://aaronsleeper.github.io/caa-campaign-section/fpo/3.png" alt="Recycling-system operators — coordinator, hauler, MRF worker — together on-site."> </figure> </div> <div class="split__body"> <p class="hub__subtitle">
+</p> <a href="/blank-4-for-change-craft" class="card__cta sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">Reimbursement overview &rarr;</a> </div> </div> <!-- Goals of SB 54 — reproduces the live CAA "Key Goals" grid --> <div class="band band--tint-teal"> <p class="band__title">Goals of SB 54</p> <p class="band__eyebrow">By January 1, 2032:</p> <div class="checks"> <div class="stat"> <div class="stat__head"> <img class="stat__icon" src="https://aaronsleeper.github.io/caa-campaign-section/icons/bottle.svg" alt="" aria-hidden="true"> <span class="stat__figure">25%</span> </div> <span class="stat__label">reduction in single-use plastic packaging</span> </div> <div class="stat"> <div class="stat__head"> <img class="stat__icon" src="https://aaronsleeper.github.io/caa-campaign-section/icons/recycle.svg" alt="" aria-hidden="true"> <span class="stat__figure">65%</span> </div> <span class="stat__label">recycling rate</span> </div> <div class="stat"> <div class="stat__head"> <img class="stat__icon" src="https://aaronsleeper.github.io/caa-campaign-section/icons/compostibles.svg" alt="" aria-hidden="true"> <span class="stat__figure">100%</span> </div> <span class="stat__label">of packaging recyclable or compostable</span> </div> </div> </div> <!-- Split: who this is for, beside a brand graphic --> <div class="split split--media-right"> <div class="split__media media-frame"> <figure class="fpo fpo--filled fpo--framed"> <img src="https://aaronsleeper.github.io/caa-campaign-section/fpo/3.png" alt="Recycling-system operators — coordinator, hauler, MRF worker — together on-site."> </figure> </div> <div class="split__body"> <p class="hub__subtitle">
 Whether you're already involved in this work or just beginning to learn about SB 54, this site is here to help you understand what is changing, where you fit, and how to access available support and funding.
 </p> </div> </div> <!-- Closing engagement block. Approved CTA wording from CAA Comms (Dana, 2026-05-27).
-         Primary action: the inquiry form (same participation form used across the modules). --> <div class="hub__cta"> <p class="hub__cta-lead">If you haven't connected with CAA yet, complete the CAA California Recycling &amp; Reuse System Inquiry Form. Knowing a bit more about your organization helps CAA point you to the best next steps.</p> <a href="https://www.surveymonkey.com/r/2M3GMYV" class="cta-button" target="_blank" rel="noopener">Complete the inquiry form&nbsp;&rarr;</a> <p class="hub__cta-secondary">You can also <a href="https://circularactionalliance.org/newsletter-subscription" class="hub__cta-newsletter" target="_blank" rel="noopener">sign up to receive CAA updates via our newsletter</a>.</p> </div> </div>  
+         Primary action: the inquiry form (same participation form used across the modules). --> <div class="hub__cta"> <p class="hub__cta-lead">If you haven't connected with CAA yet, complete the CAA California Recycling &amp; Reuse System Inquiry Form. Knowing a bit more about your organization helps CAA point you to the best next steps.</p> <a href="https://www.surveymonkey.com/r/2M3GMYV" class="cta-button" target="_blank" rel="noopener">Complete the inquiry form&nbsp;&rarr;</a> <p class="hub__cta-secondary">You can also <a href="https://circularactionalliance.org/newsletter-subscription" class="hub__cta-newsletter" target="_blank" rel="noopener">sign up to receive CAA updates via our newsletter</a>.</p> </div> </div>
 </div>
