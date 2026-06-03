@@ -1,0 +1,1181 @@
+<!--
+  CAA SB 54 — Squarespace paste artifact
+  Page: Module 3 Gateway — Reimbursement for Covered Costs
+  Target: paste into a Code Block on the "Blank 3 for Change Craft" page in Squarespace.
+
+  HOW TO USE
+    1. Open the page in Squarespace editor.
+    2. Add a Code Block (or open the existing one).
+    3. Make sure "Display Source" is OFF.
+    4. Select all contents of this file from the opening <style> through the
+       closing </div>, paste into the Code Block, save.
+
+  WHAT THIS PASTE OWNS
+    - All bespoke layout/components: hero band, video placeholder, goals
+      stat band, gold-dot timeline, accordion, image-top card grid, CTA
+      block, page wrapper.
+    - Scoped under .caa-sb54-paste so styles do not leak elsewhere on
+      the site.
+
+  WHAT THIS PASTE LETS THE SITE OWN
+    - Squarespace Site Styles drive font family, base type sizing, link
+      color, body color. CSS variables defined below resolve to CAA's
+      live palette via the brand vars baked into our global.css.
+    - The page inherits whatever Squarespace section background, padding,
+      and width settings the surrounding section has set.
+
+  ASSET URLs
+    - Images and icons load from GitHub Pages
+      (https://aaronsleeper.github.io/caa-campaign-section/) since CAA's media library does not yet have them.
+    - If/when CAA uploads our images to their own media library, swap
+      these URLs to CAA-hosted versions.
+
+  IF SOMETHING BREAKS
+    - Confirm the live preview still renders at
+      https://aaronsleeper.github.io/caa-campaign-section/
+    - If it does and the Squarespace paste does not, the most likely
+      cause is a Squarespace section-level setting (background colour,
+      padding) overriding our scoped styles. Try a different section
+      preset or strip section padding.
+-->
+
+<style>
+@import './tokens.css';
+
+/* ============================================================
+   This file LAYERS ON TOP of the live circularactionalliance.org
+   stylesheet bundle (site.css + static.css + custom.css), which
+   BaseLayout.astro links in <head> ahead of this file. The live
+   stylesheets supply the brand baseline: type, color tokens, link
+   styling, button styling, the h1 em / h1 strong / h3 strong inline
+   highlight treatments (those use !important and beat any rule here).
+
+   What lives in this file:
+     • Universal reset (border-box + zeroed margins) — load-bearing
+       for our component layouts.
+     • body { color } — site.css doesn't set body color, so without
+       this everything defaults to browser black instead of navy.
+     • h1/h2/h3 base scale — overrides live with our own type scale.
+     • h2::after gold-underline-bar — INTENTIONAL EXTENSION. The live
+       site uses inline <strong> highlights inside h2 text, not a
+       universal underline. Aaron added this device deliberately.
+     • Component CSS (cards, bands, FPOs, timeline, accordion, hero
+       variants, page-nav, split, callout, stat callouts) — all
+       styling patterns the live site doesn't have a native form for.
+
+   What is INTENTIONALLY ABSENT here:
+     • h1 em / h1 strong / h3 strong rules — removed 2026-06-02 as
+       dead code; custom.css pins them with !important.
+
+   When adding rules: if it styles a generic element (h1, p, ul) and
+   the live site already does it the way we want, don't add it. Only
+   add overrides when the live default doesn't match our design.
+   ============================================================ */
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base */
+html {
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--line-height);
+  color: var(--caa-ink);
+  background: var(--caa-paper);
+}
+
+/* Typography — type scale only. The live site's h1/h2/h3 weights and
+   sizes from site.css are overridden here to match our designed scale.
+   Inline highlight treatments (h1 em / h1 strong / h3 strong) come
+   from the live custom.css via !important. */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--caa-navy);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: var(--text-4xl);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-md);
+}
+
+h2 {
+  font-size: var(--text-3xl);
+  font-weight: 300;
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-md);
+}
+
+h3 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-sm);
+}
+
+/* h2 gold-underline-bar — intentional design extension, not a live-site
+   pattern. The live site highlights h2s with inline <strong> spans
+   inside the heading text; this rule adds a universal bar under every
+   h2 as a section-divider device Aaron added. */
+h2 {
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 5px;
+  background: var(--caa-yellow);
+  border-radius: var(--radius-bar);
+  margin-top: var(--space-sm);
+}
+
+p {
+  max-width: var(--max-line-length);
+  margin-bottom: var(--space-md);
+}
+
+a {
+  color: var(--caa-teal-dark);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--caa-navy);
+}
+
+ul, ol {
+  padding-left: var(--space-xl);
+  margin-bottom: var(--space-md);
+}
+
+li {
+  margin-bottom: var(--space-xs);
+}
+
+/* Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Page layout */
+.page-layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  gap: var(--space-2xl);
+  max-width: calc(var(--content-width) + var(--sidebar-width) + var(--space-2xl));
+  margin: 0 auto;
+  padding: var(--space-xl);
+}
+
+.page-layout__content {
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .page-layout {
+    grid-template-columns: 1fr;
+    padding: var(--space-md);
+  }
+}
+
+/* Hero */
+.hero {
+  padding: var(--space-3xl) 0 var(--space-2xl);
+  border-bottom: 3px solid var(--caa-teal);
+  margin-bottom: var(--space-2xl);
+}
+
+.hero__subtitle {
+  font-size: var(--text-lg);
+  color: var(--caa-navy);
+  max-width: var(--max-line-length);
+  opacity: 0.85;
+}
+
+/* Module cards (hub + gateway) */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  margin: var(--space-xl) 0;
+}
+
+.card {
+  border: 1px solid hsla(var(--darkAccent-hsl, 191.07,67.32%,30%), 0.15);
+  border-top: 4px solid var(--caa-teal);
+  border-radius: var(--radius-rect);
+  padding: var(--space-lg);
+  background: var(--caa-paper);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.card__title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--caa-navy);
+  margin-bottom: var(--space-sm);
+}
+
+.card__description {
+  font-size: var(--text-sm);
+  color: var(--caa-ink);
+  opacity: 0.75;
+  flex: 1;
+  margin-bottom: var(--space-md);
+}
+
+.card__cta {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--caa-navy);
+  background: var(--caa-yellow);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  align-self: flex-start;
+  /* Even out multi-line labels so wraps read as intentional, not orphaned.
+     The arrow is bound to the last word with &nbsp; in markup so it never
+     drops to its own line. */
+  text-wrap: balance;
+  transition: background 0.15s, color 0.15s;
+}
+
+.card__cta:hover {
+  background: var(--caa-navy);
+  color: var(--caa-paper);
+}
+
+/* CTA block (per-module "What to do next") */
+.cta-block {
+  max-width: var(--max-line-length);
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid hsla(var(--black-hsl, 202.86,87.5%,9.41%), 0.1);
+}
+
+.cta-block__card {
+  border-left: 3px solid var(--caa-teal);
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-md);
+  background: hsla(var(--darkAccent-hsl, 191.07,67.32%,30%), 0.03);
+  border-radius: var(--radius-rect);
+}
+
+.cta-block__card--ready {
+  border-left-color: var(--caa-navy);
+  background: rgba(11, 54, 71, 0.03);
+}
+
+.cta-block__label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--caa-teal);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-xs);
+}
+
+.cta-block__card--ready .cta-block__label {
+  color: var(--caa-navy);
+}
+
+.cta-block__action {
+  font-weight: 600;
+}
+
+/* Single-action CTA — drives the one key engagement: the participation form. */
+.cta-block--single {
+  border-top: none;
+  padding-top: 0;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--caa-navy);
+  background: var(--caa-yellow);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  text-wrap: balance;
+  transition: background 0.15s, color 0.15s;
+}
+
+.cta-button:hover {
+  background: var(--caa-navy);
+  color: var(--caa-paper);
+}
+
+/* Section */
+.section {
+  max-width: var(--max-line-length);
+  margin-bottom: var(--space-2xl);
+}
+
+/* Intro lead paragraph — page-opening copy with no heading */
+.section--intro p {
+  font-size: var(--text-lg);
+  color: var(--caa-navy);
+  opacity: 0.9;
+}
+
+/* Stat callouts — pulled-out numbers, restraint-driven (brand colors, whitespace) */
+.stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+  margin: var(--space-xl) 0;
+}
+
+.stat {
+  flex: 1 1 160px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.stat__number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  line-height: 1;
+  color: var(--caa-teal);
+}
+
+.stat__label {
+  font-size: var(--text-sm);
+  color: var(--caa-navy);
+  max-width: 28ch;
+}
+
+/* Video placeholder — a designed box, not "pending" text */
+.video-placeholder {
+  width: 100%;
+  max-width: var(--max-line-length);
+  aspect-ratio: 16 / 9;
+  background: var(--caa-navy);
+  border: none;
+  border-radius: var(--radius-media);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-2xl) 0;
+}
+
+.video-placeholder__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  color: var(--caa-paper);
+}
+
+.video-placeholder__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  /* Ghosted / disabled — the video isn't live yet, so the play affordance
+     reads as pending rather than clickable. Outline + faded glyph, no gold. */
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.32);
+  font-size: 1.5rem;
+  padding-left: 4px;
+}
+
+.video-placeholder__label {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Image-poster variant — Dana asked for visual texture while we wait for real
+   videos on the inner pages (2026-05-28). Scrim + Unity Spark + ghosted play
+   read as "this page's video lands here" without faking a live, clickable
+   asset. Designed by the CAA Visual Designer against v1; hub keeps its mat
+   composition (no modifier). */
+.video-placeholder--image {
+  overflow: hidden;
+}
+
+.video-placeholder__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-placeholder--image {
+  position: relative;
+}
+
+.video-placeholder__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  text-align: center;
+  background: rgba(11, 54, 71, 0.70); /* --caa-navy at 70% — the scrim */
+  color: #fff;
+}
+
+.video-placeholder__mark {
+  position: relative;
+  width: clamp(96px, 12vw, 160px);
+  aspect-ratio: 1;
+  color: rgba(255, 255, 255, 0.35); /* drives spark + play via currentColor */
+}
+
+.video-placeholder__spark {
+  width: 100%;
+  height: 100%;
+  background-color: currentColor;
+  -webkit-mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+  mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+}
+
+.video-placeholder__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  line-height: 1;
+  padding-left: 0.15em; /* optical center of the play glyph */
+}
+
+/* Overview Video page — single-purpose centerpiece, slightly wider. */
+.video-placeholder--wide {
+  max-width: var(--content-width);
+}
+
+/* Full-width-feel color bands — the alternating-rhythm signature.
+   Edge-bleed within the content column to read as bands, not boxed cards. */
+/* Full-width content column (replaces the left-rail grid) */
+.page {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-xl);
+}
+
+/* True full-bleed bands — span the viewport, content re-centered to the column */
+.band {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  margin-block: var(--space-2xl);
+  padding-block: var(--space-2xl);
+  padding-inline: max(var(--space-xl), calc((100vw - var(--content-width)) / 2 + var(--space-xl)));
+}
+
+.band__inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.band--tint-teal {
+  background: color-mix(in srgb, var(--caa-teal) 8%, var(--caa-paper));
+}
+
+.band--tint-navy {
+  background: color-mix(in srgb, var(--caa-navy) 6%, var(--caa-paper));
+}
+
+.band--solid-teal {
+  background: var(--caa-teal);
+  color: var(--caa-paper);
+}
+
+.band--solid-teal h2,
+.band--solid-teal p {
+  color: var(--caa-paper);
+}
+
+.band__title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--caa-navy);
+  margin-bottom: var(--space-xs);
+}
+
+.band__eyebrow {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--caa-navy);
+  opacity: 0.8;
+  margin-bottom: var(--space-md);
+}
+
+/* Milestone timeline — reproduces the live CAA "Key Milestones" device */
+.timeline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+  margin-top: var(--space-lg, 1.5rem);
+}
+
+.timeline__step {
+  flex: 1 1 140px;
+  position: relative;
+  padding-top: var(--space-md);
+}
+
+.timeline__step::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  right: calc(-1 * var(--space-xl));
+  height: 2px;
+  background: color-mix(in srgb, var(--caa-teal) 35%, transparent);
+}
+
+.timeline__step:last-child::before {
+  right: 0;
+}
+
+.timeline__dot {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--caa-gold-deep);
+}
+
+.timeline__date {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--text-xl);
+  color: var(--caa-navy);
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-xs);
+}
+
+.timeline__label {
+  font-size: var(--text-sm);
+  color: var(--caa-navy);
+}
+
+/* FPO image zone — designed placeholder that names the intended image */
+/* FPO image zone — solid teal placeholder block, matching how the live
+   site ships missing imagery (teal rectangles). */
+.fpo {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--caa-teal);
+  border-radius: var(--radius-media);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-xl);
+  text-align: center;
+}
+
+.fpo--portrait {
+  aspect-ratio: 4 / 5;
+}
+
+/* Filled FPO — a real generated image replaces the teal placeholder block.
+   The figure keeps its aspect-ratio + radius; the image covers it edge-to-edge. */
+.fpo--filled,
+.hero-fpo--filled {
+  background: none;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  /* Containment edge — keeps light-ground images (e.g. a white-backed abstract)
+     from bleeding into the page white. Invisible on dark/teal-ground images. */
+  border: 1px solid rgba(3, 29, 45, 0.12);
+  box-shadow: 0 1px 4px rgba(3, 29, 45, 0.1);
+}
+
+.fpo--filled img,
+.hero-fpo--filled img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Unity Spark framing — applied by the PAGE, never baked into the photo.
+   A semi-transparent Spark mark bleeds off a corner of the image as brand
+   connective tissue. Driven entirely by CSS vars so opacity / color / size /
+   corner are tunable per slot without regenerating the image. The mark is the
+   real CAA interlocking-arches asset (public/brand/unity-spark.svg), masked so
+   --spark-color recolors it. Compose with .fpo--filled. */
+.fpo--framed {
+  --spark-size: 52%;
+  --spark-opacity: 0.2;
+  --spark-color: #ffffff;
+  --spark-offset: -8%;
+}
+
+.fpo--framed::after {
+  content: "";
+  position: absolute;
+  bottom: var(--spark-offset);
+  right: var(--spark-offset);
+  width: var(--spark-size);
+  aspect-ratio: 1;
+  background-color: var(--spark-color);
+  -webkit-mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+  mask: url("/caa-campaign-section/brand/unity-spark.svg") no-repeat center / contain;
+  opacity: var(--spark-opacity);
+  pointer-events: none;
+}
+
+/* Teal-on-light variant for photos with bright/white-heavy grounds */
+.fpo--framed.fpo--framed-teal {
+  --spark-color: var(--caa-teal);
+  --spark-opacity: 0.22;
+}
+
+/* FPO defect badge — marks images carrying a known generation issue (e.g. Unity
+   Spark arcs painted over people) so they are not mistaken for final assets. */
+.fpo__badge {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--caa-navy);
+  background: var(--caa-yellow);
+  padding: 0.25em 0.6em;
+  border-radius: var(--radius-pill, 999px);
+}
+
+.fpo__tag {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--caa-yellow);
+}
+
+.fpo__desc {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 40ch;
+}
+
+/* Checkmark stat row — the live CAA goals pattern (checkmark circle + text) */
+.checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+  margin-top: var(--space-lg);
+}
+
+/* Stat-figure treatment — the number leads as a Montserrat display figure with
+   the descriptor demoted beneath (Tony: make the numbers more prominent,
+   2026-05-27). Stays core palette (navy figure, teal top-rule); no Action Yellow
+   — this band has no CTA. Designed by the CAA Visual Designer against v1. */
+.stat {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 220px;
+  padding-top: var(--space-sm);
+  border-top: 3px solid var(--caa-teal);
+}
+
+.stat__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.stat__icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+}
+
+.stat__figure {
+  font-family: var(--font-display);
+  font-size: 2.75rem;        /* ~245% of body — top of the v1 headline range */
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--caa-navy);
+}
+
+.stat__label {
+  margin-top: var(--space-xs);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--caa-navy);
+}
+
+/* Icon grid — converts key-message lists to the live "operating principles"
+   circular-icon grid. Circular outline is an icon placeholder (real icons via CAA Comms). */
+.icon-grid {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-lg) 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+}
+
+.icon-grid li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.icon-grid li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--caa-teal);
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+  .icon-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Two-column media + text split — the live CAA "image beside text" device.
+   Primary long-text relief; alternate media side down a page for rhythm. */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  margin: var(--space-2xl) 0;
+}
+
+.split__body {
+  min-width: 0;
+}
+
+.split--media-right .split__media {
+  order: 2;
+}
+
+@media (max-width: 768px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+  .split--media-right .split__media {
+    order: 0;
+  }
+}
+
+/* Solid navy band — reverse-text "remember this" takeaway block */
+.band--solid-navy {
+  background: var(--caa-navy);
+}
+
+.band--solid-navy,
+.band--solid-navy h2,
+.band--solid-navy h3,
+.band--solid-navy p,
+.band--solid-navy li {
+  color: var(--caa-paper);
+}
+
+/* Pull-quote / callout — lift one sentence out of long text. Never yellow. */
+.callout {
+  border-left: 4px solid var(--caa-teal);
+  background: color-mix(in srgb, var(--caa-teal) 6%, var(--caa-paper));
+  padding: var(--space-md) var(--space-xl);
+  margin: var(--space-xl) 0;
+  font-size: var(--text-lg);
+  color: var(--caa-navy);
+}
+
+/* Framed hero — title + a tint shoulder that can seat a media element,
+   reproducing the live CAA "photo in a color block" hero. */
+.hero--framed {
+  background: color-mix(in srgb, var(--caa-teal) 8%, var(--caa-paper));
+  border-bottom: none;
+  border-radius: var(--radius-rect);
+  padding: var(--space-2xl);
+}
+
+/* Prev/next navigation */
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-xl) 0;
+  margin-top: var(--space-2xl);
+  border-top: 1px solid hsla(var(--black-hsl, 202.86,87.5%,9.41%), 0.1);
+  gap: var(--space-md);
+}
+
+.page-nav__link {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: var(--font-display);
+  color: var(--caa-teal);
+  text-decoration: none;
+}
+
+.page-nav__kicker {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--caa-teal);
+}
+
+.page-nav__label {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--caa-navy);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.page-nav__link:hover .page-nav__label {
+  color: var(--caa-teal);
+}
+
+.page-nav__link--next {
+  margin-left: auto;
+  text-align: right;
+}
+
+/* FAQ accordion */
+.accordion {
+  max-width: var(--max-line-length);
+  margin: var(--space-xl) 0;
+}
+
+.accordion__item {
+  border-bottom: 1px solid hsla(var(--black-hsl, 202.86,87.5%,9.41%), 0.1);
+}
+
+.accordion__trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: var(--space-md) 0;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--caa-navy);
+  cursor: pointer;
+  text-align: left;
+}
+
+.accordion__trigger::after {
+  content: '+';
+  font-size: var(--text-xl);
+  color: var(--caa-teal);
+  flex-shrink: 0;
+  margin-left: var(--space-md);
+  transition: transform 0.15s;
+}
+
+.accordion__item[open] .accordion__trigger::after {
+  content: '\2212'; /* minus */
+}
+
+.accordion__content {
+  padding: 0 0 var(--space-md);
+  max-width: var(--max-line-length);
+}
+
+/* Soft egress */
+.soft-egress {
+  text-align: center;
+  padding: var(--space-xl) 0;
+  font-size: var(--text-sm);
+  color: var(--caa-ink);
+  opacity: 0.7;
+}
+
+.soft-egress a {
+  color: var(--caa-teal);
+  font-weight: 600;
+}
+
+/* ============================================================
+   Composition components — bold color-block layouts adapted from the live
+   /california page (layered panels, offset media, reverse text). Built on the
+   same tokens; this is the brand-feel layer over the inherit-ready base.
+   Hierarchy: .hero--blocked = rich contained panel (hub);
+              .hero--band   = slim full-bleed reverse band (module + sub pages);
+              .media-frame  = photo well offset on a gold field (content).
+   ============================================================ */
+
+/* --- Color-blocked hero (hub): dark panel offset against gold + teal mats --- */
+.hero--blocked {
+  position: relative;
+  margin: var(--space-lg) 0 var(--space-3xl);
+  padding: var(--space-xl);
+}
+
+.hero--blocked::before { /* gold mat — peeks top-left */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 46%;
+  height: 66%;
+  background: var(--caa-gold-deep);
+  z-index: 0;
+}
+
+.hero--blocked::after { /* teal mat — peeks bottom-right */
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 40%;
+  height: 56%;
+  background: var(--caa-teal);
+  z-index: 0;
+}
+
+/* --- Hub intro: heading + lead-in lifted above the video rectangle --- */
+.hero-intro {
+  margin: var(--space-2xl) 0 var(--space-lg);
+}
+
+.hero-intro h1 {
+  margin-bottom: var(--space-md);
+}
+
+.hero-intro__lead {
+  font-size: var(--text-lg);
+  color: var(--caa-navy);
+  max-width: var(--max-line-length);
+  opacity: 0.9;
+}
+
+/* --- Hero video: the navy rectangle IS the video, sitting on the gold+teal mats.
+   Reuses .video-placeholder visuals; this variant lifts it over the mats and lets
+   them peek through the .hero--blocked padding. --- */
+.hero--blocked--video {
+  margin-top: 0;
+}
+
+.hero-video {
+  position: relative;
+  z-index: 1;
+  max-width: none;
+  margin: 0;
+}
+
+.hero-panel {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 0.82fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  background: var(--caa-navy);
+  padding: var(--space-2xl);
+}
+
+.hero-panel h1 {
+  margin-top: 0;
+  color: var(--caa-paper);
+}
+
+/* Reverse-panel highlight: teal bar (dark enough that the white "SB 54" reads
+   on top, and it stays on-palette against the navy panel). */
+.hero-panel h1 em,
+.hero--band h1 em {
+  background: linear-gradient(to bottom, transparent 55%, var(--caa-teal) 55%, var(--caa-teal) 86%, transparent 86%);
+  font-style: normal;
+}
+
+.hero-panel p {
+  color: var(--caa-paper);
+  opacity: 0.92;
+  max-width: 44ch;
+  margin-bottom: 0;
+}
+
+.hero-panel__media {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.hero-fpo {
+  background: var(--caa-teal);
+  border-radius: var(--radius-media);
+  aspect-ratio: 16 / 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.hero-fpo--short {
+  aspect-ratio: 16 / 7;
+}
+
+.hero-fpo .fpo__tag {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--caa-yellow);
+}
+
+.hero-fpo .fpo__desc {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 34ch;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.hero-links a {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--caa-paper);
+  text-decoration: none;
+  border-bottom: 2px solid var(--caa-yellow);
+  padding-bottom: 2px;
+}
+
+.hero-links a:hover {
+  color: var(--caa-yellow);
+}
+
+/* --- Title band (module + sub pages): slim full-bleed reverse band --- */
+.hero--band {
+  position: relative;
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  margin-bottom: var(--space-2xl);
+  padding-block: var(--space-2xl);
+  padding-inline: max(var(--space-xl), calc((100vw - var(--content-width)) / 2 + var(--space-xl)));
+  background: var(--caa-navy);
+  border-left: 8px solid var(--caa-yellow);
+}
+
+.hero--band__inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.hero--band h1 {
+  margin-top: 0;
+  color: var(--caa-paper);
+}
+
+.hero--band p {
+  color: var(--caa-paper);
+  opacity: 0.9;
+  margin-top: var(--space-sm);
+  margin-bottom: 0;
+}
+
+/* --- Layered media frame: photo well offset on a gold field --- */
+.media-frame {
+  position: relative;
+  padding: var(--space-lg) 0 0 var(--space-lg);
+}
+
+.media-frame::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 72%;
+  height: 82%;
+  background: var(--caa-gold-deep);
+  z-index: 0;
+}
+
+.media-frame > * {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .hero-panel {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+  }
+  .hero--blocked::before { width: 62%; height: 32%; }
+  .hero--blocked::after { width: 52%; height: 26%; }
+}
+
+</style>
+
+<div class="caa-sb54-paste">
+<div class="page"> <div class="hero--band"> <div class="hero--band__inner"> <h1>Reimbursement for Covered Costs</h1>  </div> </div>  <section class="section section--intro"> <p>SB 54 comes with real funding. CAA's reimbursement programs cover eligible new and additional costs from January 1, 2023 forward, using 2022 as the cost baseline &mdash; so the work you were already doing before SB 54 is not displaced, it's supported.</p> </section> <figure class="fpo fpo--filled"> <img src="https://aaronsleeper.github.io/caa-campaign-section/fpo/6.png" alt="Covered-material categories arranged as a clean circular still life — valuable commodities."> </figure> <div class="band band--tint-teal"> <h2>Reimbursement details are coming soon</h2> <p>CAA is developing reimbursement programs to support eligible activities under SB 54. Information about eligibility, covered costs, and reimbursement opportunities for different parts of the system will be published here as it becomes available.</p> <p>In the meantime, tell us how you fit into SB 54 so CAA can share relevant updates with your organization.</p> <a href="https://www.surveymonkey.com/r/2M3GMYV" class="cta-button" target="_blank" rel="noopener">Share how you fit in&nbsp;&rarr;</a> </div>   </div>
+</div>
