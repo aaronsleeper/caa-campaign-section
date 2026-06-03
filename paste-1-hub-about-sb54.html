@@ -1,34 +1,18 @@
 <!--
-  CAA SB 54 — Hub (About SB 54) — Squarespace paste (v2)
-  Target: paste into Code Block on the "About SB 54" page in Squarespace.
+  CAA SB 54 — Hub (About SB 54) — Squarespace paste (v3)
+  Target: Code Block on "About SB 54" page.
 
-  FIXES IN THIS VERSION (vs. previous paste):
-    - Page-specific styles from index.astro (card__number circle, hub__heading,
-      hub__cta, etc.) now inlined.
-    - All CSS url() references (unity-spark mask, etc.) rewritten to absolute
-      GitHub Pages URLs so the video spark mark renders.
-    - Wrapper is transparent: no max-width / no padding. Lets .page provide
-      content width and .band use its 100vw breakout for full-bleed bands.
-    - Section nav re-included at the top — BUT the links inside still point to
-      preview URLs (/caa-campaign-section/whats-changing/ etc.). After paste,
-      edit the Code Block source and replace those hrefs with the actual
-      Squarespace page URLs for Blank 1, 2, 3.
+  v3 FIX: SectionNav component's CSS (.section-nav, .section-nav__list,
+  .section-nav__item--current, sticky-positioning, media queries) was
+  missing in v2 because Astro scopes component styles separately from
+  global.css. Now inlined alongside global.css + index.astro page styles.
 
-  STILL TO VERIFY ON THIS PASTE-PROOF:
-    - Does the teal Goals band actually go edge-to-edge? The .band rule uses
-      width: 100vw + margin-inline: calc(50% - 50vw) — this works if the
-      Squarespace section above doesn't clip overflow. If the band only goes
-      to the section's width, set the Squarespace Section to "Full Bleed" or
-      remove its horizontal padding.
-    - Does the video spark mark render? Should be a stylized circular CAA
-      spark with a play triangle, not a plain triangle on a square.
-    - Do the card numbers appear as filled teal circles, not plain text?
-
-  HOW TO USE
-    1. Open About SB 54 in editor.
-    2. Add a Code Block in a section with minimal padding (or Full Bleed).
-    3. "Display Source" → OFF.
-    4. Paste everything below this comment. Save.
+  POST-PASTE TODOS
+    - Section-nav links point to GitHub Pages preview URLs
+      (https://aaronsleeper.github.io/caa-campaign-section/...). Edit them in the Code Block
+      source to your actual Squarespace page URLs for Blank 1/2/3.
+    - If Goals band doesn't go edge-to-edge: set the surrounding
+      Squarespace Section to "Full Bleed" / minimal horizontal padding.
 -->
 
 <style>
@@ -1388,7 +1372,7 @@
 
 
 
-/* === Page-specific styles (from index.astro) === */
+/* === Page-specific (from index.astro) === */
 /* Hero composition lives in global.css (.hero--blocked et al.) so module
      pages can reuse it. This block holds hub-specific bits only. */
   .caa-sb54-paste .hub__subtitle {
@@ -1453,9 +1437,69 @@
     color: var(--caa-teal-dark);
     font-weight: 600;
   }
-/* Wrapper is transparent: no max-width, no padding, no font-family override.
-   .page provides content width; .band uses 100vw breakout for full-bleed.
-   Squarespace's surrounding section padding is the only thing on the outside. */
+
+
+/* === SectionNav component (from SectionNav.astro) === */
+.caa-sb54-paste .section-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--caa-paper);
+    border-bottom: 1px solid color-mix(in srgb, var(--caa-navy) 12%, transparent);
+  }
+
+
+  .caa-sb54-paste .section-nav__inner {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+  }
+
+
+  .caa-sb54-paste .section-nav__list {
+    display: flex;
+    gap: var(--space-xl);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .caa-sb54-paste .section-nav__item a {
+    display: block;
+    padding: var(--space-md) 0;
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--caa-navy);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+
+  .caa-sb54-paste .section-nav__item a:hover {
+    color: var(--caa-teal);
+  }
+
+
+  .caa-sb54-paste .section-nav__item--current a {
+    color: var(--caa-teal);
+    border-bottom-color: var(--caa-teal);
+  }
+
+
+  @media (max-width: 768px) {
+
+    .caa-sb54-paste .section-nav__list {
+      gap: var(--space-md);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+  
+}
 .caa-sb54-paste {
   display: block;
   color: var(--caa-ink);
