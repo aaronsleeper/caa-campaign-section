@@ -4,24 +4,23 @@ A page-by-page playbook for adding content to the SB 54 pages in the Squarespace
 
 ## Pages in your admin panel
 
-CAA created 5 Blank pages for you. The SB 54 spec calls for 8 pages total. Default mapping (this is my assumption — if Larine assigned them differently, swap):
+Current build target = **4 pages** (matches what's in the live nav and CC's 7-page deck minus the 3 M3 sub-pages, which defer until M3 detail is approved). CC's deck has no separate Questions page either, so that's also deferred. Final mapping:
 
-| Admin label | Holds the content for | Spec page |
-|---|---|---|
-| Blank 1 for Change | SB 54 in California *(section landing)* | Page 1 |
-| Blank 2 for Change Craft | What SB 54 Means for You *(Module 1)* | Page 2 |
-| Blank 3 for Change Craft | Roles and Responsibilities Under SB 54 *(Module 2)* | Page 3 |
-| Blank 4 for Change Craft | Reimbursement for Covered Costs *(Module 3 gateway)* | Page 4 |
-| Blank 5 for Change Craft | Questions *(consolidated FAQ)* | Page 8 |
+| Admin label | Holds the content for |
+|---|---|
+| About SB 54 | **SB 54 in California** *(Hub — your existing temp page; paste over it)* |
+| Blank 1 for Change | **Module 1 — What SB 54 Means for You** |
+| Blank 2 for Change Craft | **Module 2 — Roles and Responsibilities Under SB 54** |
+| Blank 3 for Change Craft | **Module 3 — Reimbursement for Covered Costs** *(simplified — no audience cards)* |
+| Blank 4 for Change Craft | reserve |
+| Blank 5 for Change Craft | reserve |
 
-**Three pages still need to be created.** The Reimbursement sub-pages (Local Programs, Collection Systems, Processing and End Markets) don't have Blanks yet. Ask Larine to add three more pages — ideally nested under Reimbursement; she flagged the nesting model as an open question in the build spec cover note. Until then, leave the Module 3 gateway's card buttons (Page 4, block 3) as `#` placeholders.
+**Deferred to a future round** (content preserved in this guide for that time):
 
-**Existing CAA pages — do not paste into these.** *About SB 54*, *Reimbursement Guidance*, *California Staff and Leadership*, *California Reporting Tool*, *CA Consultation Process* are CAA's own pages, likely outside your paste-and-save permission. Worth flagging to Larine: *About SB 54* and *Reimbursement Guidance* overlap in topic with your Hub and Module 3 gateway — confirm CAA's intent for how they coexist with the new SB 54 section (replace, link to, or run parallel).
+- Pages 5/6/7 (Reimbursement sub-pages: Local Programs / Collection / Processing) — wait for CAA to approve M3 detail and add the 3 sub-pages.
+- Page 8 (consolidated Questions index) — not in CC's most recent deck; revisit if/when CAA's IA calls for it.
 
-**Two things to ask Larine when you reach out about the sub-pages:**
-
-- Can the 5 Blanks be relabeled and slugged? Suggested page-title and URL slug for each is in the page sections below.
-- Will the new SB 54 section live alongside the existing *About SB 54* / *Reimbursement Guidance* pages, replace them, or get a nav redirect from them?
+**Other existing CAA pages — leave alone.** *Reimbursement Guidance*, *California Staff and Leadership*, *California Reporting Tool*, *CA Consultation Process* are CAA's own pages. *Reimbursement Guidance* overlaps with your Module 3 gateway in topic — flag to Larine to confirm intent (replace, link to, or run parallel).
 
 ## Squarespace blocks you'll use
 
@@ -65,9 +64,9 @@ Use the live site's teal "Key Goals" band pattern (full-width teal section, eyeb
 
 ---
 
-## Page 1 — SB 54 in California *(section landing)* → **Blank 1 for Change**
+## Page 1 — SB 54 in California *(section landing)* → **About SB 54** *(existing page)*
 
-Suggested Page Title (ask Larine): **SB 54 in California**. Suggested URL slug: `sb54`.
+This is where your temp Hub already lives. Paste over the current content.
 
 Blocks, top to bottom:
 
@@ -89,21 +88,21 @@ Blocks, top to bottom:
    - Eyebrow: `Module 1`
    - Headline: `What SB 54 Means for You`
    - Body: *Learn what is changing under SB 54, what stays the same, and what to expect as implementation moves forward.*
-   - Button: `Start here →` — link to **Blank 2 for Change Craft** (Module 1)
+   - Button: `Start here →` — link to **Blank 1 for Change** (Module 1)
 
    **Card 2**
    - Image: `[PENDING]`
    - Eyebrow: `Module 2`
    - Headline: `Roles and Responsibilities`
    - Body: *Understand who does what under SB 54, how responsibilities are shared, and where your organization fits.*
-   - Button: `Find your role →` — link to **Blank 3 for Change Craft** (Module 2)
+   - Button: `Find your role →` — link to **Blank 2 for Change Craft** (Module 2)
 
    **Card 3**
    - Image: `[PENDING]`
    - Eyebrow: `Module 3 (Coming Soon)`
    - Headline: `Reimbursement for Covered Costs`
    - Body: *Learn how reimbursement works, what costs may be eligible, and how to prepare for future funding opportunities.*
-   - Button: `See reimbursement overview →` — link to **Blank 4 for Change Craft** (Module 3 gateway)
+   - Button: `See reimbursement overview →` — link to **Blank 3 for Change Craft** (Module 3 gateway)
 
 5. **Goals band** — see reusable content above.
 
@@ -123,7 +122,7 @@ Blocks, top to bottom:
 
 ---
 
-## Page 2 — What SB 54 Means for You *(Module 1)* → **Blank 2 for Change Craft**
+## Page 2 — What SB 54 Means for You *(Module 1)* → **Blank 1 for Change**
 
 Suggested Page Title (ask Larine): **What SB 54 Means for You**. Suggested URL slug: `whats-changing`.
 
@@ -185,7 +184,7 @@ Blocks, top to bottom:
 
 ---
 
-## Page 3 — Roles and Responsibilities Under SB 54 *(Module 2)* → **Blank 3 for Change Craft**
+## Page 3 — Roles and Responsibilities Under SB 54 *(Module 2)* → **Blank 2 for Change Craft**
 
 Suggested Page Title (ask Larine): **Roles and Responsibilities Under SB 54**. Suggested URL slug: `roles-and-responsibilities`.
 
@@ -229,11 +228,11 @@ Blocks, top to bottom:
 
 ---
 
-## Page 4 — Reimbursement for Covered Costs *(Module 3 gateway)* → **Blank 4 for Change Craft**
+## Page 4 — Reimbursement for Covered Costs *(Module 3 gateway)* → **Blank 3 for Change Craft**
 
 Suggested Page Title (ask Larine): **Reimbursement for Covered Costs**. Suggested URL slug: `reimbursement`.
 
-This page routes visitors to the three sub-pages. No inquiry-form CTA at the bottom — the sub-pages own audience-specific CTAs. **Card buttons in block 3 below cannot link to real pages yet** — the 3 sub-pages don't exist. Use `#` as the URL on each card button until Larine adds them, then update.
+A simplified holding page until CAA finalizes Reimbursement detail and the 3 sub-pages exist. Hero + image + "Coming Soon" band — matches the current live prototype's M3 page. **No audience-routing cards in this round** (the future round adds them back; preserved at the end of this guide).
 
 Blocks, top to bottom:
 
@@ -245,27 +244,7 @@ Blocks, top to bottom:
 
 2. **Image block** — covered-material categories as a clean circular still life. `[PENDING: image asset]`.
 
-3. **Image-top card grid — 3 audience-routing cards** *(or 3 side-by-side button blocks if cards are heavy on this page)*
-
-   **Card 1**
-   - Eyebrow: `For local recycling programs`
-   - Headline: `Local Programs`
-   - Body: *Public education, outreach, contamination reduction, and program administration — what local jurisdictions and community-based organizations deliver.*
-   - Button: `See local programs →` — URL `#` for now (Local Programs sub-page doesn't exist yet)
-
-   **Card 2**
-   - Eyebrow: `For collection operators`
-   - Headline: `Collection Systems`
-   - Body: *Expanded service, equipment upgrades, route improvements, and new drop-off locations — what jurisdictions and haulers deliver together.*
-   - Button: `See collection systems →` — URL `#` for now (Collection Systems sub-page doesn't exist yet)
-
-   **Card 3**
-   - Eyebrow: `For processors and end-market operators`
-   - Headline: `Processing and End Markets`
-   - Body: *Sorting upgrades, contamination reduction, capacity expansion, and end-market development — what MRFs, processors, and end-market operators deliver.*
-   - Button: `See processing and end markets →` — URL `#` for now (Processing and End Markets sub-page doesn't exist yet)
-
-4. **Holding-state band** — Section background: **Trusted Teal**.
+3. **Holding-state band** — Section background: **Trusted Teal** *(or match the live prototype's light-gray treatment if that's your preference).*
    - H2: `Reimbursement details are coming soon`
    - Body:
 
@@ -279,11 +258,11 @@ Blocks, top to bottom:
 
 ---
 
-## Page 5 — Local Programs *(Module 3a)* → **(no page yet — ask Larine)**
+## Page 5 — Local Programs *(Module 3a)* → **FUTURE ROUND** *(not in current scope)*
 
 Suggested Page Title: **Local Programs**. Suggested URL slug: `local-programs`. Intended nesting: under Reimbursement.
 
-**Skip this page until Larine creates it.** When she does, come back and paste the content below.
+Deferred until CAA approves M3 detail and Larine adds the sub-page. Content preserved below for that round.
 
 Blocks, top to bottom:
 
@@ -340,11 +319,11 @@ Blocks, top to bottom:
 
 ---
 
-## Page 6 — Collection Systems *(Module 3b)* → **(no page yet — ask Larine)**
+## Page 6 — Collection Systems *(Module 3b)* → **FUTURE ROUND** *(not in current scope)*
 
 Suggested Page Title: **Collection Systems**. Suggested URL slug: `collection`. Intended nesting: under Reimbursement.
 
-**Skip this page until Larine creates it.**
+Deferred until CAA approves M3 detail and Larine adds the sub-page.
 
 Blocks, top to bottom:
 
@@ -399,11 +378,11 @@ Blocks, top to bottom:
 
 ---
 
-## Page 7 — Processing and End Markets *(Module 3c)* → **(no page yet — ask Larine)**
+## Page 7 — Processing and End Markets *(Module 3c)* → **FUTURE ROUND** *(not in current scope)*
 
 Suggested Page Title: **Processing and End Markets**. Suggested URL slug: `processing`. Intended nesting: under Reimbursement.
 
-**Skip this page until Larine creates it.**
+Deferred until CAA approves M3 detail and Larine adds the sub-page.
 
 Blocks, top to bottom:
 
@@ -455,9 +434,11 @@ Blocks, top to bottom:
 
 ---
 
-## Page 8 — Questions *(consolidated FAQ index)* → **Blank 5 for Change Craft**
+## Page 8 — Questions *(consolidated FAQ index)* → **FUTURE ROUND** *(not in current scope)*
 
-Suggested Page Title (ask Larine): **Questions**. Suggested URL slug: `questions`.
+Suggested Page Title: **Questions**. Suggested URL slug: `questions`.
+
+Not in CC's most recent deck (05.27.26); FAQs live inside each module's accordion instead. Revisit if CAA's IA later calls for a consolidated index. Content preserved below for that case.
 
 Use the live site's two-column FAQ pattern (label-and-subtext column on the left, accordion on the right). Repeat the pattern for each module group.
 
@@ -506,10 +487,11 @@ Blocks, top to bottom:
 
 ## Things to confirm with Larine as you go
 
-- Three more pages for the Reimbursement sub-pages (see "Pages in your admin panel" at the top). Once she adds them, come back and paste Pages 5/6/7, then update the Page 4 card-button URLs.
-- Page titles and URL slugs for the 5 Blanks — each page section above has a "Suggested Page Title" and "Suggested URL slug" she can apply if she has the permission you don't.
-- How the new SB 54 section relates to the existing *About SB 54* and *Reimbursement Guidance* pages — replace, link to, or run parallel.
-- Whether the template exposes the live-site patterns (gold-underlined H2, teal Key Goals band, gold-dot timeline, teal line-icon grid, image-top card grid, two-column FAQ, gold pill button) as named sections/blocks — if any aren't reachable, fall back to the closest native equivalent and we'll note for follow-up.
+- Page titles and URL slugs for the 3 Blanks you're using (Blanks 1, 2, 3) — current labels and URLs are placeholders. Suggested values in each page section.
+- How the existing *Reimbursement Guidance* page relates to your new Module 3 gateway — replace, link to, or run parallel.
+- Whether the template exposes the live-site patterns (gold-underlined H2, teal Key Goals band, gold-dot timeline, image-top card grid, gold pill button) as named sections/blocks — if any aren't reachable, fall back to the closest native equivalent and we'll note for follow-up.
+
+**Future round** (when CAA approves M3 detail and Larine adds 3 sub-pages): add 3 audience-routing cards back to Page 4 above the Coming Soon band (cards content lives in [SQUARESPACE-BUILD-SPEC.md](SQUARESPACE-BUILD-SPEC.md) Page 4 block 3), then paste Pages 5/6/7 from this guide.
 
 ## Open items (filled as they land)
 
