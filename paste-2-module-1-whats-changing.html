@@ -2,27 +2,13 @@
   CAA SB 54 — Module 1 — What SB 54 Means for You
   Target: paste into Code Block on the "Blank 2 for Change Craft" page (URL: /blank-2-for-change-craft).
 
-  STRUCTURE
-    - global.css + tokens.css + SectionNav component CSS + Squarespace-fit
-      overrides, all scoped under .caa-sb54-paste.
-    - Section-nav links + Hub card buttons (if present) are wired to the
-      Squarespace page URLs:
-        Blank 1: /blank-1-for-change          (Hub — SB 54 Home)
-        Blank 2: /blank-2-for-change-craft    (Module 1 — What's Changing)
-        Blank 3: /blank-3-for-change-craft    (Module 2 — Roles)
-        Blank 4: /blank-4-for-change-craft    (Module 3 — Reimbursement)
-    - Asset URLs (images, video-spark SVG) point to GitHub Pages CDN —
-      swap to CAA-hosted media library when uploaded.
-
-  HOW TO USE
-    1. Open the Blank 2 for Change Craft page in Squarespace editor.
-    2. Add a Code Block in a section (Full Bleed / minimal padding helps).
-    3. "Display Source" → OFF.
-    4. Paste everything below this comment. Save.
+  v5: section-nav and bands both use 100vw breakout for full-bleed edges.
+  Section padding-top vertical-stack issue addressed by .page having
+  horizontal padding only.
 
   POST-PASTE
-    - Adjust the section's padding-top in Squarespace section settings if
-      there's too much space above the nav.
+    - Adjust Squarespace Section padding-top in section settings if there's
+      still too much space above the nav.
 -->
 
 <style>
@@ -1452,25 +1438,32 @@
 }
 
 
-/* === Squarespace-fit overrides (v4.1) ===================================== */
-.caa-sb54-paste .band {
-  width: 100%;
-  margin-inline: 0;
-  margin-block: var(--space-2xl);
-  padding: var(--space-2xl) var(--space-xl);
-}
+/* === Squarespace-fit overrides (v5) ======================================
+   The .hero--band proved that 100vw breakout works inside Squarespace's
+   section. Let .band and .section-nav use the same technique for full-bleed.
+   ========================================================================= */
+
+/* Section-nav: not sticky (no scroll context in a Code Block), but go
+   full-bleed via the same 100vw breakout .hero--band uses. The __inner
+   keeps items centered at content-width via its own max-width + padding. */
 .caa-sb54-paste .section-nav {
   position: static;
-  width: 100%;
-  max-width: var(--content-width);
-  margin: 0 auto var(--space-xl);
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  margin-bottom: 0;
 }
-.caa-sb54-paste .section-nav__inner { padding: 0; }
+
+/* Page wrapper inside our paste: horizontal padding only. Vertical padding
+   would stack with Squarespace's own section padding-top and add extra space. */
+.caa-sb54-paste .page {
+  padding: 0 var(--space-xl);
+}
+
+/* Zero first/last child top/bottom margins. */
 .caa-sb54-paste > *:first-child,
 .caa-sb54-paste > *:first-child > *:first-child { margin-top: 0; }
 .caa-sb54-paste > *:last-child,
 .caa-sb54-paste > *:last-child > *:last-child { margin-bottom: 0; }
-.caa-sb54-paste .page { padding: 0; }
 
 </style>
 
