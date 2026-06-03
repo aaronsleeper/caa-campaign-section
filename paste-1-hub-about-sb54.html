@@ -1527,12 +1527,17 @@
   padding: var(--space-2xl) var(--space-xl);
 }
 
-/* Section-nav: not sticky inside a Code Block (no scroll context to stick to),
-   and let its border-bottom span the full content area. */
+/* Section-nav: not sticky (no scroll context in a Code Block), constrained to
+   content-width so its border-bottom aligns with .page below it. Also zero the
+   __inner padding so nav items line up with the hero text on the left edge. */
 .caa-sb54-paste .section-nav {
   position: static;
   width: 100%;
-  margin-bottom: var(--space-xl);
+  max-width: var(--content-width);
+  margin: 0 auto var(--space-xl);
+}
+.caa-sb54-paste .section-nav__inner {
+  padding: 0;
 }
 
 /* Zero out first/last child top/bottom margins so our content hugs the edges
