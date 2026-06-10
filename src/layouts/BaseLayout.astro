@@ -2,10 +2,16 @@
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, ogImage } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const SITE_ORIGIN = 'https://aaronsleeper.github.io';
+const DEFAULT_OG_IMAGE = `${SITE_ORIGIN}${base}/fpo/3.png`;
+const resolvedOgImage = ogImage || DEFAULT_OG_IMAGE;
+const pageUrl = `${SITE_ORIGIN}${Astro.url.pathname}`;
+const fullTitle = `${title} — Circular Action Alliance`;
 ---
 <!doctype html>
 <html lang="en">
@@ -13,8 +19,19 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>{title} — Circular Action Alliance</title>
+  <title>{fullTitle}</title>
   {description && <meta name="description" content={description} />}
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Circular Action Alliance" />
+  <meta property="og:title" content={fullTitle} />
+  {description && <meta property="og:description" content={description} />}
+  <meta property="og:url" content={pageUrl} />
+  <meta property="og:image" content={resolvedOgImage} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  {description && <meta name="twitter:description" content={description} />}
+  <meta name="twitter:image" content={resolvedOgImage} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet" />

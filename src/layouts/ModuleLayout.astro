@@ -13,15 +13,16 @@ interface Props {
   titleHtml?: string;
   subtitle?: string;
   description?: string;
+  ogImage?: string;
   currentPath: string;
   prev?: { href: string; label: string };
   next?: { href: string; label: string };
 }
 
-const { title, titleHtml, subtitle, description, currentPath, prev, next } = Astro.props;
+const { title, titleHtml, subtitle, description, ogImage, currentPath, prev, next } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} ogImage={ogImage}>
   <SectionNav currentPath={currentPath} />
   <div class="page">
     <div class="hero--band">
