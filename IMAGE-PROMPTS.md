@@ -134,3 +134,14 @@ Packaging as Circular Art · **Aspect 16:9**
 ```
 A bold, organized still-life of neatly stacked bales of clean recovered commodities — baled PET, crushed aluminum, baled paper fiber — arranged into a precise circular composition like a designed product flat-lay, presented as valuable industrial material, precise and orderly. Trusted teal #196D80 ground with navy #031D2D depth, crisp directional lighting, a single soft gold #FFD364 accent. Reads as valuable commodity, never as waste. Aspect ratio 16:9.
 ```
+
+### 11 · Share image (Open Graph / Twitter) — `src/layouts/BaseLayout.astro:11`
+
+Packaging as Circular Art · **Aspect 1.91:1** (target 1200×630 — Open Graph / Twitter `summary_large_image` standard)
+**GENERATE** — currently filled by `public/fpo/3.png` (the operator-group documentary photo) as a placeholder. Save the final asset to `public/fpo/share.png` and update `DEFAULT_OG_IMAGE` in `src/layouts/BaseLayout.astro` to match — keeps slot 3's photo intact for its in-page use.
+
+This is the section-wide default surfacing whenever any SB 54 page is shared (Slack, LinkedIn, iMessage, Teams). It needs to scan as the campaign at thumbnail size — one strong centered focal point, brand-forward palette, generous breathing room so platform crops don't kill the composition. Per the imagery-mode strategy, packaging-art is the right mode here — a single documentary photo doesn't read as "the campaign" the way a brand-forward circular composition does.
+
+```
+A bold, brand-forward still-life of clean recovered recyclable materials — sorted aluminum, clear plastic pellets, baled paper fiber, crushed glass cullet — composed into a single tight circular flat-lay at the center of the frame, like a designed product display. Materials are pristine, organized, intentional, reframed as valuable commodities. Trusted teal #196D80 ground with deep Source Navy #031D2D shadow at the edges, a single soft Action Gold #FFD364 accent within the composition. Crisp even studio lighting, flat modern art direction, generous negative space around the central composition so it reads cleanly at small thumbnail sizes and survives off-center cropping on social platforms. Aspect ratio 1.91:1.
+```
