@@ -669,6 +669,46 @@ li {
   max-width: 40ch;
 }
 
+/* AI Imagery POV compliance — tier classification badges per Brandon Tate's
+   AI Imagery POV (CC → CAA, 2026-06-24). Distinct from .fpo__badge (visual
+   defect flag). Two variants:
+   - .fpo__pov-flag: build-review warning on Tier 3 RED slots ("do not use AI");
+     remains until commissioned-human replacement lands.
+   - .fpo__ai-disclosure: production-ready visible disclosure for Tier 2 YELLOW
+     slots that survive Larine sign-off ("Illustration · AI-assisted"). */
+.fpo__pov-flag {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #B22222;
+  padding: 0.35em 0.7em;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.fpo__ai-disclosure {
+  position: absolute;
+  bottom: var(--space-sm);
+  right: var(--space-sm);
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--caa-yellow);
+  background: rgba(3, 29, 45, 0.78);
+  padding: 0.3em 0.7em;
+  border-radius: 4px;
+  backdrop-filter: blur(2px);
+}
+
 /* Checkmark stat row — the live CAA goals pattern (checkmark circle + text) */
 .checks {
   display: flex;
