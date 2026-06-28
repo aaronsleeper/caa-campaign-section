@@ -35,13 +35,24 @@
   HOW TO USE
     1. In Squarespace: edit the SB 54 page where the prior paste lives.
     2. Open the Code Block. Make sure "Display Source" is OFF.
-    3. While here, verify the CTA href reads:
-         https://circularaction.org/ca-reimbursements
-       (no "alliance"). Fix inline if it has drifted to
-       circularactionalliance.org/ca-reimbursements.
-    4. Select all contents of the block and replace with everything below
+    3. Select all contents of the block and replace with everything below
        this comment (from the opening <style> through closing </div>).
-    5. Save.
+    4. Save.
+
+  CTA TARGET (WORKAROUND — 2026-05-13)
+    The CTA points DIRECTLY at the SurveyMonkey survey:
+      https://www.surveymonkey.com/r/2M3GMYV
+    rather than the branded vanity URL (circularaction.org/ca-reimbursements)
+    because the Cloudflare redirect rule on the vanity URL does not preserve
+    query strings. Squarespace's Google Analytics cross-domain linker
+    auto-appends ?_gl=... to outbound clicks, which falls through that
+    redirect to a 404 on circularactionalliance.org.
+
+    Once Sheila updates the Cloudflare redirect to match the path regardless
+    of query string, swap the anchor href back to:
+      https://circularaction.org/ca-reimbursements
+    Source-of-truth Astro page (src/pages/temp/index.astro) still references
+    the vanity URL — leave it that way; the workaround lives only here.
 
   WHAT TO EXPECT
     - All text in DM Sans, matching the rest of the site
@@ -194,7 +205,12 @@
       Outreach is ongoing, but you don't have to wait to get involved. If you want to explore funding opportunities or next steps, connect with CAA.
     </p>
     <div class="caa-sb54-landing__cta-row">
-      <a href="https://circularaction.org/ca-reimbursements" class="sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">Get in touch</a>
+      <!-- TEMP 2026-05-13: pointing direct to SurveyMonkey. Vanity URL
+           circularaction.org/ca-reimbursements has a Cloudflare redirect
+           that strips on query strings; Squarespace's GA cross-domain
+           linker appends ?_gl=... and breaks it. Swap back to the vanity
+           URL once Sheila fixes the redirect rule. -->
+      <a href="https://www.surveymonkey.com/r/2M3GMYV" class="sqs-block-button-element sqs-block-button-element--medium sqs-button-element--primary">Get in touch</a>
     </div>
   </section>
 
